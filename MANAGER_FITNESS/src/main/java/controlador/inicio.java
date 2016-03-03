@@ -31,17 +31,17 @@ public class inicio extends HttpServlet {
              this.login();
             if(this.login()){
                 System.out.println("hola ee");
-		rd= request.getRequestDispatcher("admon.html");
+		rd= request.getRequestDispatcher("home.html");
 		rd.forward(request,response);
 		}else{
-			rd= request.getRequestDispatcher("home.html");
+			rd= request.getRequestDispatcher("login.html");
                         rd.forward(request,response);
 		} 
 	}
         } catch (NumberFormatException e) {
             request.setAttribute("estado", "error");
         } finally {
-            rd = request.getRequestDispatcher("admon.html");
+            rd = request.getRequestDispatcher("login.html");
             rd.forward(request, response);
         }
          if(request.getParameter("formulario").equals("registrar")){
@@ -58,7 +58,7 @@ public class inicio extends HttpServlet {
             conexion datos = new conexion();
             datos.crearConexion();
             if(datos.ejecutarSQL(todos)){
-                rd = request.getRequestDispatcher("admon.html");
+                rd = request.getRequestDispatcher("entrenador.html");
                 rd.forward(request, response);
             } 
             else

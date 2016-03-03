@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ManagerFitness | Administrador</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+<![endif]-->
+</head>
+<body id="page3">
+<div class="bg">
+  <!--==============================header=================================-->
+  <header>
+    <div class="menu-row">
+      <div class="main">
+        <nav>
+          <ul class="menu wrapper">      
+            <li><a href="home.html">Home</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a class="active" href="administrador.html">Administrador</a></li>
+            <li><a href="entrenador.html">Entrenador</a></li>
+            <li><a href="contactanos.html">Contactanos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="main">
+      <div class="wrapper p3">
+        <h1><a href="home.html">ManagerFitness</a></h1>
+      </div>
+    </div>
+    <ul class="tabs">
+      <li><a href="#tab1">Manager Fitness</a></li>
+      <li><a href="#tab2">Tus Rutinas y Dietas </a></li>
+      <li><a href="#tab3">Conoce Tu Proceso</a></li>
+    </ul>
+    <div class="tab_container">
+      <div id="tab1" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <form id="contact-form" action="#" method="post" enctype="multipart/form-data">
+              <fieldset>
+                <label><span class="text-form"></span><span class="border">
+                  <input type="text" placeholder = "Cédula" name = "id">
+                  </span></label>
+                 <span class="text-form"></span><span class="border">
+                  <input type="text" placeholder = "Nombre" name ="nombre">
+                  </span> 
+                <label><span class="text-form">Nombre:</span><span class="border">
+                  <input type="text">
+                  </span></label>
+                <label><span class="text-form">Nombre:</span><span class="border">
+                  <input type="text">
+                  </span></label>
+                <label><span class="text-form">Nombre:</span><span class="border">
+                  <input type="text">
+                  </span></label>
+                <label><span class="text-form">Nombre:</span><span class="border">
+                  <input type="text">
+                  </span></label>  
+                <label><span class="text-form">Email:</span><span class="border">
+                  <input type="text">
+                  </span></label>
+              </fieldset>
+            </form>
+            <div class="extra-wrap">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab2" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img2.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <strong class="title">Ejercicio y Dieta</strong>
+                <div class="btn-wrap"> <span class="button"> <a href="#"><strong>Ver Más</strong></a> </span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab3" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <strong class="title">Qué Has Logrado</strong>
+                <div class="btn-wrap"> <span class="button"> <a href="#"><strong>Ver Más</strong></a> </span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  </div>

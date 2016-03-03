@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ManagerFitness</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+<script src="js/jquery-1.6.3.min.js" type="text/javascript"></script>
+<script src="js/tabs.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+<![endif]-->
+</head>
+<body id="page1">
+<div class="bg">
+  <!--==============================header=================================-->
+  <header>
+    <div class="menu-row">
+      <div class="main">
+        <nav>
+          <ul class="menu wrapper">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="administrador.html">Administrador</a></li>
+            <li><a href="entrenador.html">Entrenador</a></li>
+            <li><a href="contactanos.html">Contactanos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="main">
+      <div class="wrapper p3">
+        <h1><a href="index.html">ManagerFitness</a></h1>
+        <form id="search-form" action="#" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <div class="search-field">
+              <input name="search" type="text" value="Search" onBlur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''" />
+              <a class="search-button" href="#"></a> </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <ul class="tabs">
+      <li><a href="#tab1">Manager Fitness</a></li>
+      <li><a href="#tab2">Tus Rutinas y Dietas </a></li>
+      <li><a href="#tab3">Conoce Tu Proceso</a></li>
+    </ul>
+    <div class="tab_container">
+      <div id="tab1" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img1.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <strong class="title">TU MEJOR OPCIÓN</strong>
+      
+                <div class="btn-wrap"> <span class="button"> <a href="#"><strong>Ver Más</strong></a> </span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab2" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img2.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <strong class="title">Ejercicio y Dieta</strong>
+                <div class="btn-wrap"> <span class="button"> <a href="#"><strong>Ver Más</strong></a> </span> </div>
+              	  <section id="content">
+    <div class="main">
+      <div class="container_12">
+        <div class="wrapper img-indent-bot">
+          <article class="grid_4">
+           <!-- <h3>No se que poner</h3>
+            <ul class="list-1">
+              <li><a href="#">IMC</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#">Healthy Eating</a></li>
+              <li><a href="#">Eating Out</a></li>
+              <li><a href="#">Nutrition</a></li>
+              <li><a href="#">About Diets</a></li>
+              <li><a href="#">Emotional Eating</a></li>
+              <li><a href="#">Exercise for Weight Loss</a></li>
+              <li><a href="#">Obesity &amp; Health</a></li>
+            </ul>-->
+          </article>
+          <article class="grid_8">
+            <h2>Bienvenido a Manager Fitness!</h2>
+            <div class="wrapper prev-indent-bot">
+              <figure class="img-indent2"><img src="images/page1-img4.jpg" alt=""></figure>
+              <div class="extra-wrap">
+                <h6 class="p1">hola aqui va un parrafo de cualqquier cosa</h6>
+			  </div>
+            </div>
+            </article>
+            <!-- <a class="button-2" href="#">Read More</a> </article>-->
+        </div>
+         <div class="wrapper">
+          <article class="grid_4">
+            <div class="indent-right">
+              <h3>Recent Comments</h3>
+              <h6>Admin</h6>
+              <p class="p2">&quot;Nam libero tempore cum soluta nobis<br>
+                est eligendi optio cumque nihil impedit quominus id quod maxime...&quot;</p>
+              <h6 class="p0">Guest 1</h6>
+              <p class="p2">&quot;Omnis voluptas assumenda est omnis dolor repellendus. Temporibus quibusdam<br>
+                et aut officiis debitis aut rerum...&quot;</p>
+              <h6 class="p0">Guest 2</h6>
+              &quot;Ut et voluptates repudiandae sint moles<br>
+              tiae non recusandae. Itaque earum rerum hic tenetur a sapiente...&quot; </div>
+          </article>
+          <article class="grid_4">
+            <h3 class="prev-indent-bot">We Recommend</h3>
+            <h6 class="p0">Weight Loss Diet</h6>
+            <p class="p0">At vero eos et accusamus et iusto dignissimos ducimus qui blanditiis.</p>
+            <p class="p2"><a class="link" href="#">Read More</a></p>
+            <h6 class="p0">Help Me Lose Weight Fast</h6>
+            <p class="p0">Deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
+            <p class="p2"><a class="link" href="#">Read More</a></p>
+            <h6 class="p0">Losing Weight Fast</h6>
+            <p class="p0">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum.</p>
+            <a class="link" href="#">Read More</a> </article>
+          <article class="grid_4">
+            <div class="indent-left">
+              <h3 class="prev-indent-bot">Popular Topics</h3>
+              <div class="wrapper p2">
+                <figure class="img-indent2"><img src="images/page1-img5.jpg" alt=""></figure>
+                <div class="extra-wrap">
+                  <h6 class="p0">Sed ut perspiciatis</h6>
+                  At vero eos et accusamus iusto dignissimos ducimus blanditiis. <a class="link" href="#">Read More</a> </div>
+              </div>
+              <div class="wrapper p2">
+                <figure class="img-indent2"><img src="images/page1-img6.jpg" alt=""></figure>
+                <div class="extra-wrap">
+                  <h6 class="p0">Neque porro quisquam</h6>
+                  Deleniti atque corrupti quos dolores et quas molestias excepturi. <a class="link" href="#">Read More</a> </div>
+              </div>
+              <div class="wrapper">
+                <figure class="img-indent2"><img src="images/page1-img7.jpg" alt=""></figure>
+                <div class="extra-wrap">
+                  <h6 class="p0">Dolorem ipsum quia</h6>
+                  Similique sunt in culpa qui officia deserunt mollitia um animi. <a class="link" href="#">Read More</a> </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab3" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <strong class="title">Qué Has Logrado</strong>
+                <div class="btn-wrap"> <span class="button"> <a href="#"><strong>Ver Más</strong></a> </span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--==============================content================================-->
+  <section id="content">
+    <div class="main">
+      <div class="container_12">
+        <div class="wrapper img-indent-bot">
+          <article class="grid_4">
+           <!-- <h3>No se que poner</h3>
+            <ul class="list-1">
+              <li><a href="#">IMC</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#">Healthy Eating</a></li>
+              <li><a href="#">Eating Out</a></li>
+              <li><a href="#">Nutrition</a></li>
+              <li><a href="#">About Diets</a></li>
+              <li><a href="#">Emotional Eating</a></li>
+              <li><a href="#">Exercise for Weight Loss</a></li>
+              <li><a href="#">Obesity &amp; Health</a></li>
+            </ul>-->
+          </article>
+          <article class="grid_8">
+            <h2>Bienvenido a Manager Fitness!</h2>
+            <div class="wrapper prev-indent-bot">
+              <figure class="img-indent2"><img src="images/page1-img4.jpg" alt=""></figure>
+              <div class="extra-wrap">
+                <h6 class="p1">hola aqui va un parrafo de cualqquier cosa</h6>
+			  </div>
+            </div>
+            </article>
+            <!-- <a class="button-2" href="#">Read More</a> </article>-->
+        </div>
+        <!-- <div class="wrapper">
+          <article class="grid_4">
+            <div class="indent-right">
+              <h3>Recent Comments</h3>
+              <h6>Admin</h6>
+              <p class="p2">&quot;Nam libero tempore cum soluta nobis<br>
+                est eligendi optio cumque nihil impedit quominus id quod maxime...&quot;</p>
+              <h6 class="p0">Guest 1</h6>
+              <p class="p2">&quot;Omnis voluptas assumenda est omnis dolor repellendus. Temporibus quibusdam<br>
+                et aut officiis debitis aut rerum...&quot;</p>
+              <h6 class="p0">Guest 2</h6>
+              &quot;Ut et voluptates repudiandae sint moles<br>
+              tiae non recusandae. Itaque earum rerum hic tenetur a sapiente...&quot; </div>
+          </article>
+          <article class="grid_4">
+            <h3 class="prev-indent-bot">We Recommend</h3>
+            <h6 class="p0">Weight Loss Diet</h6>
+            <p class="p0">At vero eos et accusamus et iusto dignissimos ducimus qui blanditiis.</p>
+            <p class="p2"><a class="link" href="#">Read More</a></p>
+            <h6 class="p0">Help Me Lose Weight Fast</h6>
+            <p class="p0">Deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
+            <p class="p2"><a class="link" href="#">Read More</a></p>
+            <h6 class="p0">Losing Weight Fast</h6>
+            <p class="p0">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum.</p>
+            <a class="link" href="#">Read More</a> </article>
+          <article class="grid_4">
+            <div class="indent-left">
+              <h3 class="prev-indent-bot">Popular Topics</h3>
+              <div class="wrapper p2">
+                <figure class="img-indent2"><img src="images/page1-img5.jpg" alt=""></figure>
+                <div class="extra-wrap">
+                  <h6 class="p0">Sed ut perspiciatis</h6>
+                  At vero eos et accusamus iusto dignissimos ducimus blanditiis. <a class="link" href="#">Read More</a> </div>
+              </div>
+              <div class="wrapper p2">
+                <figure class="img-indent2"><img src="images/page1-img6.jpg" alt=""></figure>
+                <div class="extra-wrap">
+                  <h6 class="p0">Neque porro quisquam</h6>
+                  Deleniti atque corrupti quos dolores et quas molestias excepturi. <a class="link" href="#">Read More</a> </div>
+              </div>
+              <div class="wrapper">
+                <figure class="img-indent2"><img src="images/page1-img7.jpg" alt=""></figure>
+                <div class="extra-wrap">
+                  <h6 class="p0">Dolorem ipsum quia</h6>
+                  Similique sunt in culpa qui officia deserunt mollitia um animi. <a class="link" href="#">Read More</a> </div>
+              </div>
+            </div>
+          </article>
+        </div>-->
+      </div>
+    </div>
+  </section>
+</div>
+<!--==============================footer=================================-->
+<footer>
+  <div class="main">
+    <div class="aligncenter"> <span>Copyright &copy; <a href="#">Domain Name</a> All Rights Reserved</span> Design by <a target="_blank" href="http://www.templatemonster.com/">TemplateMonster.com</a></div>
+  </div>
+</footer>
+</body>
+</html>
