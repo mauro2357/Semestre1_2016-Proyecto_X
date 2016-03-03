@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\magud\Documents\2016-1\Semestre1_2016-Proyecto_X\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-4011133573.index
-1386212496.index
-4283737076.index
-3096909479.index
-2115861897.index
-3742587240.index
