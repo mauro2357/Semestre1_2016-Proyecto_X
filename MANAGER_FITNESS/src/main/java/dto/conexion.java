@@ -48,10 +48,12 @@ public class conexion {
 		ResultSet resultado; 
 	   	try {
 	   	    Statement sentencia = (Statement) conexion.createStatement();
-	   	    resultado = sentencia.executeQuery(select);    
+	   	    resultado = sentencia.executeQuery(select);
 	   	} catch (SQLException ex) {
-	   	    return null;
-	   	} 
+	   		return null;
+	   	}
 	   	return resultado;
 	}
+	
+	
 }

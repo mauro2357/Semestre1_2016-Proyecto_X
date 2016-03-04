@@ -87,6 +87,10 @@ public class inicio extends HttpServlet {
              }    
         	 
          }
+         if(request.getParameter("formulario").equals("cantidad")){
+        	 cantidad();      
+        	 rd = request.getRequestDispatcher("administrador.html");
+         }
     }
     public boolean login(){
         try{
@@ -104,6 +108,22 @@ public class inicio extends HttpServlet {
 		return false;
 		
 	}
+    public ResultSet cantidad(){
+    	  try{
+              String consulta= "select count(*) as cantidad from bd_mananger_fitness.usuarios;";
+              miconexion.crearConexion();  
+              ResultSet miconsulta = miconexion.ejecutarSQLSelect(consulta);
+              if(miconsulta.next()){
+            	  System.out.print(miconsulta);
+                  return miconsulta;
+              }
+          } 
+               catch (SQLException ex){
+  		Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+  		return null;
+                }
+  		return null;
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
