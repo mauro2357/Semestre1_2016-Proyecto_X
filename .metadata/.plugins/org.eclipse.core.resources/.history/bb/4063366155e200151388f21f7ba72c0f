@@ -124,7 +124,12 @@
               </span>
       		  <button type="submit" name="cantidad" value="cantidad">ver</button>
               <form method= "get" action="inicio" >
+              <span class="text-form"></span><span class="border">
+              <input type="text" placeholder = "cantidad de usuarios" name = "cantidad">
+              </span>
+      		  <button type="submit" name="formulario" value="cantidad">ver</button>
       		  </form>
+             
           </article>
         </div>
       </div>
