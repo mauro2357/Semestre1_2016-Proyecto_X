@@ -57,7 +57,7 @@ public class inicio extends HttpServlet {
             System.out.println(todos);
             conexion datos = new conexion();
             datos.crearConexion();
-            if(datos.ejecutarSQL(todos)){
+            if(datos.ejecutarSQL_registro(todos)){
                 rd = request.getRequestDispatcher("entrenador.html");
                 rd.forward(request, response);
             } 
@@ -66,6 +66,26 @@ public class inicio extends HttpServlet {
                 rd = request.getRequestDispatcher("redireccion.html");
                 rd.forward(request, response);
             }    
+         }
+         
+         if (request.getParameter("formulario").equals("opinion")){
+        	 String id ="'"+ request.getParameter("id")+"',";
+             String fecha ="'"+ request.getParameter("fecha")+"',";
+             String descripcion ="'"+ request.getParameter("descripcion")+"';";
+             String opinion = id+fecha+descripcion;
+             System.out.println(opinion);
+             conexion mi_opinion = new conexion();
+             mi_opinion.crearConexion();
+             if(mi_opinion.ejecutarSQL_opinion(opinion)){
+                 rd = request.getRequestDispatcher("home.html");
+                 rd.forward(request, response);
+             } 
+             else
+             {
+                 rd = request.getRequestDispatcher("redireccion.html");
+                 rd.forward(request, response);
+             }    
+        	 
          }
     }
     public boolean login(){

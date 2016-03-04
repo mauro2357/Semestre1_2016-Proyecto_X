@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 public class conexion {
     public Connection conexion;
@@ -23,19 +22,28 @@ public class conexion {
 	        return true;
     }
 
-	public boolean ejecutarSQL(String a) {
+	public boolean ejecutarSQL_registro(String a) {
 		try {
             Statement sentencia = conexion.createStatement();
             sentencia.executeUpdate("INSERT INTO `bd_mananger_fitness`.`usuarios` VALUES  ("+ a +");");
             sentencia.close();
-        } catch (SQLException ex) {
-        	if (ex.getSQLState().equals("23000")) {
-	        JOptionPane.showMessageDialog(null, "No se pudo registrar; la identificacion ya existe ", "Registro Fallido", JOptionPane.ERROR_MESSAGE);
+		 } catch (SQLException ex) {
+	            ex.printStackTrace();
+	            return false;
+	        }
+	        return true;
 	    }
-	    return false;
-	   }
-        return true;
-	}
+	public boolean ejecutarSQL_opinion(String b) {
+		try {
+            Statement sentencia = conexion.createStatement();
+            sentencia.executeUpdate("INSERT INTO `bd_mananger_fitness`.`sugerencia` VALUES  ("+ b +");");
+            sentencia.close();
+		 } catch (SQLException ex) {
+	            ex.printStackTrace();
+	            return false;
+	        }
+	        return true;
+	    }
 	public ResultSet ejecutarSQLSelect(String select) {
 		ResultSet resultado; 
 	   	try {

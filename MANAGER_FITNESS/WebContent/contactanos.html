@@ -44,20 +44,22 @@
             <h3>Sugerencias, Quejas y Reclamos</h3>
             <form id="contact-form" action="#" method="post" enctype="multipart/form-data">
               <fieldset>
-                <label><span class="text-form">Nombre:</span><span class="border">
-                  <input type="text">
+                <label><span class="text-form">Cédula:</span><span class="border">
+                  <input type="text" name="id">
                   </span></label>
-                <label><span class="text-form">Email:</span><span class="border">
-                  <input type="text">
+                <label><span class="text-form">Fecha:</span><span class="border">
+                  <input type="text" name="fecha">
                   </span></label>
                 <div class="wrapper">
                   <div class="text-form">Descripción:</div>
                   <div class="extra-wrap">
                     <div class="border">
-                      <textarea></textarea>
+                      <textarea name="descripcion"></textarea>
                     </div>
                     <div class="clear"></div>
-                    <div class="buttons"> <a class="button-2" href="#">Limpiar</a> <a class="button-2" href="#">Enviar</a> </div>
+                    <div class="buttons">
+                    <button name = "formulario" value = "opinion" class ="button-2">Enviar</button>
+                     </div>
                   </div>
                 </div>
               </fieldset>
