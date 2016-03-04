@@ -69,10 +69,10 @@ public class inicio extends HttpServlet {
          }
          
          if (request.getParameter("formulario").equals("opinion")){
-        	 String id ="'"+ request.getParameter("id")+"',";
+        	 String id ="'"+ request.getParameter("id")+"'";
              String fecha ="'"+ request.getParameter("fecha")+"',";
-             String descripcion ="'"+ request.getParameter("descripcion")+"';";
-             String opinion = id+fecha+descripcion;
+             String descripcion ="'"+ request.getParameter("descripcion")+"',";
+             String opinion = descripcion + fecha + id;
              System.out.println(opinion);
              conexion mi_opinion = new conexion();
              mi_opinion.crearConexion();
@@ -80,7 +80,7 @@ public class inicio extends HttpServlet {
                  rd = request.getRequestDispatcher("home.html");
                  rd.forward(request, response);
              } 
-             else
+             else 
              {
                  rd = request.getRequestDispatcher("redireccion.html");
                  rd.forward(request, response);
