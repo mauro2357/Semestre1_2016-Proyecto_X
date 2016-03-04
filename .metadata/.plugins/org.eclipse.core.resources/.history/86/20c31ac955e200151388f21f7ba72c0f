@@ -117,10 +117,11 @@ public class inicio extends HttpServlet {
             	  System.out.print(miconsulta);
                   return miconsulta;
               }
-          } catch (SQLException ex){
-            	  Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
-            	   return null;
-            }
+          } 
+               catch (SQLException ex){
+  		Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+  		return null;
+                }
   		return null;
     }
 
