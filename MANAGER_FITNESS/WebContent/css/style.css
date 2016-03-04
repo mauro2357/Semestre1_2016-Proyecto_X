@@ -108,6 +108,9 @@ p {
 .indent {
 	padding:55px 0 10px 25px;
 }
+.indent1 {
+	padding:2px 0 10px 25px;
+}
 .indent-left {
 	padding-left:19px;
 }
@@ -284,9 +287,9 @@ ul.tabs li.active a, ul.tabs li a:hover {
 }
 .tab_container {
 	width:100%;
-	height:380px;
+	height:400px;
 	overflow:hidden;
-	background:url(../images/tabs-content-tail.gif) center top repeat-x;
+	background:url(../images/tabs-content-tail.gif) center top repeat-y;
 }
 .tab_containergrande {
 	width:300%;
@@ -296,7 +299,7 @@ ul.tabs li.active a, ul.tabs li a:hover {
 }
 .tab_content {
 	width:100%;
-	background:url(../images/tabs-bg.jpg) center top no-repeat;
+	background:url(../images/tabs-bg.jpg) center top repeat-y;
 	padding:20px 0;
 }
 .tab_content p {
@@ -455,6 +458,34 @@ dl dt {
 dl span {
 	float:left;
 	width:88px;
+}
+/***** registro form *****/
+#registro-form {
+	display:block;
+	width:100%;
+}
+#registro-form label {
+	display:block;
+	height:40px;
+	overflow:hidden;
+}
+#registro-form .border {
+	display:block;
+	border:1px solid #fff;
+	overflow:hidden;
+}
+#registro-form input {
+	float:left;
+	width:497px;
+	font-size:12px;
+	line-height:1.25em;
+	color:#808080;
+	padding:9px 8px;
+	margin:0;
+	font-family:Arial, Helvetica, sans-serif;
+	border:1px solid #e4e4e4;
+	background:#fff;
+	outline:none;
 }
 /***** contact form *****/
 #contact-form {
