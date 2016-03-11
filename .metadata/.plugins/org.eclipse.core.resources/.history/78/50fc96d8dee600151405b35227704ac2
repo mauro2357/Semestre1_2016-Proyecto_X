@@ -1,0 +1,10 @@
+package LogicaNegocio;
+
+public class Eventos {
+	private String fecha;
+	private String Descripcion;
+	private int idEntrnador;
+	
+	
+
+}

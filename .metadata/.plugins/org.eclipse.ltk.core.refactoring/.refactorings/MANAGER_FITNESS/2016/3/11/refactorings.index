@@ -1,0 +1,20 @@
+1457464835978	Move 'administrador.jsp' to 'vistas'
+1457464852936	Move 'administrador.jsp' to 'WebContent'
+1457464859258	Delete element
+1457464882911	Rename resource 'administrador.jsp'
+1457464954905	Rename resource 'eventos.html'
+1457465009586	Rename resource 'VistaEventos.html'
+1457465596555	Delete element
+1457465600722	Delete element
+1457465603905	Delete element
+1457465606485	Delete element
+1457465609534	Delete element
+1457557385336	Rename resource 'controlador'
+1457557530719	Rename package 'dto'
+1457560963181	Delete element
+1457623108353	Delete element
+1457627333229	Delete element
+1457628958397	Rename type 'Eventoscontrolador'
+1457628998650	Rename type 'OpinionControlador'
+1457630130520	Delete element
+1457642431809	Delete element

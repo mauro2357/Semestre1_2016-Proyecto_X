@@ -1,0 +1,28 @@
+package LogicaNegocio;
+
+public class Imc {
+	private int talla;
+	private int peso;
+	
+	public int getTalla() {
+		return talla;
+	}
+
+	public void setTalla(int talla) {
+		this.talla = talla;
+	}
+
+	public int getPeso() {
+		return peso;
+	}
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+	public int calcularImc (int talla, int peso){
+	int resultado = talla/peso*peso;
+	return resultado;
+	}
+
+}

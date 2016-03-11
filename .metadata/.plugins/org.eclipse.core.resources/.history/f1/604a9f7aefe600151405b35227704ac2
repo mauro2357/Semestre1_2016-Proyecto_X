@@ -1,0 +1,47 @@
+package repositorios;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import LogicaNegocio.Usuarios;
+
+public class ConsultarDatos {
+	Connection con;
+    Statement st;
+    
+	public int consultarCantidad() {
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
+            
+            String consulta= ("select count(*) as cantidad from bd_manager_fitness.usuarios;");  
+            ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            if(miconsulta.next()){
+            	  int cant = miconsulta.getInt("cantidad");
+            	  System.out.println(cant);
+                  return cant;
+              }
+          } 
+        catch (SQLException ex){
+  		//Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+        	return 0;
+        }
+  		return 0;
+            
+   }
+	
+	public ResultSet ejecutarSQLSelect(String select) {
+		ResultSet resultado; 
+	   	try {
+	   	    st= (Statement) con.createStatement();
+	   	    resultado = st.executeQuery(select);
+	   	} catch (SQLException ex) {
+	   		return null;
+	   	}
+	   	return resultado;
+	}
+}
