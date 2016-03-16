@@ -10,7 +10,7 @@ public class ConsultasRepositorio {
     Statement st;
     
 	public static int consultarCantidad() throws SQLException {
-        String consulta= ("select count(*) as cantidad from bd_manager_fitness.usuarios;");  
+        String consulta= ("select count(*) as cantidad from bd_manager_fitness.usuarios where Tip_codigo = 'CLIN';");  
         ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
         	if(miconsulta.next()){
               int cant = miconsulta.getInt("cantidad");

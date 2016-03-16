@@ -140,7 +140,8 @@
                   <br></br>
       			  <button type="submit" name="formulario" value="imc" class="button-2">Resultado</button>
       			  <span class="text-form"></span><span class="border">
-                  <input id="demo" type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));%>" disabled="disabled" />
+                  <input id="demo" type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));else out.println(" "); %>" disabled="disabled" />
+                  
               </span>
               </form>
             </ul>

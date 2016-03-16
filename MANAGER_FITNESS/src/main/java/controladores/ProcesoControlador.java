@@ -30,14 +30,16 @@ public class ProcesoControlador extends HttpServlet {
 		             int peso =Integer.parseInt(request.getParameter("peso"));
 		             int resultado = talla/peso*peso;
 		             System.out.println(resultado);
-		             }
-		          else{
-		        	  rd=request.getRequestDispatcher("VistaHome.jsp");
-		              rd.forward(request, response);
-		            	 
-		             }
+		             request.setAttribute("resultado",Integer.toString(resultado));
+		             rd = request.getRequestDispatcher("VistaHome.jsp");
+		             rd.forward(request, response);
+	        	}
+	        } catch (NumberFormatException e) {
+	            request.setAttribute("estado", "error");
 	        	
 	        	}finally{
+	        		rd = request.getRequestDispatcher("redireccion.html");
+	                rd.forward(request, response);
 	        	}
        
 	        }

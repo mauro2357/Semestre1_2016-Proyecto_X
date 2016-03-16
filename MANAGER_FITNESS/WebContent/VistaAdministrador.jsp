@@ -124,7 +124,7 @@
               </ul>
               <form method= "get" action="UsuariosControlador" >
               <span class="text-form"></span><span>
-               <input type="text" placeholder = "cantidad de usuarios" name = "cantidad" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));%>" disabled="disabled" />>
+               <input type="text" placeholder = "cantidad de usuarios" name = "cantidad" value= "<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));else out.println(" "); %>" disabled="disabled" />
               </span>
       		  <button type="submit" name="formulario" value="cantidad" class="button-2">Ver</button>
             

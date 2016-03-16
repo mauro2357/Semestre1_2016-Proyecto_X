@@ -47,15 +47,18 @@ public class UsuariosControlador extends HttpServlet {
 		             }
 	        	}
 		        else if(request.getParameter("formulario").equals("cantidad")) {
-		        	int resul=ConsultasRepositorio.consultarCantidad();
-		        	System.out.println(resul);
-		        	String resultado = Integer.toString(resul);
+		        	int resultado=ConsultasRepositorio.consultarCantidad();
+		        	System.out.println(resultado);
+		        	request.setAttribute("resultado",Integer.toString(resultado));
+		             rd = request.getRequestDispatcher("VistaAdministrador.jsp");
+		             rd.forward(request, response);
 		            	 
 		             }
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{
-	        	
+	        	rd = request.getRequestDispatcher("redireccion.html");
+                rd.forward(request, response);
 	        }
 	    }
 
