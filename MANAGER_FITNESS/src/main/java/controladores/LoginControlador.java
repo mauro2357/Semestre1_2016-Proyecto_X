@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
+import LogicaNegocio.Login;
 import LogicaNegocio.Usuarios;
 import repositorios.UsuariosRepositorio;
 import repositorios.ConsultasRepositorio;
-
 @WebServlet("/LoginControlador")
 public class LoginControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,33 +21,25 @@ public class LoginControlador extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 			PrintWriter out= response.getWriter();
+			HttpSession s = request.getSession(true); 
 		    response.setContentType("text/html;charset=UTF-8");
 	        try{
-	        	if(request.getParameter("formulario").equals("registrar")){
+	        	if(request.getParameter("formulario").equals("login")){
 	        		System.out.println("hola");
 		        	 int id = Integer.parseInt(request.getParameter("id"));
-		             String nombre =request.getParameter("nombre");
-		             Usuarios miusuario=new Usuarios(id,nombre,dir,tel,email,pass, fechan,tipoUsuario);
-		             if(UsuariosRepositorio.agregar(miusuario)){
-		            	 System.out.println(nombre);
-		            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
+		             String pass =request.getParameter("pass");
+		             Login entrar = new Login(id,pass);
+		             if(ConsultasRepositorio.autenticar(entrar)){
+		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
 		            	 rd.forward(request, response);
 		            	 out.close();
 		             }
 		             else{
-		            	 rd=request.getRequestDispatcher("redireccion.html");
+		            	 rd=request.getRequestDispatcher("VistaLogin.jsp");
 		            	 rd.forward(request, response);
 		            	 
 		             }
 	        	}
-		        else if(request.getParameter("formulario").equals("cantidad")) {
-		        	int resultado=ConsultasRepositorio.consultarCantidad();
-		        	System.out.println(resultado);
-		        	request.setAttribute("resultado",Integer.toString(resultado));
-		             rd = request.getRequestDispatcher("VistaAdministrador.jsp");
-		             rd.forward(request, response);
-		            	 
-		             }
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{

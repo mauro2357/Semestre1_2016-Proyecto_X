@@ -3,6 +3,9 @@ package repositorios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import LogicaNegocio.Login;
 import repositorios.conexion;
 
 public class ConsultasRepositorio {
@@ -19,9 +22,26 @@ public class ConsultasRepositorio {
             }
        return 0;     
    }
-	
-	
+	public static boolean autenticar(Login login) {
+		try{
+            String consulta = "select * from `bd_manager_fitness`.`usuarios` where Usu_id =" + login.getId() + " and Usu_password =" + login.getPass() + ";";
+            ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            if (miconsulta.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return false;
+    }
+
+
 }
+
+	
+	
+
 
 
 
