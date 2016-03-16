@@ -38,13 +38,13 @@
         <div class="tab_container">
         <div class="main">
           <div align="center" class="wrapper">
-            <form id="contact-form" action="EventosControlador" method="get">
+            <form id="contact-form" action="Eventoscontrolador" method="get">
               <fieldset>
               <br>
                  <span class="text-form"></span><span>
                  <br>
                  <br>
-                  <input type="date" placeholder = "Fecha del evento" name = "fechaE">
+                  <input type="text" placeholder = "Fecha del evento" name = "fechaE">
                   </span>
                 <span class="text-form"></span><span>
                 <br>

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Usuarios;
-import repositorios.AgregarUsuarios;
-import repositorios.ConsultarDatos;
+import repositorios.UsuariosRepositorio;
+import repositorios.ConsultasRepositorio;
 
 @WebServlet("/UsuariosControlador")
 public class UsuariosControlador extends HttpServlet {
@@ -34,7 +34,7 @@ public class UsuariosControlador extends HttpServlet {
 		             String pass=request.getParameter("password");
 		             String tipoUsuario = request.getParameter("tipou");
 		             Usuarios miusuario=new Usuarios(id,nombre,dir,tel,email,pass, fechan,tipoUsuario);
-		             if(AgregarUsuarios.agregar(miusuario)){
+		             if(UsuariosRepositorio.agregar(miusuario)){
 		            	 System.out.println(nombre);
 		            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
 		            	 rd.forward(request, response);
@@ -47,7 +47,8 @@ public class UsuariosControlador extends HttpServlet {
 		             }
 	        	}
 		        else if(request.getParameter("formulario").equals("cantidad")) {
-		        	int resul=ConsultarDatos.consultarCantidad();
+		        	int resul=ConsultasRepositorio.consultarCantidad();
+		        	System.out.println(resul);
 		        	String resultado = Integer.toString(resul);
 		            	 
 		             }
@@ -60,8 +61,11 @@ public class UsuariosControlador extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			processRequest(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
@@ -69,9 +73,5 @@ public class UsuariosControlador extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	@Override
-    public String getServletInfo() {
-        return "Short description";
-    }
 	
 }

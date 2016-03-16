@@ -150,6 +150,10 @@ p {
 	float:right;
 	margin:0 10px 0px 40px;
 }
+.img-indent-right {
+	float:right;
+	margin:0 40px 0px 0px;
+}
 .buttons a:hover {
 	cursor:pointer;
 }

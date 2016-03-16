@@ -2,6 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Sugerencias;
 import LogicaNegocio.Usuarios;
-import repositorios.AgregarSugerencia;
-import repositorios.AgregarUsuarios;
+import repositorios.SugerenciaRepositorio;
+import repositorios.UsuariosRepositorio;
 import repositorios.conexion;
 
 
-@WebServlet("/OpinionControlador")
+@WebServlet("/SugerenciaControlador")
 public class SugerenciaControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
@@ -34,7 +35,7 @@ public class SugerenciaControlador extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
 	            Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id);
 	            
-	            if(AgregarSugerencia.agregar(sugerencia)){
+	            if(SugerenciaRepositorio.agregar(sugerencia)){
 	            	 System.out.println(descripcion);
 	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
 	            	 rd.forward(request, response);
@@ -47,16 +48,10 @@ public class SugerenciaControlador extends HttpServlet {
 	             }
         	}
 	}
-    public SugerenciaControlador() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processRequest(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

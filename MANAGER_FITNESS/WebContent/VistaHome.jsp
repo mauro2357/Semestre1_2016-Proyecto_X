@@ -10,11 +10,10 @@
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
 <script src="js/jquery-1.6.3.min.js" type="text/javascript"></script>
 <script src="js/tabs.js" type="text/javascript"></script>
-
 </head>
+
 <body id="page1">
 <div class="bg">
-  <!--==============================header=================================-->
   <header>
     <div class="menu-row">
       <div class="main">
@@ -75,10 +74,58 @@
         </div>
       </div>
     </div>
+    
     <section id="content">
     <div class="main">
       <div class="container_12">
-        <div class="wrapper img-indent-bot">
+      
+        <article class="grid_8">
+            <h2 class="img-indent-right" >MEMBRECIAS!!</h2>
+            <div class="wrapper prev-indent-bot">
+              <figure class="img-indent-right" ><img src="images/page1-img4.jpg" alt=""></figure>
+              <div class="extra-wrap">
+            </div>
+            </div>
+        </article>
+      
+        <div class="wrapper margin-bot">
+          <article class="grid_4">
+            <h3>Principiante</h3>
+            <ul class="list-1 img-indent-bot">
+              <a>INCLUYE </a>
+              <li><a>Asesoría </a></li>
+              <li><a>Médico </a></li>
+              <li><a>1 Hora Diaria </a></li>
+              <li><a>Nutricionista </a></li>
+              <a>$80.000 </a>
+            </ul>
+            <a class="button-2" href="#">Comprar</a> </article>
+           <article class="grid_4">
+            <h3>Practicante</h3>
+            <ul class="list-1 img-indent-bot">
+              <a>INCLUYE </a>
+              <li><a>Entrenador Personal </a></li>
+              <li><a>Medico </a></li>
+              <li><a>3 Horas Diarias </a></li>
+              <li><a>Nutricionista </a></li>
+              <li><a>Hidratacion </a></li>
+              <a>$90.000 </a>
+            </ul>
+            <a class="button-2" href="#">Comprar</a> </article>
+            <article class="grid_4">
+            <h3>Animalex</h3>
+            <ul class="list-1 img-indent-bot">
+              <a>INCLUYE</a>
+              <li><a>Medico </a></li>
+              <li><a>6 Horas Diarias </a></li>
+              <li><a>Eventos Gratuitos </a></li>
+              <li><a>Entrenador Personal</a></li>
+              <li><a>Hidratacion </a></li>
+              <a>$120.000 </a>
+            </ul>
+            <a class="button-2" >Comprar</a> </article>
+          	 </div>
+           </div>
           <article class="grid_4">
             <h3>Otras Opciones</h3>
             <ul class="list-1">
@@ -90,11 +137,12 @@
                   <span class="text-form"></span><span class="border">
                   <input type="text" placeholder = "Peso" name = "peso">
                   </span>
-      				<button type="submit" name="formulario" value="imc" class="button-2">Resultado</button>
-      				<span class="text-form"></span><span class="border">
+                  <br></br>
+      			  <button type="submit" name="formulario" value="imc" class="button-2">Resultado</button>
+      			  <span class="text-form"></span><span class="border">
                   <input id="demo" type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));%>" disabled="disabled" />
-                  </span>
-                  </form>
+              </span>
+              </form>
             </ul>
           </article>
          </div>

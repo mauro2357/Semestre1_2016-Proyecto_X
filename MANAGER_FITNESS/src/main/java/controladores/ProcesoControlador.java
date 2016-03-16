@@ -2,6 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +29,7 @@ public class ProcesoControlador extends HttpServlet {
 		        	 int talla = Integer.parseInt(request.getParameter("talla"));
 		             int peso =Integer.parseInt(request.getParameter("peso"));
 		             int resultado = talla/peso*peso;
+		             System.out.println(resultado);
 		             }
 		          else{
 		        	  rd=request.getRequestDispatcher("VistaHome.jsp");
@@ -42,8 +44,7 @@ public class ProcesoControlador extends HttpServlet {
   
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processRequest(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

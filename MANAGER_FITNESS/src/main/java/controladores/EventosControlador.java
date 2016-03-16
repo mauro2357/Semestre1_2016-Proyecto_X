@@ -2,6 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Eventos;
 import LogicaNegocio.Usuarios;
-import repositorios.AgregarEventos;
-import repositorios.AgregarUsuarios;
+import repositorios.EventosRepositorio;
+import repositorios.UsuariosRepositorio;
 import repositorios.conexion;
 
 
@@ -34,7 +35,7 @@ public class EventosControlador extends HttpServlet {
 		             int id =Integer.parseInt(request.getParameter("idu"));
 		             String descripcion =request.getParameter("nombre");
 		             Eventos evento= new Eventos(fecha, descripcion, id);
-		             if(AgregarEventos.agregar(evento)){
+		             if(EventosRepositorio.agregar(evento)){
 		            	 System.out.println(descripcion);
 		            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
 		            	 rd.forward(request, response);
@@ -51,8 +52,7 @@ public class EventosControlador extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processRequest(request, response);
 	}
 
 	
