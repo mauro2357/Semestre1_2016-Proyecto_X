@@ -26,11 +26,11 @@ public class ProcesoControlador extends HttpServlet {
 	        try{
 	        	if(request.getParameter("formulario").equals("imc")){
 	        		System.out.println("hola");
-		        	 int talla = Integer.parseInt(request.getParameter("talla"));
-		             int peso =Integer.parseInt(request.getParameter("peso"));
-		             int resultado = talla/peso*peso;
+		        	 double talla = Double.parseDouble(request.getParameter("talla"));
+		             double peso =Double.parseDouble(request.getParameter("peso"));
+		             double resultado = peso/(talla*talla);
 		             System.out.println(resultado);
-		             request.setAttribute("resultado",Integer.toString(resultado));
+		             request.setAttribute("resultado",Double.toString(resultado));
 		             rd = request.getRequestDispatcher("VistaHome.jsp");
 		             rd.forward(request, response);
 	        	}
