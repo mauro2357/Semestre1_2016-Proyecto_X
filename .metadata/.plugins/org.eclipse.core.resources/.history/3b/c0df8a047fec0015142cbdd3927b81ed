@@ -1,0 +1,27 @@
+package LogicaNegocio;
+
+import java.sql.Date;
+import java.sql.SQLException;
+
+import repositorios.ValidacionMembreciaRepositorio;
+
+public class Practicante extends Membrecia {
+
+	public Practicante(String fecha, int usuId) {
+		super(fecha, usuId);
+	}
+	
+	public boolean validarTiempo() throws SQLException{
+		String fecha1= ValidacionMembreciaRepositorio.consultarFechaIns(this.getUsuId());
+		String fecha2=Fecha.ObtenerFecha();
+		
+		return false;
+	}
+	
+	
+	public boolean comprar(){
+		if (ValidacionMembreciaRepositorio.validarPruebaEsfuerzo(this.getUsuId()) && 
+		
+	}
+
+}

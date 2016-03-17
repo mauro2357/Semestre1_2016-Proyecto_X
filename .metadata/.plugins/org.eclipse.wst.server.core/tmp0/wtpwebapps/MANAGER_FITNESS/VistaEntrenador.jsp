@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,8 @@
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
 
 </head>
-<body id="page4">
+<body id="page3">
+<div class="bg">
   <!--==============================header=================================-->
   <header>
     <div class="menu-row">
@@ -28,44 +30,90 @@
     </div>
     <div class="main">
       <div class="wrapper p3">
-        <h1><a href="VistaHome.jsp">Manager Fitness</a></h1>
+        <h1><a href="VistaHome.jsp">ManagerFitness</a></h1>
       </div>
     </div>
-  </header>
+    
     <ul class="tabs">
-      <li><a href="#tab1">Agregar un Evento</a></li>
+      <li><a href="#tab1">Crear Evento</a></li>
+      <li><a href="#tab2">Crear Proceso </a></li>
     </ul>
-        <div class="tab_container">
+    <div class="tab_container">
+      <div id="tab1" class="tab_content">
         <div class="main">
-          <div align="center" class="wrapper">
-            <form id="contact-form" action="Eventoscontrolador" method="get">
-              <fieldset>
-              <br>
-                 <span class="text-form"></span><span>
-                 <br>
-                 <br>
-                  <input type="text" placeholder = "Fecha del evento" name = "fechaE">
-                  </span>
-                <span class="text-form"></span><span>
-                <br>
-                <br>
-                  <input type="text" placeholder = "cedula entrenador" name = "idu">
-                  </span>
-                 <span class="text-form"></span><span >
-                 <br>
-                 <br>
-                  <input type="text" placeholder = "Descripcion del evento" name ="nombre">
-                  </span> 
-                  <br>
-                  <br>
-                  <br>
-                   <button type="submit" name="formulario" value="evento" class="button-2">Crear Evento </button>
-                  </fieldset>
-                  </form>
           <div class="wrapper">
-            <div class="extra-wrap">
-              </div>
+          <figure class="img-indent-r"><img src="images/page3-img3.jpg" alt=""></figure>
+          <div class="extra-wrap">
+            <div class="indent1"><form id="contact-form" action="EventosControlador" method="get">
+              <fieldset>
+                <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Fecha del Evento" name = "echaE">
+                  </span>
+                  <br></br>
+                 <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Identificación" name ="idu">
+                  </span> 
+                  <br></br>
+                <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Descripcion del Evento" name = "nombre">
+                  </span>
+                  <br></br>
+                  <span class="text-form"></span><span class="buttons">
+                  <button type="submit" name="formulario" value="evento" class="button-2"> Crear </button>
+                  </span>
+              </fieldset>
+            </form>
             </div>
           </div>
         </div>
       </div>
+      </div>
+      <div id="tab2" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <form id="contact-form" action="inicio" method="get">
+              <fieldset>
+                 <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Cedula Cliente" name ="nombre">
+                  </span> 
+                  <br></br>
+                  <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Peso" name ="peso">
+                  </span> 
+                  <br></br>
+                  <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Rutina" name ="rutina">
+                  </span> 
+                  <br></br>
+                  <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Observacion" name ="observacion">
+                  </span> 
+                  <br></br>
+                  <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Tipo de Proceso" name ="tip_proceso">
+                  </span> 
+                  <br></br>
+                  <span class="text-form"></span><span class="buttons">
+                  <button type="submit" name="formulario" value="registrar" class="button-2"> Imprimir </button>
+                  </span>
+              </fieldset>
+              </form>
+             </div>
+            </div>
+           </div>
+          </div>
+        </div>
+       </div>
+      </header>
+      
+      <section id="content">
+       
+  	</section>
+ </div>
+      
+      
+      
+      
+    

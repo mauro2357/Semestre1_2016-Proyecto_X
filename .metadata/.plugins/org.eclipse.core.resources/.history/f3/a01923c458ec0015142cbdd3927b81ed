@@ -1,0 +1,15 @@
+package LogicaNegocio;
+
+public class Animalex extends Membrecia{
+
+	public Animalex(String fecha, int usuId) {
+		super(fecha, usuId);
+	}
+
+	
+	public boolean comprar() {
+		return false;
+	}
+
+	
+}

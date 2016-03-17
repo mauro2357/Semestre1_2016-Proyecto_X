@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import LogicaNegocio.Fecha;
 import LogicaNegocio.Sugerencias;
 import LogicaNegocio.Usuarios;
 import repositorios.SugerenciaRepositorio;
@@ -29,8 +30,7 @@ public class SugerenciaControlador extends HttpServlet {
 	    response.setContentType("text/html;charset=UTF-8");
         
         	if(request.getParameter("formulario").equals("sugerencia")){
-        		System.out.println("hola");
-        		String fecha =request.getParameter("fecha");
+        		String fecha =Fecha.ObtenerFecha();
                 String descripcion =request.getParameter("descripcion");
                 int id = Integer.parseInt(request.getParameter("id"));
 	            Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id);

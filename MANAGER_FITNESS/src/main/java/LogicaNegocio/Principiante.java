@@ -1,0 +1,19 @@
+package LogicaNegocio;
+
+import repositorios.ValidacionMembreciaRepositorio;
+
+public class Principiante extends Membrecia{
+
+	public Principiante(String fecha, int usuId) {
+		super(fecha, usuId);
+	}
+	
+	public boolean comprar(){
+		if(ValidacionMembreciaRepositorio.validarDatacredito(this.getUsuId()))return false;
+		return true;
+			
+	}
+	
+	
+
+}

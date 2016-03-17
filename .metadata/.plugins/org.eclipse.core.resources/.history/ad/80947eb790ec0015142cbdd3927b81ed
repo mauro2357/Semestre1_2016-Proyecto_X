@@ -1,0 +1,51 @@
+package repositorios;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import LogicaNegocio.Login;
+import repositorios.conexion;
+
+public class ConsultasRepositorio {
+	private static conexion con= new conexion();
+    Statement st;
+    
+	public static int consultarCantidad() throws SQLException {
+        String consulta= ("select count(*) as cantidad from bd_manager_fitness.usuarios where Tip_codigo = 'CLIN';");  
+        ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+        	if(miconsulta.next()){
+              int cant = miconsulta.getInt("cantidad");
+              System.out.println(cant);
+              return cant;
+            }
+       return 0;     
+   }
+	public static boolean autenticar(Login login) {
+		try{
+            String consulta = "select * from `bd_manager_fitness`.`usuarios` where Usu_id =" + login.getId() + " and Usu_password ='" + login.getPass() + "';";
+            ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            System.out.println(miconsulta);
+            if (miconsulta.next()) {
+            	System.out.println("entro");
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return false;
+    }
+	
+
+}
+
+	
+	
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+package repositorios;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import LogicaNegocio.Login;
+
+public class ValidacionMembreciaRepositorio {
+	private static conexion con= new conexion();
+    Statement st;
+	
+	
+	public static boolean validarDatacredito(int id) {
+		try{
+            String consulta = "select * from `bd_manager_fitness`.`datacredito` where Usu_id =" + id + ";";
+            ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            if (miconsulta.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return false;
+    }
+	
+	public static boolean validarPruebaEsfuerzo(int id) {
+		try{
+            String consulta = "select * from `bd_manager_fitness`.`cliente` where Usu_id =" + id +"and Cli_pesfuerzo>50; ";
+            ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            if (miconsulta.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return false;
+    }
+	
+	public static String consultarTiempo(int id) throws SQLException {
+        String consulta= ("select Cli_fecha_inscripcion as fecha1 from bd_manager_fitness.cliente where Usu_id = "+id ";");  
+        ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+        	if(miconsulta.next()){
+              int cant = miconsulta.getInt("cantidad");
+              System.out.println(cant);
+              return cant;
+            }
+       return 0;     
+   }
+
+}

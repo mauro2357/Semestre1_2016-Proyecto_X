@@ -24,10 +24,8 @@ public class LoginControlador extends HttpServlet {
 		    response.setContentType("text/html;charset=UTF-8");
 			HttpSession s = request.getSession(true); 
 			s.setAttribute("usuario", request.getParameter("id"));
-			System.out.println(s.getAttribute("usuario"));
 	        try{
 	        	if(request.getParameter("formulario").equals("login")){
-	        		
 		        	 int id = Integer.parseInt(request.getParameter("id"));
 		             String pass =request.getParameter("pass");
 		             Login entrar = new Login(id,pass);

@@ -43,7 +43,7 @@
         <div class="main">
           <div class="wrapper">
           <div class="extra-wrap">
-            <div class="indent1"><form id="contact-form" action="UsuariosControlador" method="get">
+            <div class="indent1"><form id="contact-form" action="UsuariosControlador" method="get" name= "registrar">
               <fieldset>
                 <span class="text-form"></span><span>
                   <input type="text" placeholder = "Cédula" name = "id">
@@ -80,8 +80,9 @@
                   	<option value="ENTR">Entrenador</option>
                   </select>
                   <span class="text-form"></span><span class="buttons">
-                  <button type="submit" name="formulario" value="registrar" class="button-2"> Registrar </button>
+                  <button type="submit" name="formulario" value="registrar" class="button-2" > Registrar </button>
                   </span>
+                  
               </fieldset>
             </form>
             </div>
@@ -89,6 +90,7 @@
         </div>
       </div>
       </div>
+      
       <div id="tab2" class="tab_content">
         <div class="main">
           <div class="wrapper">
@@ -124,7 +126,7 @@
               </ul>
               <form method= "get" action="UsuariosControlador" >
               <span class="text-form"></span><span>
-               <input type="text" placeholder = "cantidad de usuarios" name = "cantidad" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));%>" disabled="disabled" />>
+               <input type="text" placeholder = "cantidad de usuarios" name = "cantidad" value= "<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));else out.println(" "); %>" disabled="disabled" />
               </span>
       		  <button type="submit" name="formulario" value="cantidad" class="button-2">Ver</button>
             

@@ -1,0 +1,78 @@
+package controladores;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import LogicaNegocio.Usuarios;
+import repositorios.ConsultasRepositorio;
+import repositorios.UsuariosRepositorio;
+
+
+@WebServlet("/MembreciaControlador")
+public class MembreciaControlador extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		PrintWriter out= response.getWriter();
+	    response.setContentType("text/html;charset=UTF-8");
+	   
+        try{
+        	if(request.getParameter("formulario").equals("comprarPrincipiante")){
+        		System.out.println("hola");
+	        	int id =  s.getAttribute("usuario");
+	        	String fecha=Fecha.ObtenerFecha();
+	             Membrecia principiante= new Principiante(id,nombre,dir,tel,email,pass, fechan,tipoUsuario);
+	             if(UsuariosRepositorio.agregar(miusuario)){
+	            	 System.out.println(nombre);
+	            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
+	            	 rd.forward(request, response);
+	            	 out.close();
+	             }
+	             else{
+	            	 rd=request.getRequestDispatcher("redireccion.html");
+	            	 rd.forward(request, response);
+	            	 
+	             }
+        	}
+	        else if(request.getParameter("formulario").equals("cantidad")) {
+	        	int resultado=ConsultasRepositorio.consultarCantidad();
+	        	System.out.println(resultado);
+	        	request.setAttribute("resultado",Integer.toString(resultado));
+	             rd = request.getRequestDispatcher("VistaAdministrador.jsp");
+	             rd.forward(request, response);
+	            	 
+	             }
+        }catch(NumberFormatException e) {
+            request.setAttribute("estado", "error");
+        }finally{
+        	rd = request.getRequestDispatcher("redireccion.html");
+            rd.forward(request, response);
+        }
+    }
+
+
+   
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			processRequest(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		doGet(request, response);
+	}
+
+}

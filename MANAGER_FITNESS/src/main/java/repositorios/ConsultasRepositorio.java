@@ -17,14 +17,13 @@ public class ConsultasRepositorio {
         ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
         	if(miconsulta.next()){
               int cant = miconsulta.getInt("cantidad");
-              System.out.println(cant);
               return cant;
             }
        return 0;     
    }
 	public static boolean autenticar(Login login) {
 		try{
-            String consulta = "select * from `bd_manager_fitness`.`usuarios` where Usu_id =" + login.getId() + " and Usu_password =" + login.getPass() + ";";
+            String consulta = "select * from `bd_manager_fitness`.`usuarios` where Usu_id =" + login.getId() + " and Usu_password ='" + login.getPass() + "';";
             ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
             if (miconsulta.next()) {
                 return true;
@@ -35,7 +34,7 @@ public class ConsultasRepositorio {
         }
         return false;
     }
-
+	
 
 }
 

@@ -9,7 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import LogicaNegocio.Cliente;
+import LogicaNegocio.Fecha;
 import LogicaNegocio.Usuarios;
 import repositorios.UsuariosRepositorio;
 import repositorios.ConsultasRepositorio;
@@ -22,9 +25,10 @@ public class UsuariosControlador extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
+		    HttpSession s = request.getSession(true); 
+			s.setAttribute("tipo", request.getParameter("tipou"));
 	        try{
 	        	if(request.getParameter("formulario").equals("registrar")){
-	        		System.out.println("hola");
 		        	 int id = Integer.parseInt(request.getParameter("id"));
 		             String nombre =request.getParameter("nombre");
 		             String dir =request.getParameter("direccion");
@@ -33,12 +37,21 @@ public class UsuariosControlador extends HttpServlet {
 		             String email =request.getParameter("email"); 
 		             String pass=request.getParameter("password");
 		             String tipoUsuario = request.getParameter("tipou");
+		             System.out.println(tipoUsuario);
 		             Usuarios miusuario=new Usuarios(id,nombre,dir,tel,email,pass, fechan,tipoUsuario);
-		             if(UsuariosRepositorio.agregar(miusuario)){
-		            	 System.out.println(nombre);
-		            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
-		            	 rd.forward(request, response);
-		            	 out.close();
+		             if(UsuariosRepositorio.agregarUsuario(miusuario)){
+		            	 System.out.println(s.getAttribute("tipo"));
+		            	 if(s.getAttribute("tipo").equals("CLIN")){
+		            		 rd= request.getRequestDispatcher("VistaAuxCliente.jsp");
+			            	 rd.forward(request, response);
+			            	 out.close();
+		            	 }
+		            	 else{
+		            		 System.out.println("else");
+			            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
+			            	 rd.forward(request, response);
+			            	 out.close();
+		            	 }
 		             }
 		             else{
 		            	 rd=request.getRequestDispatcher("redireccion.html");
@@ -54,6 +67,23 @@ public class UsuariosControlador extends HttpServlet {
 		             rd.forward(request, response);
 		            	 
 		             }
+		        else if(request.getParameter("formulario").equals("inscribir")){
+		        	 int id = Integer.parseInt(request.getParameter("id"));
+		             double estatura =Double.parseDouble(request.getParameter("estatura"));
+		             double peso =Double.parseDouble(request.getParameter("peso"));
+		             String fecha=Fecha.ObtenerFecha();
+		             Cliente ncliente= new Cliente(estatura, fecha, id, peso);
+		             System.out.println(fecha);
+		             if(UsuariosRepositorio.agregarCliente(ncliente)){
+			           	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
+			             rd.forward(request, response);
+			             out.close();
+		            }
+		            else{
+		            	 rd=request.getRequestDispatcher("redireccion.html");
+		            	 rd.forward(request, response);
+		        }
+		      }
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{

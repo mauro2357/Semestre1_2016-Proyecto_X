@@ -12,4 +12,16 @@
 <fullyQualifiedTypeName name="LogicaNegocio.Eventos"/>
 <fullyQualifiedTypeName name="repositorios.AgregarEventos"/>
 <fullyQualifiedTypeName name="repositorios.ConsultarDatos"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="LogicaNegocio.Cliente"/>
+<fullyQualifiedTypeName name="LogicaNegocio.Fecha"/>
+<fullyQualifiedTypeName name="repositorios.MembreciaRepositorio"/>
+<fullyQualifiedTypeName name="LogicaNegocio.Membrecia"/>
+<fullyQualifiedTypeName name="LogicaNegocio.Principiante"/>
+<fullyQualifiedTypeName name="repositorios.ValidacionMembreciaRepositorio"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="LogicaNegocio.Practicante"/>
+<fullyQualifiedTypeName name="LogicaNegocio.Animalex"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

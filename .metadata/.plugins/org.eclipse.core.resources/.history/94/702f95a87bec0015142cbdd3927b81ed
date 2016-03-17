@@ -1,0 +1,22 @@
+package LogicaNegocio;
+
+import repositorios.ValidacionMembreciaRepositorio;
+
+public class Practicante extends Membrecia {
+
+	public Practicante(String fecha, int usuId) {
+		super(fecha, usuId);
+	}
+	
+	public boolean validarTiempo(){
+		String fecha1= ValidacionMembreciaRepositorio.consultarFechaIns(this.getUsuId());
+		return false;
+	}
+	
+	
+	public boolean comprar(){
+		if (ValidacionMembreciaRepositorio.validarPruebaEsfuerzo(this.getUsuId()) && 
+		
+	}
+
+}

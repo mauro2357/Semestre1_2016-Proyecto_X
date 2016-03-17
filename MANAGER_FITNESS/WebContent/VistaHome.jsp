@@ -89,6 +89,7 @@
         </article>
       
         <div class="wrapper margin-bot">
+        <form action="MembreciaControlador" method="get">
           <article class="grid_4">
             <h3>Principiante</h3>
             <ul class="list-1 img-indent-bot">
@@ -99,7 +100,10 @@
               <li><a>Nutricionista </a></li>
               <a>$80.000 </a>
             </ul>
-            <a class="button-2" href="#">Comprar</a> </article>
+            <span class="text-form"></span><span class="buttons">
+               <button type="submit" name="formulario" value="comprarPrincipiante" class="button-2"> Comprar </button>
+            </span>
+            </article>
            <article class="grid_4">
             <h3>Practicante</h3>
             <ul class="list-1 img-indent-bot">
@@ -111,7 +115,10 @@
               <li><a>Hidratacion </a></li>
               <a>$90.000 </a>
             </ul>
-            <a class="button-2" href="#">Comprar</a> </article>
+             <span class="text-form"></span><span class="buttons">
+               <button type="submit" name="formulario" value="comprarPracticante" class="button-2"> Comprar </button>
+            </span>
+            </article>
             <article class="grid_4">
             <h3>Animalex</h3>
             <ul class="list-1 img-indent-bot">
@@ -123,7 +130,11 @@
               <li><a>Hidratacion </a></li>
               <a>$120.000 </a>
             </ul>
-            <a class="button-2" >Comprar</a> </article>
+             <span class="text-form"></span><span class="buttons">
+               <button type="submit" name="formulario" value="comprarAnimalex" class="button-2"> Comprar </button>
+            </span>
+            </article>
+            </form>
           	 </div>
            </div>
           <article class="grid_4">
@@ -141,8 +152,7 @@
       			  <button type="submit" name="formulario" value="imc" class="button-2">Resultado</button>
       			  <span class="text-form"></span><span class="border">
                   <input type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));else out.println(" "); %>" disabled="disabled" />
-                  
-              </span>
+                  </span>
               </form>
             </ul>
           </article>

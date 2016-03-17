@@ -1,0 +1,13 @@
+package LogicaNegocio;
+
+public class Practicante extends Membrecia {
+
+	public Practicante(String fecha, int usuId) {
+		super(fecha, usuId);
+	}
+	
+	public boolean comprar(){
+		
+	}
+
+}

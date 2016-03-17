@@ -46,10 +46,7 @@
                 <label><span class="text-form">Cédula:</span><span class="border">
                   <input type="text" name="id">
                   </span></label>
-                <label><span class="text-form">Fecha:</span><span class="border">
-                  <input type="text" name="fecha">
-                  </span></label>
-                <div class="wrapper">
+                  <div class="wrapper">
                   <div class="text-form">Descripción:</div>
                   <div class="extra-wrap">
                     <div class="border">
