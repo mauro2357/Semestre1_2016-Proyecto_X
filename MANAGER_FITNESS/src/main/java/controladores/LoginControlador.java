@@ -21,11 +21,13 @@ public class LoginControlador extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 			PrintWriter out= response.getWriter();
-			HttpSession s = request.getSession(true); 
 		    response.setContentType("text/html;charset=UTF-8");
+			HttpSession s = request.getSession(true); 
+			s.setAttribute("usuario", request.getParameter("id"));
+			System.out.println(s.getAttribute("usuario"));
 	        try{
 	        	if(request.getParameter("formulario").equals("login")){
-	        		System.out.println("hola");
+	        		
 		        	 int id = Integer.parseInt(request.getParameter("id"));
 		             String pass =request.getParameter("pass");
 		             Login entrar = new Login(id,pass);

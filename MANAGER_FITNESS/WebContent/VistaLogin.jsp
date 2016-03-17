@@ -35,7 +35,7 @@
                   </span>
                   <br></br>
                  <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Password" name ="pass">
+                  <input type="password" placeholder = "Password" name ="pass">
                   </span> 
                   <br></br>
                   <span class="text-form"></span><span class="buttons">
