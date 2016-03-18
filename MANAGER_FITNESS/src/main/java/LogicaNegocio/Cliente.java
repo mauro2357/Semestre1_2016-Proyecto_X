@@ -5,6 +5,13 @@ public class Cliente {
 	private String fechaInscripcion;
 	private int clinId;
 	private double peso;
+	private int pruebaEsfuerzo;
+	public int getPruebaEsfuerzo() {
+		return pruebaEsfuerzo;
+	}
+	public void setPruebaEsfuerzo(int pruebaEsfuerzo) {
+		this.pruebaEsfuerzo = pruebaEsfuerzo;
+	}
 	public double getEstatura() {
 		return estatura;
 	}
@@ -29,12 +36,13 @@ public class Cliente {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-	public Cliente(double estatura, String fechaInscripcion, int clinId, double peso) {
+	public Cliente(double estatura, String fechaInscripcion, int clinId, double peso, int pruebaEsfuerzo) {
 		super();
 		this.estatura = estatura;
 		this.fechaInscripcion = fechaInscripcion;
 		this.clinId = clinId;
 		this.peso = peso;
+		this.pruebaEsfuerzo = pruebaEsfuerzo;
 	}
 	
 	

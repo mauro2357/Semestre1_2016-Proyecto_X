@@ -20,17 +20,19 @@ public class MembreciaRepositorio {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
             st = con.createStatement();
             if (membrecia instanceof Principiante){
-	            String i = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "," + 1 + ","+ membrecia.getUsuId() + ");";    
+	            String i = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 1 + ","+ membrecia.getUsuId() + ");";
+	            System.out.println(i);
 	            st.executeUpdate(i);
 	            st.close();
             }
             else if (membrecia instanceof Practicante){
-            	String i = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "," + 2 + ","+ membrecia.getUsuId() + ");";    
+            	String i = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 2 + ","+ membrecia.getUsuId() + ");";
+            	System.out.println(i);
 	            st.executeUpdate(i);
 	            st.close();
             }
             else if (membrecia instanceof Animalex){
-            	String i = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "," + 3 + ","+ membrecia.getUsuId() + ");";    
+            	String i = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 3 + ","+ membrecia.getUsuId() + ");";    
 	            st.executeUpdate(i);
 	            st.close();
             }

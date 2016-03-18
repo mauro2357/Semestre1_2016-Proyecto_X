@@ -6,9 +6,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import LogicaNegocio.Login;
 
-public class ValidacionMembreciaRepositorio {
+public class MembreciaConsultasRepositorio {
 	private static conexion con= new conexion();
     Statement st;
 	
@@ -29,8 +28,9 @@ public class ValidacionMembreciaRepositorio {
 	
 	public static boolean validarPruebaEsfuerzo(int id) {
 		try{
-            String consulta = "select * from `bd_manager_fitness`.`cliente` where Usu_id =" + id +"and Cli_pesfuerzo>50; ";
+            String consulta = "select * from `bd_manager_fitness`.`cliente` where Usu_id =" + id +" and Cli_pesfuerzo>50; ";
             ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            System.out.println(consulta);
             if (miconsulta.next()) {
                 return true;
             }
@@ -51,8 +51,9 @@ public class ValidacionMembreciaRepositorio {
        return "";     
    }
 	public static double consultarImc(int id) throws SQLException {
-        String consulta= ("select Pro_peso as peso, Pro_estatura as estatura from bd_manager_fitness.proceso where Usu_id = "+id + "order by Pro_fecha desc limit 1;");  
+        String consulta= ("select Pro_peso as peso, Pro_estatura as estatura from bd_manager_fitness.proceso where Usu_id = "+id + " order by Pro_fecha desc limit 1;");  
         ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+        System.out.println(consulta);
         	if(miconsulta.next()){
               Double peso = miconsulta.getDouble("peso");
               Double estatura = miconsulta.getDouble("estatura");
@@ -73,7 +74,8 @@ public class ValidacionMembreciaRepositorio {
         if(miconsulta2.next()){
             numEntrenadores = miconsulta2.getInt("numEntrenadores");
         }
-        if(numMembrecias%numEntrenadores != 0)return true;
+        if (numMembrecias == 0 && numEntrenadores != 0)return true;
+        if(numMembrecias%numEntrenadores != 0 )return true;
        return false;     
    }
 	

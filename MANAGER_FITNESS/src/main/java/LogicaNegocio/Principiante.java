@@ -1,6 +1,6 @@
 package LogicaNegocio;
 
-import repositorios.ValidacionMembreciaRepositorio;
+import repositorios.MembreciaConsultasRepositorio;
 
 public class Principiante extends Membrecia{
 
@@ -9,7 +9,7 @@ public class Principiante extends Membrecia{
 	}
 	
 	public boolean comprar(){
-		if(ValidacionMembreciaRepositorio.validarDatacredito(this.getUsuId()))return false;
+		if(MembreciaConsultasRepositorio.validarDatacredito(this.getUsuId()))return false;
 		return true;
 			
 	}

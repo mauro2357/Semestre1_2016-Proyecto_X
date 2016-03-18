@@ -42,6 +42,10 @@
                   <input type="text" placeholder = "Peso" name ="peso">
                   </span> 
                   <br></br>
+                  <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Prueba de Esfuerzo" name ="pruebaEsfuerzo">
+                  </span> 
+                  <br></br>
                   <span class="text-form"></span><span class="buttons">
                   <button type="submit" name="formulario" value="inscribir" class="button-2"> Inscribir </button>
                   </span>

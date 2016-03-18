@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import LogicaNegocio.Login;
-import LogicaNegocio.Usuarios;
-import repositorios.UsuariosRepositorio;
 import repositorios.ConsultasRepositorio;
 @WebServlet("/LoginControlador")
 public class LoginControlador extends HttpServlet {

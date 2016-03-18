@@ -16,10 +16,7 @@ import LogicaNegocio.Fecha;
 import LogicaNegocio.Membrecia;
 import LogicaNegocio.Practicante;
 import LogicaNegocio.Principiante;
-import LogicaNegocio.Usuarios;
-import repositorios.ConsultasRepositorio;
 import repositorios.MembreciaRepositorio;
-import repositorios.UsuariosRepositorio;
 
 
 @WebServlet("/MembreciaControlador")
@@ -30,7 +27,8 @@ public class MembreciaControlador extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		PrintWriter out= response.getWriter();
 	    response.setContentType("text/html;charset=UTF-8");
-	    int id=(Integer)request.getSession().getAttribute("usuario");
+	    String str = request.getSession().getAttribute("usuario").toString();
+	    int id= Integer.parseInt(str);
 	    System.out.println(id);
         try{
         	if(request.getParameter("formulario").equals("comprarPrincipiante")){

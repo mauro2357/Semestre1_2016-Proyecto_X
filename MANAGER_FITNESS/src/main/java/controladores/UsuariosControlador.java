@@ -72,7 +72,9 @@ public class UsuariosControlador extends HttpServlet {
 		             double estatura =Double.parseDouble(request.getParameter("estatura"));
 		             double peso =Double.parseDouble(request.getParameter("peso"));
 		             String fecha=Fecha.ObtenerFecha();
-		             Cliente ncliente= new Cliente(estatura, fecha, id, peso);
+		             int pruebaEsfuerzo = Integer.parseInt(request.getParameter("pruebaEsfuerzo"));
+		             
+		             Cliente ncliente= new Cliente(estatura, fecha, id, peso,pruebaEsfuerzo);
 		             System.out.println(fecha);
 		             if(UsuariosRepositorio.agregarCliente(ncliente)){
 			           	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");

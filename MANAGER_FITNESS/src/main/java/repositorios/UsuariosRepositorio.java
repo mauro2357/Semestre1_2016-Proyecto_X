@@ -39,7 +39,7 @@ public class UsuariosRepositorio {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
             st = con.createStatement();
-            String i = "INSERT INTO cliente(Cli_estatura, Cli_fecha_inscripcion, Usu_id, Cli_peso)" + " VALUES (" + cliente.getEstatura() + ",'" + cliente.getFechaInscripcion() + "'," + cliente.getClinId() + "," + cliente.getPeso() + ")";    
+            String i = "INSERT INTO cliente(Cli_estatura, Cli_fecha_inscripcion, Usu_id, Cli_peso, Cli_pesfuerzo)" + " VALUES (" + cliente.getEstatura() + ",'" + cliente.getFechaInscripcion() + "'," + cliente.getClinId() + "," + cliente.getPeso() + "," + cliente.getPruebaEsfuerzo() + ")";    
             System.out.println(i);
             st.executeUpdate(i);
             st.close();
