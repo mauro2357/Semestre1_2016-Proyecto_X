@@ -8,10 +8,7 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
-<!--[if lt IE 9]>
-<script type="text/javascript" src="js/html5.js"></script>
-<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-<![endif]-->
+
 </head>
 <body id="page2">
 <div class="bg">

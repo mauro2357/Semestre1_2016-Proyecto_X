@@ -18,11 +18,10 @@ import repositorios.UsuariosRepositorio;
 import repositorios.conexion;
 
 
-@WebServlet("/Eventoscontrolador")
+@WebServlet("/EventosControlador")
 public class EventosControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
-	private conexion con= new conexion();
 	
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,7 +36,7 @@ public class EventosControlador extends HttpServlet {
 		             Eventos evento= new Eventos(fecha, descripcion, id);
 		             if(EventosRepositorio.agregar(evento)){
 		            	 System.out.println(descripcion);
-		            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
+		            	 rd= request.getRequestDispatcher("VistaEventos.jsp");
 		            	 rd.forward(request, response);
 		            	 out.close();
 		             }
@@ -47,7 +46,11 @@ public class EventosControlador extends HttpServlet {
 		            	 
 		             }
 	        	}
+	        }catch(NumberFormatException e) {
+	            request.setAttribute("estado", "error");
 	        }finally{
+	        	rd = request.getRequestDispatcher("redireccion.html");
+                rd.forward(request, response);
 	        }
 	}
 	

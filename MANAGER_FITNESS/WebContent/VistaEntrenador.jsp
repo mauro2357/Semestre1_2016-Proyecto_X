@@ -47,7 +47,7 @@
             <div class="indent1"><form id="contact-form" action="EventosControlador" method="get">
               <fieldset>
                 <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Fecha del Evento" name = "echaE">
+                  <input type="text" placeholder = "Fecha del Evento" name = "fechaE">
                   </span>
                   <br></br>
                  <span class="text-form"></span><span>

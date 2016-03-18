@@ -253,7 +253,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_PgD6YOySEeWn85wkyyXNYg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="MembreciaControlador.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MembreciaControlador.java&quot; partName=&quot;MembreciaControlador.java&quot; title=&quot;MembreciaControlador.java&quot; tooltip=&quot;MANAGER_FITNESS/src/main/java/controladores/MembreciaControlador.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MANAGER_FITNESS/src/main/java/controladores/MembreciaControlador.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1525&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MembreciaControlador.java&quot; partName=&quot;MembreciaControlador.java&quot; title=&quot;MembreciaControlador.java&quot; tooltip=&quot;MANAGER_FITNESS/src/main/java/controladores/MembreciaControlador.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/MANAGER_FITNESS/src/main/java/controladores/MembreciaControlador.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1525&quot; selectionTopPixel=&quot;442&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -490,7 +490,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_pttEUuJwEeW0OMtxuvJlZA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_kOy1EOxXEeWn85wkyyXNYg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_ptxUb-JwEeW0OMtxuvJlZA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_OhVZgO1cEeW-08qoHlsCyg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_ptxUb-JwEeW0OMtxuvJlZA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_pttEX-JwEeW0OMtxuvJlZA" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -520,7 +520,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_pttqDOJwEeW0OMtxuvJlZA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_kO8mEOxXEeWn85wkyyXNYg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ptwuW-JwEeW0OMtxuvJlZA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_OhbgIO1cEeW-08qoHlsCyg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ptwuW-JwEeW0OMtxuvJlZA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_pttqGuJwEeW0OMtxuvJlZA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
