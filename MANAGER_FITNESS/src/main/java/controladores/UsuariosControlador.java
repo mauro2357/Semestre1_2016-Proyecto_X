@@ -47,18 +47,16 @@ public class UsuariosControlador extends HttpServlet {
 			            	 out.close();
 		            	 }
 		            	 else{
-		            		 System.out.println("else");
-		            		 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
-			                 rd.forward(request, response);
+		            		 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
+			            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
+			            	 rd.include(request,response);
 		            	     out.close();
 		            	 }
 		             }
 		             else{   
-		            	rd=request.getRequestDispatcher("redireccion.html");
-		            	rd.forward(request, response);
-		            	 /*out.print("<p style=\"color:red\">No se registro correctamente</p>");    
+		            	 out.print("<p style=\"color:red\">NO SE PUDO REGISTRAR, INTENTELO NUEVAMENTE</p>");    
 		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
-		            	 rd.include(request,response);*/
+		            	 rd.include(request,response);
 		            	 
 		             }
 	        	}
@@ -80,20 +78,19 @@ public class UsuariosControlador extends HttpServlet {
 		             Cliente ncliente= new Cliente(estatura, fecha, id, peso,pruebaEsfuerzo);
 		             System.out.println(fecha);
 		             if(UsuariosRepositorio.agregarCliente(ncliente)){
-			           	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
-			             rd.forward(request, response);
+		            	 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
+		            	 rd.include(request,response);
 			             out.close();
 		            }
 		            else{
-		            	 rd=request.getRequestDispatcher("redireccion.html");
-		            	 rd.forward(request, response);
+		            	out.print("<p style=\"color:red\">NO SE PUDO REGISTRAR, INTENTELO NUEVAMENTE</p>");    
+		            	 rd=request.getRequestDispatcher("VistaAuxCliente.jsp");    
+		            	 rd.include(request,response);
 		        }
 		      }
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
-	        }finally{
-	        	rd = request.getRequestDispatcher("redireccion.html");
-                rd.forward(request, response);
 	        }
 	    }
 

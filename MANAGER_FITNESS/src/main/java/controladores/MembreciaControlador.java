@@ -16,7 +16,6 @@ import LogicaNegocio.Fecha;
 import LogicaNegocio.Membrecia;
 import LogicaNegocio.Practicante;
 import LogicaNegocio.Principiante;
-import repositorios.MembreciaRepositorio;
 
 
 @WebServlet("/MembreciaControlador")
@@ -35,47 +34,47 @@ public class MembreciaControlador extends HttpServlet {
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia principiante= new Principiante(fecha,id);
 	             if (principiante.comprar() && principiante.agregarbd()){
-	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
-	            	 rd.forward(request, response);
-	            	 out.close();
+	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");    
+	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
+	            	 rd.include(request,response);
 	             }
 	            else{
-	            	 rd=request.getRequestDispatcher("redireccion.html");
-	            	 rd.forward(request, response); 
+	            	out.print("<p style=\"color:blue\">NO CUMPLE CON LOS REQUISITOS PARA REALIZAR LA COMPRA</p>");    
+	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
+	            	 rd.include(request,response); 
 	             }
         	}
         	else if(request.getParameter("formulario").equals("comprarPracticante")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia practicante= new Practicante(fecha,id);
 	             if (practicante.comprar() && practicante.agregarbd()){
-	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
-	            	 rd.forward(request, response);
-	            	 out.close();
+	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");    
+	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
+	            	 rd.include(request,response);
 		         }
 	            else{
-	            	 rd=request.getRequestDispatcher("redireccion.html");
-	            	 rd.forward(request, response); 
+	            	out.print("<p style=\"color:blue\">NO CUMPLE CON LOS REQUISITOS PARA REALIZAR LA COMPRA</p>");    
+	            	rd=request.getRequestDispatcher("VistaHome.jsp"); 
+	                rd.include(request,response); 
 	             }
         	}
         	else if(request.getParameter("formulario").equals("comprarAnimalex")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia animalex= new Animalex(fecha,id);
 	             if (animalex.comprar() && animalex.agregarbd()){
-	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
-	            	 rd.forward(request, response);
-	            	 out.close();
+	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");    
+	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
+	            	 rd.include(request,response);
 	             }
 	            else{
-	            	 rd=request.getRequestDispatcher("redireccion.html");
-	            	 rd.forward(request, response); 
+	            	out.print("<p style=\"color:blue\">NO CUMPLE CON LOS REQUISITOS PARA REALIZAR LA COMPRA</p>");    
+	            	rd=request.getRequestDispatcher("VistaHome.jsp"); 
+	            	rd.include(request,response); 
 	             }
         	}
         	
         }catch(NumberFormatException e) {
             request.setAttribute("estado", "error");
-        }finally{
-        	rd = request.getRequestDispatcher("redireccion.html");
-            rd.forward(request, response);
         }
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -61,7 +61,7 @@
                   </span> 
                   <br></br>
                 <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Fecha de Nacimiento" name = "fechaN">
+                  <input type="date" placeholder = "Fecha de Nacimiento" name = "fechaN">
                   </span>
                   <br></br>
                 <span class="text-form"></span><span>
@@ -73,7 +73,7 @@
                   </span>
                 <br></br>
                 <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Email" name = "email">
+                  <input type="email" placeholder = "Email" name = "email">
                   </span>
                 <br></br>
                 <span class="text-form"></span><span>
