@@ -32,6 +32,4 @@ public class Animalex extends Membrecia{
 		return false;
 		
 	}
-
-	
 }

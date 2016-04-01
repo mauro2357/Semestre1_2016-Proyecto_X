@@ -32,18 +32,12 @@ public class MembreciaControlador extends HttpServlet {
 	    System.out.println(id);
         try{
         	if(request.getParameter("formulario").equals("comprarPrincipiante")){
-        		 System.out.println("if");
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia principiante= new Principiante(fecha,id);
-	             if (principiante.comprar()){
-	            	 System.out.println("comprar");
-		             if(MembreciaRepositorio.agregarMembrecia(principiante)){
-		            	 System.out.println("repositorio");
-		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
-		            	 rd.forward(request, response);
-		            	 out.close();
-		            	 
-		             }
+	             if (principiante.comprar() && principiante.agregarbd()){
+	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
+	            	 rd.forward(request, response);
+	            	 out.close();
 	             }
 	            else{
 	            	 rd=request.getRequestDispatcher("redireccion.html");
@@ -53,13 +47,11 @@ public class MembreciaControlador extends HttpServlet {
         	else if(request.getParameter("formulario").equals("comprarPracticante")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia practicante= new Practicante(fecha,id);
-	             if (practicante.comprar()){
-		             if(MembreciaRepositorio.agregarMembrecia(practicante)){
-		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
-		            	 rd.forward(request, response);
-		            	 out.close();
-		             }
-	             }
+	             if (practicante.comprar() && practicante.agregarbd()){
+	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
+	            	 rd.forward(request, response);
+	            	 out.close();
+		         }
 	            else{
 	            	 rd=request.getRequestDispatcher("redireccion.html");
 	            	 rd.forward(request, response); 
@@ -68,12 +60,10 @@ public class MembreciaControlador extends HttpServlet {
         	else if(request.getParameter("formulario").equals("comprarAnimalex")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia animalex= new Animalex(fecha,id);
-	             if (animalex.comprar()){
-		             if(MembreciaRepositorio.agregarMembrecia(animalex)){
-		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
-		            	 rd.forward(request, response);
-		            	 out.close();
-		             }
+	             if (animalex.comprar() && animalex.agregarbd()){
+	            	 rd= request.getRequestDispatcher("VistaHome.jsp");
+	            	 rd.forward(request, response);
+	            	 out.close();
 	             }
 	            else{
 	            	 rd=request.getRequestDispatcher("redireccion.html");

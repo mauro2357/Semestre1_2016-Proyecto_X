@@ -33,17 +33,24 @@ public class LoginControlador extends HttpServlet {
 		            	 out.close();
 		             }
 		             else{
-		            	 out.print("<p style=\"color:blue\">Usuario y/o Contraseña incorrecta</p>");    
+		            	 out.print("<p style=\"color:blue\">USUARIO Y/O CONTRASEÑA INCORRECTOS</p>");    
 		            	 rd=request.getRequestDispatcher("VistaLogin.jsp"); 
 		            	 rd.include(request,response);
 		            	 out.close();	 
 		             }
 	        	}
+	        	else if(request.getParameter("formulario").equals("logout")){
+	        		s.invalidate();
+	        		s=request.getSession(false);
+	        		rd=request.getRequestDispatcher("VistaLogin.jsp");
+	        	}
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{
-	        	rd = request.getRequestDispatcher("redireccion.html");
-                rd.forward(request, response);
+	        	out.print("<p style=\"color:blue\">POR FAVOR INGRESE SU USUARIO Y COTRASEÑA</p>");    
+           	 	rd=request.getRequestDispatcher("VistaLogin.jsp"); 
+           	 	rd.include(request,response);
+           	 	out.close();
 	        }
 	    }
 
@@ -54,6 +61,7 @@ public class LoginControlador extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	

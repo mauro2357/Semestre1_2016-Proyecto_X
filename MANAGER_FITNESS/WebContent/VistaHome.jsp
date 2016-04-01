@@ -31,6 +31,13 @@
     <div class="main">
       <div class="wrapper p3">
         <h1><a href="VistaHome.jsp">ManagerFitness</a></h1>
+        <form id="search-form" action="LoginControlador" method="post" enctype="multipart/form-data">
+          <fieldset>
+              <span class="text-form"></span><span class="buttons">
+                  <button type="submit" name="formulario" value="logout" class="button-2" > Cerrar Sesión </button>
+              </span>
+          </fieldset>
+        </form>
       </div>
     </div>
     

@@ -2,6 +2,8 @@ package LogicaNegocio;
 
 import java.sql.SQLException;
 
+import repositorios.MembreciaRepositorio;
+
 public abstract class Membrecia {
 	private String fecha;
 	private int usuId;
@@ -32,7 +34,13 @@ public abstract class Membrecia {
 	public void setUsuId(int usuId) {
 		this.usuId = usuId;
 	}
+	public boolean agregarbd (){
+		if(MembreciaRepositorio.agregarMembrecia(this)) return true;
+		return false;
+	}
 	
 	public abstract boolean comprar () throws SQLException;
+	
+	
 	
 }

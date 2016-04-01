@@ -13,7 +13,4 @@ public class Principiante extends Membrecia{
 		return true;
 			
 	}
-	
-	
-
 }
