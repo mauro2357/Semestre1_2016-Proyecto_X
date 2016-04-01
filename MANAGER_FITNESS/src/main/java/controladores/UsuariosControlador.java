@@ -48,14 +48,17 @@ public class UsuariosControlador extends HttpServlet {
 		            	 }
 		            	 else{
 		            		 System.out.println("else");
-			            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
-			            	 rd.forward(request, response);
-			            	 out.close();
+		            		 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
+			                 rd.forward(request, response);
+		            	     out.close();
 		            	 }
 		             }
-		             else{
-		            	 rd=request.getRequestDispatcher("redireccion.html");
-		            	 rd.forward(request, response);
+		             else{   
+		            	rd=request.getRequestDispatcher("redireccion.html");
+		            	rd.forward(request, response);
+		            	 /*out.print("<p style=\"color:red\">No se registro correctamente</p>");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
+		            	 rd.include(request,response);*/
 		            	 
 		             }
 	        	}

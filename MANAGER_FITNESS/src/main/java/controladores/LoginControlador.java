@@ -33,9 +33,10 @@ public class LoginControlador extends HttpServlet {
 		            	 out.close();
 		             }
 		             else{
-		            	 rd=request.getRequestDispatcher("VistaLogin.jsp");
-		            	 rd.forward(request, response);
-		            	 
+		            	 out.print("<p style=\"color:blue\">Usuario y/o Contraseña incorrecta</p>");    
+		            	 rd=request.getRequestDispatcher("VistaLogin.jsp"); 
+		            	 rd.include(request,response);
+		            	 out.close();	 
 		             }
 	        	}
 	        }catch(NumberFormatException e) {
