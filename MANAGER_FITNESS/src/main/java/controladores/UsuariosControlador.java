@@ -46,12 +46,14 @@ public class UsuariosControlador extends HttpServlet {
 			            	 rd.forward(request, response);
 			            	 out.close();
 		            	 }
-		            	 else{
-		            		 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
-			            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
-			            	 rd.include(request,response);
-		            	     out.close();
-		            	 }
+			             if (s.getAttribute("tipo").equals("ENTR")){
+			            	rd= request.getRequestDispatcher("VistaAuxEntrenador.jsp");
+			            	 rd.forward(request, response);
+			            	 out.close();
+			            }
+			             out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
+		            	 rd.include(request,response);
 		             }
 		             else{   
 		            	 out.print("<p style=\"color:red\">NO SE PUDO REGISTRAR, INTENTELO NUEVAMENTE</p>");    

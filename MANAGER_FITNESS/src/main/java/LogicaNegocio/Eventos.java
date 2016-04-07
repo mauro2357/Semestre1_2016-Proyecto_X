@@ -7,11 +7,12 @@ public class Eventos {
 
 	
 	public Eventos(String fecha, String descripcion, int idEntrenador) {
-		
 		this.fecha = fecha;
 		this.Descripcion = descripcion;
 		this.idEntrenador = idEntrenador;
 	}
+	
+
 	public String getFecha() {
 		return fecha;
 	}

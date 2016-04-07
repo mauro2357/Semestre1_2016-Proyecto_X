@@ -35,17 +35,20 @@ public class EventosControlador extends HttpServlet {
 		             String descripcion =request.getParameter("nombre");
 		             Eventos evento= new Eventos(fecha, descripcion, id);
 		             if(EventosRepositorio.agregar(evento)){
-		            	 System.out.println(descripcion);
-		            	 rd= request.getRequestDispatcher("VistaEventos.jsp");
-		            	 rd.forward(request, response);
-		            	 out.close();
+		            	 out.print("<p style=\"color:red\">EL EVENTO SE HA CREADO EXITOSAMENTE</p>");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
+		            	 rd.include(request,response);
+	            	     out.close();
 		             }
 		             else{
-		            	 rd=request.getRequestDispatcher("redireccion.html");
-		            	 rd.forward(request, response);
+		            	 out.print("<p style=\"color:red\">NO SE PUDO CREAR EL EVENTO</p>");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
+		            	 rd.include(request,response);
+	            	     out.close();
 		            	 
 		             }
 	        	}
+	        	
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{
@@ -54,11 +57,12 @@ public class EventosControlador extends HttpServlet {
 	        }
 	}
 	
+	
+	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

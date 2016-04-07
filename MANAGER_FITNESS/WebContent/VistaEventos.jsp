@@ -46,6 +46,11 @@
     <div class="main">
       <div class="container_12">
         <div class="wrapper margin-bot">
+        <article class="grid_8">
+            <h3>Eventos</h3>
+            <form id="contact-form" action="EventosControlador" method="get" enctype="multipart/form-data">
+                         </form>
+          </article>
         </div>
       </div>
     </div>
