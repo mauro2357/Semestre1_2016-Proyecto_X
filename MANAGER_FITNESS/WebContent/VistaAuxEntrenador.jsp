@@ -35,7 +35,7 @@
               <fieldset>
                 <span class="text-form"></span><span>
                   <input type="text" placeholder = "Cédula" name = "id">
-                  </span>
+                </span>
                   <br></br>
                   <span class="text-form"></span><span>
                   TIPO DE ENTRENADOR:<select name="tipoEntrenador" >
@@ -53,6 +53,10 @@
                   	<option value="4">fin de semana y festivos, 8:00 am - 2:00 pm</option>
                   </select>
                   </span>
+                  <br></br>
+                  <span class="text-form"></span><span>
+                  <input type="checkbox" name="archivo" value="1"/> Generar Archivo:
+				  </span>
                   <br></br>
                   <span class="text-form"></span><span class="buttons">
                   <button type="submit" name="formulario" value="agregarHorario" class="button-2"> Agregar </button>

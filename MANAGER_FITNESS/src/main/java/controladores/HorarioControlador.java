@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Entrenador;
 import LogicaNegocio.Horario;
-
+import repositorios.HorarioArchivoRepositorio;
 import repositorios.HorarioRepositorio;
+import repositorios.UsuariosRepositorio;
 
 @WebServlet("/HorarioControlador")
 public class HorarioControlador extends HttpServlet {
@@ -29,10 +30,15 @@ public class HorarioControlador extends HttpServlet {
 	        	 int id = Integer.parseInt(request.getParameter("id"));
 	             int descripcion =Integer.parseInt(request.getParameter("horario"));
 	             String tipoEntrenador = request.getParameter("tipoEntrenador");
-	             Horario horario = new Horario(id,descripcion);
+	             Horario horario;
+	             if (request.getParameter("archivo")!= null){
+	            	 horario = new Horario(new HorarioArchivoRepositorio(), id,descripcion); 
+	             }else {
+	            	 horario = new Horario(new HorarioRepositorio(), id,descripcion); 
+	             }
 	             Entrenador entrenador = new Entrenador(id, tipoEntrenador);
-	             if(HorarioRepositorio.agregar(entrenador)){
-	            	 if(HorarioRepositorio.agregar(horario)){
+	             if(UsuariosRepositorio.agregar(entrenador)){
+	            	 if(horario.agregarbd()){
 		            	 rd= request.getRequestDispatcher("VistaAdministrador.jsp");
 		            	 rd.forward(request, response);
 		            	 out.close();
