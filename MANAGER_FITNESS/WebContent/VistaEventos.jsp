@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "LogicaNegocio.Eventos"%> 
+<%@ page import = "repositorios.EventosRepositorio"%> 
+<%@ page import = "java.util.LinkedList"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,8 +51,26 @@
         <div class="wrapper margin-bot">
         <article class="grid_8">
             <h3>Eventos</h3>
-            <form id="contact-form" action="EventosControlador" method="get" enctype="multipart/form-data">
-                         </form>
+            <table border="1">
+				<tr>
+				<td>Fecha</td>
+				<td>Descripcion</td>
+				<td>Entrenador</td>
+				<td>telefono</td>
+				</tr>
+				<%
+				LinkedList<Eventos> lista = EventosRepositorio.getEventos();
+				for (int i=0;i<lista.size();i++)
+				{
+				   out.println("<tr>");
+				   out.println("<td>"+lista.get(i).getId()+"</td>");
+				   out.println("<td>"+lista.get(i).getNombre()+"</td>");
+				   out.println("<td>"+lista.get(i).getApellido()+"</td>");
+				   out.println("<td>"+lista.get(i).getTelefono()+"</td>");
+				   out.println("</tr>");
+				}
+				%>
+				</table>
           </article>
         </div>
       </div>

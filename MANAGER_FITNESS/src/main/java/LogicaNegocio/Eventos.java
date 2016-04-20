@@ -4,6 +4,7 @@ public class Eventos {
 	private String fecha;
 	private String Descripcion;
 	private int idEntrenador;
+	private String nombreEntrenador;
 
 	
 	public Eventos(String fecha, String descripcion, int idEntrenador) {
@@ -11,7 +12,11 @@ public class Eventos {
 		this.Descripcion = descripcion;
 		this.idEntrenador = idEntrenador;
 	}
-	
+	public Eventos(String fecha, String descripcion, String  nombreEntrenador) {
+		this.fecha = fecha;
+		this.Descripcion = descripcion;
+		this.nombreEntrenador = nombreEntrenador;
+	}
 
 	public String getFecha() {
 		return fecha;
