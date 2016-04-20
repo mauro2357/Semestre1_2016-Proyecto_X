@@ -34,6 +34,16 @@ public class ProcesoControlador extends HttpServlet {
 		             rd = request.getRequestDispatcher("VistaHome.jsp");
 		             rd.forward(request, response);
 	        	}
+	        	
+	        	if (request.getParameter("formulario").equals("crearproceso")){
+	        		int id= Integer.parseInt(request.getParameter("nombre"));
+	        		double peso =Double.parseDouble(request.getParameter("peso"));
+	        		int rutina=Integer.parseInt(request.getParameter("rutina"));
+	        		String observacion=request.getParameter("observacion");
+	        		int proceso= Integer.parseInt(request.getParameter("tip_proceso"));
+	        		
+	        	}
+	        	
 	        } catch (NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        	
