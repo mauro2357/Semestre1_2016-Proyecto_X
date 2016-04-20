@@ -18,9 +18,15 @@ public class Eventos {
 		this.nombreEntrenador = nombreEntrenador;
 	}
 
+	public String getNombreEntrenador() {
+		return nombreEntrenador;
+	}
+	public void setNombreEntrenador(String nombreEntrenador) {
+		this.nombreEntrenador = nombreEntrenador;
+	}
 	public String getFecha() {
 		return fecha;
-	}
+	} 
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}

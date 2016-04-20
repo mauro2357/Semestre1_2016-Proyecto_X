@@ -51,25 +51,28 @@
         <div class="wrapper margin-bot">
         <article class="grid_8">
             <h3>Eventos</h3>
-            <table border="1">
-				<tr>
-				<td>Fecha</td>
-				<td>Descripcion</td>
-				<td>Entrenador</td>
-				<td>telefono</td>
+            <br></br>
+            <table style = "width:100%">
+            <thead>
+            	<tr>
+				<th>Fecha</th> 
+				<th>Descripcion</th>
+				<th>Entrenador</th>
 				</tr>
+				      </thead>
+				       <tbody>
 				<%
 				LinkedList<Eventos> lista = EventosRepositorio.getEventos();
 				for (int i=0;i<lista.size();i++)
 				{
 				   out.println("<tr>");
-				   out.println("<td>"+lista.get(i).getId()+"</td>");
-				   out.println("<td>"+lista.get(i).getNombre()+"</td>");
-				   out.println("<td>"+lista.get(i).getApellido()+"</td>");
-				   out.println("<td>"+lista.get(i).getTelefono()+"</td>");
+				   out.println("<td>"+lista.get(i).getFecha()+"</td>");
+				   out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
+				   out.println("<td>"+lista.get(i).getNombreEntrenador()+"</td>");
 				   out.println("</tr>");
 				}
 				%>
+				  </tbody>
 				</table>
           </article>
         </div>
