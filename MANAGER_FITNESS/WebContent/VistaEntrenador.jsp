@@ -57,6 +57,10 @@
                   <input type="text" placeholder = "Fecha del Evento" name = "fechaE">
                   </span>
                   <br></br>
+                 <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Identificación" name ="idu">
+                  </span> 
+                  <br></br>
                 <span class="text-form"></span><span>
                   <input type="text" placeholder = "Descripcion del Evento" name = "nombre">
                   </span>
@@ -76,7 +80,7 @@
           <div class="wrapper">
             <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
             <div class="extra-wrap">
-              <div class="indent"> <form id="contact-form" action="ProcesoControlador" method="get">
+              <div class="indent"> <form id="contact-form" action="inicio" method="get">
               <fieldset>
                  <span class="text-form"></span><span>
                   <input type="text" placeholder = "Cedula Cliente" name ="nombre">
@@ -99,7 +103,7 @@
                   </span> 
                   <br></br>
                   <span class="text-form"></span><span class="buttons">
-                  <button type="submit" name="formulario" value="crearproceso" class="button-2"> Crear </button>
+                  <button type="submit" name="formulario" value="registrar" class="button-2"> Imprimir </button>
                   </span>
               </fieldset>
               </form>

@@ -27,22 +27,22 @@ public class EventosControlador extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
-		    String str = request.getSession().getAttribute("usuario").toString();
-		    int id= Integer.parseInt(str);
 	        try{
 	        	if(request.getParameter("formulario").equals("evento")){
+	        		System.out.println("hola");
 		        	 String fecha = request.getParameter("fechaE");
+		             int id =Integer.parseInt(request.getParameter("idu"));
 		             String descripcion =request.getParameter("nombre");
 		             Eventos evento= new Eventos(fecha, descripcion, id);
 		             if(EventosRepositorio.agregar(evento)){
 		            	 out.print("<p style=\"color:red\">EL EVENTO SE HA CREADO EXITOSAMENTE</p>");    
-		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
 		            	 rd.include(request,response);
 	            	     out.close();
 		             }
 		             else{
 		            	 out.print("<p style=\"color:red\">NO SE PUDO CREAR EL EVENTO</p>");    
-		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
+		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
 		            	 rd.include(request,response);
 	            	     out.close();
 		            	 
@@ -52,6 +52,8 @@ public class EventosControlador extends HttpServlet {
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{
+	        	rd = request.getRequestDispatcher("redireccion.html");
+                rd.forward(request, response);
 	        }
 	}
 	
