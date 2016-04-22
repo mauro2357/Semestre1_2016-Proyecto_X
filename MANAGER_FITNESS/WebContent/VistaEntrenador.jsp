@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import = "LogicaNegocio.Eventos"%> 
+<%@ page import = "repositorios.EntrenadorRepositorio"%> 
+<%@ page import = "java.util.LinkedList"%> 
     
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +12,16 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+</style>
 
 </head>
 <body id="page3">
@@ -44,6 +57,7 @@
     <ul class="tabs">
       <li><a href="#tab1">Crear Evento</a></li>
       <li><a href="#tab2">Crear Proceso </a></li>
+      <li><a href="#tab3">Cancelar Evento </a></li>
     </ul>
     <div class="tab_container">
       <div id="tab1" class="tab_content">
@@ -108,6 +122,51 @@
            </div>
           </div>
         </div>
+        <div id="tab3" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+          <figure class="img-indent-r"><img src="images/page3-img3.jpg" alt=""></figure>
+          <div class="extra-wrap">
+            <div class="indent1"><form id="contact-form" action="EntrenadorControlador" method="get">
+              <fieldset>
+              <table style = "width:100%">
+            <thead>
+            	<tr>
+				<th>Fecha</th> 
+				<th>Descripcion</th>
+				<th>Entrenador</th>
+				<th>Código</th>
+				</tr>
+				      </thead>
+				       <tbody>
+				<%
+				LinkedList<Eventos> lista = EntrenadorRepositorio.getEventos();
+				for (int i=0;i<lista.size();i++)
+				{
+				   out.println("<tr>");
+				   out.println("<td>"+lista.get(i).getFecha()+"</td>");
+				   out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
+				   out.println("<td>"+lista.get(i).getNombreEntrenador()+"</td>");
+				   out.println("<td>"+lista.get(i).getCodigo()+"</td>");
+				   out.println("</tr>");
+				}
+				%>
+				  </tbody>
+				</table>
+				<span class="text-form"></span><span>
+                  <input type="text" placeholder = "Codigo del Evento" name ="cancelar">
+                  </span> 
+              
+                  <span class="text-form"></span><span class="buttons">
+                  <button type="submit" name="formulario" value="cancelarEvento" class="button-2"> Cancelar </button>
+                  </span>
+              </fieldset>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
        </div>
       </header>
       

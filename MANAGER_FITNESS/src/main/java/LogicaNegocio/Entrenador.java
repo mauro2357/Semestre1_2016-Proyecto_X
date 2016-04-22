@@ -13,7 +13,7 @@ public class Entrenador {
 	public String getTipoEntrenador() {
 		return tipoEntrenador;
 	}
-	public void setTipoEntrenador(String tipoEntrenador) {
+	public void setTipoEntrenador(String tipoEntrenador) { 
 		this.tipoEntrenador = tipoEntrenador;
 	}
 	public Entrenador(int id, String tipoEntrenador) {

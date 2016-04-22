@@ -2,10 +2,13 @@ package repositorios;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 
 import LogicaNegocio.Entrenador;
+import LogicaNegocio.Eventos;
 import LogicaNegocio.Horario;
 
 public class HorarioRepositorio implements IHorarioRepositorio{
@@ -32,6 +35,7 @@ public class HorarioRepositorio implements IHorarioRepositorio{
         }
         return true;
     }
+	
 	
 }
 
