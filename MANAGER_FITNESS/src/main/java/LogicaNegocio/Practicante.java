@@ -3,7 +3,7 @@ package LogicaNegocio;
 import java.sql.SQLException;
 
 import repositorios.MembreciaConsultasRepositorio;
-import repositorios.MembreciaRepositorio;
+
 
 public class Practicante extends Membrecia {
 

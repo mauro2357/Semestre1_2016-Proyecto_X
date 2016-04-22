@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import repositorios.conexion;
-import LogicaNegocio.Usuarios;
+import repositorios.ProcesoRepositorio;
+import LogicaNegocio.Fecha;
+import LogicaNegocio.Proceso;
+
 
 
 @WebServlet("/ProcesoControlador")
@@ -34,22 +36,30 @@ public class ProcesoControlador extends HttpServlet {
 		             rd = request.getRequestDispatcher("VistaHome.jsp");
 		             rd.forward(request, response);
 	        	}
-	        	
-	        	if (request.getParameter("formulario").equals("crearproceso")){
-	        		int id= Integer.parseInt(request.getParameter("nombre"));
-	        		double peso =Double.parseDouble(request.getParameter("peso"));
-	        		int rutina=Integer.parseInt(request.getParameter("rutina"));
-	        		String observacion=request.getParameter("observacion");
-	        		int proceso= Integer.parseInt(request.getParameter("tip_proceso"));
-	        		
+	        	if(request.getParameter("formulario").equals("crearproceso")){
+		        	 int cedula = Integer.parseInt(request.getParameter("id"));
+		        	 double peso = Double.parseDouble(request.getParameter("peso"));
+		        	 double estatura = Double.parseDouble(request.getParameter("estatura"));
+		             String tipoProceso = request.getParameter("tipoProceso");
+		             int rutina = Integer.parseInt(request.getParameter("rutina"));
+		             String observacion = request.getParameter("observacion");
+		             String fecha=Fecha.ObtenerFecha();
+		             Proceso proceso =new Proceso(cedula,peso,estatura,tipoProceso,rutina,observacion,fecha);
+		             if(ProcesoRepositorio.agregarProceso(proceso)){
+		            	 out.print("<p style=\"color:red\">SE HA CREADO EL PROCESO EXITOSAMENTE</p>");    
+		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
+		            	 rd.include(request,response);
+		             }
+		             else {
+		            	 out.print("<p style=\"color:red\">NO SE PUDO CREAR EL PROCESO</p>");    
+		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
+		            	 rd.include(request,response);
+		            	 
+		             }
 	        	}
-	        	
 	        } catch (NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        	
-	        	}finally{
-	        		rd = request.getRequestDispatcher("redireccion.html");
-	                rd.forward(request, response);
 	        	}
        
 	        }

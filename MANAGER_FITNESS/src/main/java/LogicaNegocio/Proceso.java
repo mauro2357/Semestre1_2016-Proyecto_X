@@ -1,18 +1,34 @@
 package LogicaNegocio;
 
-public abstract class Proceso {
+public  class Proceso {
 	private int id;
 	private double peso;
+	private double estatura;
+	private String tipoProceso;
 	private int rutina;
 	private String observacion;
+	private String fecha;
 	
-	public Proceso(int id, double peso, int rutina, String observacion) {
-		super();
-		this.id = id;
-		this.peso = peso;
-		this.rutina = rutina;
-		this.observacion = observacion;
+	
+	public String getFecha() {
+		return fecha;
 	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+	public double getEstatura() {
+		return estatura;
+	}
+	public void setEstatura(double estatura) {
+		this.estatura = estatura;
+	}
+	public String getTipoProceso() {
+		return tipoProceso;
+	}
+	public void setTipoProceso(String tipoProceso) {
+		this.tipoProceso = tipoProceso;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -37,10 +53,16 @@ public abstract class Proceso {
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
 	}
-	
-	
-	
-	
-	
+	public Proceso(int id, double peso, double estatura, String tipoProceso, int rutina, String observacion,String fecha) {
+		super();
+		this.id = id;
+		this.peso = peso;
+		this.estatura = estatura;
+		this.tipoProceso = tipoProceso;
+		this.rutina = rutina;
+		this.observacion = observacion;
+		this.fecha = fecha;
+	}
+
 
 }

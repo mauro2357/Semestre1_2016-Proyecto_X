@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import = "LogicaNegocio.Eventos"%> 
+<%@ page import = "LogicaNegocio.Eventos"%> 
 <%@ page import = "repositorios.EntrenadorRepositorio"%> 
 <%@ page import = "java.util.LinkedList"%> 
+<%@ page import = "LogicaNegocio.TipoProceso"%> 
+<%@ page import = "repositorios.ProcesoRepositorio"%>
+<%@ page import = "LogicaNegocio.Rutinas"%> 
+<%@ page import = "repositorios.RutinaRepositorio"%>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +97,7 @@ th, td {
               <div class="indent"> <form id="contact-form" action="ProcesoControlador" method="get">
               <fieldset>
                  <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Cedula Cliente" name ="nombre">
+                  <input type="text" placeholder = "Cedula Cliente" name ="id">
                   </span> 
                   <br></br>
                   <span class="text-form"></span><span>
@@ -101,17 +105,35 @@ th, td {
                   </span> 
                   <br></br>
                   <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Rutina" name ="rutina">
+                  <input type="text" placeholder = "Estatura" name ="estatura">
                   </span> 
-                  <br></br>
+                  <span class="text-form"></span><span>
+                  <br>Tipo Proceso: <select name="tipoProceso"> 
+                    <%LinkedList<TipoProceso> lista = ProcesoRepositorio.getTipoProceso();
+                        for (int i=0;i<lista.size();i++) {
+                    %>                    
+                    <option value="<%=lista.get(i).getCodigo()%>"><%=lista.get(i).getDescripcion()%></option>                    
+                    <%
+                    }
+                    %>
+                    </select><br>	
+                  </span> 
+                  <span class="text-form"></span><span>
+                  <br>Rutina: <select name="rutina"> 
+                    <%LinkedList<Rutinas> lista1 = RutinaRepositorio.getRutinas();
+                        for (int i=0;i<lista1.size();i++) {
+                    %>                    
+                    <option value="<%=lista1.get(i).getCodigo()%>"><%=lista1.get(i).getNombre()%></option>                    
+                    <%
+                    }
+                    %>
+                    </select><br>	
+                  </span> 
                   <span class="text-form"></span><span>
                   <input type="text" placeholder = "Observacion" name ="observacion">
                   </span> 
                   <br></br>
-                  <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Tipo de Proceso" name ="tip_proceso">
-                  </span> 
-                  <br></br>
+                  
                   <span class="text-form"></span><span class="buttons">
                   <button type="submit" name="formulario" value="crearproceso" class="button-2"> Crear </button>
                   </span>
@@ -129,7 +151,7 @@ th, td {
           <div class="extra-wrap">
             <div class="indent1"><form id="contact-form" action="EntrenadorControlador" method="get">
               <fieldset>
-              <table style = "width:100%">
+              <table style = "width:67%">
             <thead>
             	<tr>
 				<th>Fecha</th> 
@@ -140,14 +162,14 @@ th, td {
 				      </thead>
 				       <tbody>
 				<%
-				LinkedList<Eventos> lista = EntrenadorRepositorio.getEventos();
-				for (int i=0;i<lista.size();i++)
+				LinkedList<Eventos> listas = EntrenadorRepositorio.getEventos();
+				for (int i=0;i<listas.size();i++)
 				{
 				   out.println("<tr>");
-				   out.println("<td>"+lista.get(i).getFecha()+"</td>");
-				   out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
-				   out.println("<td>"+lista.get(i).getNombreEntrenador()+"</td>");
-				   out.println("<td>"+lista.get(i).getCodigo()+"</td>");
+				   out.println("<td>"+listas.get(i).getFecha()+"</td>");
+				   out.println("<td>"+listas.get(i).getDescripcion()+"</td>");
+				   out.println("<td>"+listas.get(i).getNombreEntrenador()+"</td>");
+				   out.println("<td>"+listas.get(i).getCodigo()+"</td>");
 				   out.println("</tr>");
 				}
 				%>

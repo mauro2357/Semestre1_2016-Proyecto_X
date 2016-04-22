@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import LogicaNegocio.Eventos;
 
 
@@ -47,19 +45,18 @@ public class EntrenadorRepositorio {
 	    	  Class.forName("com.mysql.jdbc.Driver");
 	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
 	          Statement st= con.createStatement();
-	          int cantidad = st.executeUpdate ("update evento SET Eve_estado = false where Eve_codigo =" + evento.getCodigo()+ "';"); 
-	          if (cantidad == 1) {
-	        	  System.out.println("Entro en el if");
-	        	  System.out.println(cantidad);
-	                return true;
-	            }
-	        } catch (SQLException ex) {
-	            Logger.getLogger(ConsultasRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+	          String i = "update evento SET Eve_estado = false where Eve_codigo =" + evento.getCodigo()+";";
+	          st.executeUpdate(i);
+	          st.close();
+	      }catch (SQLException e){
+	        	e.printStackTrace();
+	        	return false;
+	        }catch (ClassNotFoundException e){
+	        	e.printStackTrace();
 	            return false;
 	        }
-	        return false;
+	        return true;
 	    }
-	
 	
 
 }

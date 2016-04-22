@@ -16,7 +16,7 @@ public class ProgramacionRepositorio {
 	    	  Class.forName("com.mysql.jdbc.Driver");
 	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
 	          Statement st= con.createStatement();
-	          ResultSet rs = st.executeQuery("Select Hor_id as Horario, Usu_nombre as Entrenador from programacion p inner join usuarios u on p.Usu_id = u.Usu_id" ); 
+	          ResultSet rs = st.executeQuery("SELECT U.Usu_nombre AS Entrenador, H.hor_descripcion AS Horario FROM programacion P INNER JOIN usuarios U ON P.Usu_id=U.Usu_id INNER JOIN horario H ON P.Hor_id=H.Hor_id;" ); 
 	         while (rs.next())
 	         {
 	        	String nombreEntrenador =rs.getString("Entrenador");

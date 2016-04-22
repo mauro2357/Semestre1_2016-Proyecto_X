@@ -2,7 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Eventos;
+
 import repositorios.EntrenadorRepositorio;
+
 
 
 @WebServlet("/EntrenadorControlador")
@@ -24,8 +26,6 @@ public class EntrenadorControlador extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
-		    String str = request.getSession().getAttribute("usuario").toString();
-		    int id= Integer.parseInt(str);
 	        try{
 	        	if(request.getParameter("formulario").equals("cancelarEvento")){
 	        		int codigo = Integer.parseInt(request.getParameter("cancelar"));
@@ -44,6 +44,7 @@ public class EntrenadorControlador extends HttpServlet {
 		            	 
 		             }
 	        	}
+	        	
 	        	
 	        	
 	        }catch(NumberFormatException e) {
