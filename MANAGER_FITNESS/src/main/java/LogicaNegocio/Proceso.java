@@ -8,6 +8,31 @@ public  class Proceso {
 	private int rutina;
 	private String observacion;
 	private String fecha;
+	private String proceso;
+	
+	public Proceso(double peso, double estatura, String observacion, String fecha, String proceso,
+			String nombreRutina) {
+		super();
+		this.peso = peso;
+		this.estatura = estatura;
+		this.observacion = observacion;
+		this.fecha = fecha;
+		this.proceso = proceso;
+		this.nombreRutina = nombreRutina;
+	}
+	public String getProceso() {
+		return proceso;
+	}
+	public void setProceso(String proceso) {
+		this.proceso = proceso;
+	}
+	public String getNombreRutina() {
+		return nombreRutina;
+	}
+	public void setNombreRutina(String nombreRutina) {
+		this.nombreRutina = nombreRutina;
+	}
+	private String nombreRutina;
 	
 	
 	public String getFecha() {

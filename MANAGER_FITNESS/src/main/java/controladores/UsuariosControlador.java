@@ -64,10 +64,9 @@ public class UsuariosControlador extends HttpServlet {
 	        	}
 		        else if(request.getParameter("formulario").equals("cantidad")) {
 		        	int resultado=ConsultasRepositorio.consultarCantidad();
-		        	System.out.println(resultado);
 		        	request.setAttribute("resultado",Integer.toString(resultado));
-		             rd = request.getRequestDispatcher("VistaAdministrador.jsp");
-		             rd.forward(request, response);
+		            rd = request.getRequestDispatcher("VistaAdministrador.jsp");
+		            rd.forward(request, response);
 		            	 
 		             }
 		        else if(request.getParameter("formulario").equals("inscribir")){

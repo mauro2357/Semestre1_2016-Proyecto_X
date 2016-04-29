@@ -26,7 +26,7 @@ public class LoginControlador extends HttpServlet {
 	        	if(request.getParameter("formulario").equals("login")){
 		        	 int id = Integer.parseInt(request.getParameter("id"));
 		             String pass =request.getParameter("pass");
-		             Login entrar = new Login(id,pass);
+		             Login entrar = Login.getinstance(id,pass);
 		             if(ConsultasRepositorio.autenticar(entrar)){
 		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
 		            	 rd.forward(request, response);

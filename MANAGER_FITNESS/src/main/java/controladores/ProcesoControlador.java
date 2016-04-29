@@ -2,7 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,9 +57,17 @@ public class ProcesoControlador extends HttpServlet {
 		            	 
 		             }
 	        	}
+	        	if(request.getParameter("formulario").equals("conocerProceso")){
+	        		int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+	        	    LinkedList<Proceso> listaProceso=ProcesoRepositorio.getProceso(idCliente);
+	        	    request.setAttribute("lista", listaProceso);
+	        	    rd= request.getRequestDispatcher("VistaEntrenador.jsp");
+	        	}
 	        } catch (NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        	
+	        	}finally{
+
 	        	}
        
 	        }

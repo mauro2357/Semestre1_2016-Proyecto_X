@@ -3,6 +3,13 @@ package LogicaNegocio;
 public class Login {
 	private int id;
 	private String pass;
+	private static Login milogin;
+	
+	public static Login getinstance(int id, String password){
+		if (milogin==null)milogin= new Login(id, password);
+		return milogin;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -15,7 +22,7 @@ public class Login {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public Login(int id, String pass) {
+	private Login(int id, String pass) {
 		super();
 		this.id = id;
 		this.pass = pass;

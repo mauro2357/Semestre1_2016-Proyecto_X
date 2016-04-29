@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import = "LogicaNegocio.Eventos"%> 
 <%@ page import = "repositorios.EntrenadorRepositorio"%> 
-<%@ page import = "java.util.LinkedList"%> 
-<%@ page import = "LogicaNegocio.TipoProceso"%> 
+<%@ page import = "java.util.LinkedList"%>  
 <%@ page import = "repositorios.ProcesoRepositorio"%>
-<%@ page import = "LogicaNegocio.Rutinas"%> 
 <%@ page import = "repositorios.RutinaRepositorio"%>
+<%@ page import = "controladores.ProcesoControlador"%>
+<%@ page import = "LogicaNegocio.*"%>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -191,9 +190,55 @@ th, td {
       </div>
        </div>
       </header>
-      
-      <section id="content">
-       
+  	 <section id="content">
+       <div class="main">
+        <div class="container_12">
+        <div class="wrapper img-indent-bot">
+          <article class="grid_4">
+            <h3>Conocer Procesos</h3>
+             <ul class="list-1">
+              <li><a href="#">Ingrese cédula del cliente</a></li>
+              </ul>
+              <form method= "get" action="ProcesoControlador" >
+              <span class="text-form"></span><span>
+               <input type="text"  name = "idCliente"/>
+              </span>
+      		  <button type="submit" name="formulario" value="conocerProceso" class="button-2">Consultar</button>
+      		  <br></br>
+            <table style = "width:100%">
+            <thead>
+            	<tr>
+				<th>Fecha</th> 
+				<th>Peso</th>
+				<th>Estatura</th>
+				<th>Proceso</th>
+				<th>Rutina</th>
+				<th>Observación</th>
+				</tr>
+				      </thead>
+				       <tbody>
+				<%
+				LinkedList<Proceso> listaProceso = (LinkedList<Proceso>)request.getAttribute("lista");
+				for (int i=0;i<lista1.size();i++)
+				{
+				   out.println("<tr>");
+				   out.println("<td>"+listaProceso.get(i).getFecha()+"</td>");
+				   out.println("<td>"+listaProceso.get(i).getPeso()+"</td>");
+				   out.println("<td>"+listaProceso.get(i).getEstatura()+"</td>");
+				   out.println("<td>"+listaProceso.get(i).getProceso()+"</td>");
+				   out.println("<td>"+listaProceso.get(i).getRutina()+"</td>");
+				   out.println("<td>"+listaProceso.get(i).getObservacion()+"</td>");
+				   out.println("</tr>");
+				}
+				%>
+				  </tbody>
+				</table>
+            
+      		  </form>
+          </article>
+        </div>
+      </div>
+     </div>
   	</section>
  </div>
       

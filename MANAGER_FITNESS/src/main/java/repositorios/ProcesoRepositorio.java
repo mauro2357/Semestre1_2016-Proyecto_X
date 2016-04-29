@@ -60,6 +60,36 @@ public class ProcesoRepositorio {
         }
         return true;
 	}
+	public static LinkedList<Proceso> getProceso(int id)
+	   {
+	      LinkedList<Proceso> listaProceso=new LinkedList<Proceso>();
+	      try
+	      {
+	    	  Class.forName("com.mysql.jdbc.Driver");
+	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
+	          Statement st= con.createStatement();
+	          ResultSet rs = st.executeQuery("select P.pro_fecha as Fecha, P.pro_peso as Peso, P.Pro_estatura as Estatura,TP.Tip_descripcion as Proceso, R.Rut_nombre as Rutina, P.Pro_observacion as Observacion  From proceso P, Rutina R, Usuarios u, tipo_proceso TP where U.usu_id=P.usu_id and P.usu_id=" + id ); 
+	         while (rs.next())
+	         {
+	        	String fecha =rs.getString("Fecha");
+	        	double peso = rs.getDouble("Peso");
+	        	double estatura = rs.getDouble("Estatura");
+	        	String proceso =rs.getString("Proceso");
+	        	String rutina =rs.getString("Rutina");
+	        	String observacion =rs.getString("Observacion");
+	            Proceso miproceso = new Proceso(peso,estatura,observacion,fecha,proceso,rutina);
+	            listaProceso.add(miproceso);
+	         }
+	         rs.close();
+	         st.close();
+	         con.close();
+	      }
+	      catch (Exception e)
+	      {
+	         e.printStackTrace();
+	      }
+	      return listaProceso;
+	   }
 }
 
 

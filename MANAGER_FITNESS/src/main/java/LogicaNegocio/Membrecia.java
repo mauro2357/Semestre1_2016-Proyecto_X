@@ -7,13 +7,21 @@ import repositorios.MembreciaRepositorio;
 public abstract class Membrecia {
 	private String fecha;
 	private int usuId;
+	//private static Membrecia membrecia=null;
 	
 	
 	public Membrecia(String fecha, int usuId) {
-		super();
 		this.fecha = fecha;
 		this.usuId = usuId;
+		
 	}
+	/*
+	public static Membrecia getInstance(String fech, int Id) {
+        if (membrecia == null) {
+            membrecia= new Membrecia(fech, Id);
+        }
+        return membrecia;
+		}*/
 
 
 	public String getFecha() {
