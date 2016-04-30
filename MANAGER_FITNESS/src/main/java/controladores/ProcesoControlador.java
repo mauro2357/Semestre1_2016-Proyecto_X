@@ -62,6 +62,8 @@ public class ProcesoControlador extends HttpServlet {
 	        	    LinkedList<Proceso> listaProceso=ProcesoRepositorio.getProceso(idCliente);
 	        	    request.setAttribute("lista", listaProceso);
 	        	    rd= request.getRequestDispatcher("VistaEntrenador.jsp");
+	        	    rd.forward(request, response);
+	        	    
 	        	}
 	        } catch (NumberFormatException e) {
 	            request.setAttribute("estado", "error");

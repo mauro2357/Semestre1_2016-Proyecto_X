@@ -219,17 +219,21 @@ th, td {
 				       <tbody>
 				<%
 				LinkedList<Proceso> listaProceso = (LinkedList<Proceso>)request.getAttribute("lista");
-				for (int i=0;i<lista1.size();i++)
-				{
-				   out.println("<tr>");
-				   out.println("<td>"+listaProceso.get(i).getFecha()+"</td>");
-				   out.println("<td>"+listaProceso.get(i).getPeso()+"</td>");
-				   out.println("<td>"+listaProceso.get(i).getEstatura()+"</td>");
-				   out.println("<td>"+listaProceso.get(i).getProceso()+"</td>");
-				   out.println("<td>"+listaProceso.get(i).getRutina()+"</td>");
-				   out.println("<td>"+listaProceso.get(i).getObservacion()+"</td>");
-				   out.println("</tr>");
+				if(listaProceso!= null){
+					for (int i=0;i<lista1.size();i++)
+					{
+					   out.println("<tr>");
+					   out.println("<td>"+listaProceso.get(i).getFecha()+"</td>");
+					   out.println("<td>"+listaProceso.get(i).getPeso()+"</td>");
+					   out.println("<td>"+listaProceso.get(i).getEstatura()+"</td>");
+					   out.println("<td>"+listaProceso.get(i).getProceso()+"</td>");
+					   out.println("<td>"+listaProceso.get(i).getRutina()+"</td>");
+					   out.println("<td>"+listaProceso.get(i).getObservacion()+"</td>");
+					   out.println("</tr>");
+					}
+					
 				}
+				
 				%>
 				  </tbody>
 				</table>
