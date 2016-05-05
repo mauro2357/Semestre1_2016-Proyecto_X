@@ -74,14 +74,16 @@ th, td {
 				      </thead>
 				       <tbody>
 				<%
-				LinkedList<Eventos> lista1 = EventosRepositorio.getEventos();
-				for (int i=0;i<lista1.size();i++)
+				LinkedList<Eventos> listaEventos = (LinkedList<Eventos>)request.getAttribute("lista");
+				if(listaEventos!= null){	
+				for (int i=0;i<listaEventos.size();i++)
 				{
 				   out.println("<tr>");
-				   out.println("<td>"+lista1.get(i).getFecha()+"</td>");
-				   out.println("<td>"+lista1.get(i).getDescripcion()+"</td>");
-				   out.println("<td>"+lista1.get(i).getNombreEntrenador()+"</td>");
+				   out.println("<td>"+listaEventos.get(i).getFecha()+"</td>");
+				   out.println("<td>"+listaEventos.get(i).getDescripcion()+"</td>");
+				   out.println("<td>"+listaEventos.get(i).getNombreEntrenador()+"</td>");
 				   out.println("</tr>");
+				}
 				}
 				%>
 				  </tbody>
