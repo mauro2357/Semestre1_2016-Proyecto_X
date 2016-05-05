@@ -68,7 +68,7 @@ public class ProcesoRepositorio {
 	    	  Class.forName("com.mysql.jdbc.Driver");
 	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
 	          Statement st= con.createStatement();
-	          ResultSet rs = st.executeQuery("select P.pro_fecha as Fecha, P.pro_peso as Peso, P.Pro_estatura as Estatura,TP.Tip_descripcion as Proceso, R.Rut_nombre as Rutina, P.Pro_observacion as Observacion  From proceso P, Rutina R,tipo_proceso TP where P.Rut_codigo= R.Rut_codigo and P.tip_codigo= TP.tip_codigo and P.usu_id=" + id ); 
+	          ResultSet rs = st.executeQuery("select P.pro_fecha as Fecha, P.pro_peso as Peso, P.Pro_estatura as Estatura,TP.Tip_descripcion as Proceso, R.Rut_nombre as Rutina, P.Pro_observacion as Observacion  From proceso P, Rutina R, Usuarios u, tipo_proceso TP where U.usu_id=P.usu_id and P.usu_id=" + id ); 
 	         while (rs.next())
 	         {
 	        	String fecha =rs.getString("Fecha");

@@ -27,7 +27,23 @@ public class EntrenadorControlador extends HttpServlet {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
 	        try{
-	        	
+	        	if(request.getParameter("formulario").equals("cancelarEvento")){
+	        		int codigo = Integer.parseInt(request.getParameter("cancelar"));
+	        		Eventos evento = new Eventos(codigo);
+	        		if(EntrenadorRepositorio.modificar(evento)){
+		            	 out.print("<p style=\"color:red\">SE CANCELO EL EVETO EXITOSAMENTE</p>");    
+		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
+		            	 rd.include(request,response);
+	            	     out.close();
+		             }
+		             else{
+		            	 out.print("<p style=\"color:red\">NO SE PUDO CANCELAR EL EVENTO</p>");    
+		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
+		            	 rd.include(request,response);
+	            	     out.close();
+		            	 
+		             }
+	        	}
 	        	
 	        	
 	        	

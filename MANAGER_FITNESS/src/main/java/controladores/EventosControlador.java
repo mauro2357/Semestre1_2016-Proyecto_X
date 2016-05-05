@@ -3,7 +3,6 @@ package controladores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,11 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Eventos;
-import LogicaNegocio.Proceso;
 import LogicaNegocio.Usuarios;
-import repositorios.EntrenadorRepositorio;
 import repositorios.EventosRepositorio;
-import repositorios.ProcesoRepositorio;
 import repositorios.UsuariosRepositorio;
 import repositorios.conexion;
 
@@ -28,7 +24,7 @@ public class EventosControlador extends HttpServlet {
 	private RequestDispatcher rd;
 	
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
 		    String str = request.getSession().getAttribute("usuario").toString();
@@ -48,31 +44,14 @@ public class EventosControlador extends HttpServlet {
 		            	 out.print("<p style=\"color:red\">NO SE PUDO CREAR EL EVENTO</p>");    
 		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
 		            	 rd.include(request,response);
-	            	     out.close();	 
-		             }
-	        	}
-	        	if(request.getParameter("formulario").equals("cancelarEvento")){
-	        		int codigo = Integer.parseInt(request.getParameter("cancelar"));
-	        		Eventos evento = new Eventos(codigo);
-	        		if(EntrenadorRepositorio.modificar(evento)){
-		            	 out.print("<p style=\"color:red\">SE CANCELO EL EVETO EXITOSAMENTE</p>");    
-		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
-		            	 rd.include(request,response);
-	            	     out.close();
-		             }
-		             else{
-		            	 out.print("<p style=\"color:red\">NO SE PUDO CANCELAR EL EVENTO</p>");    
-		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
-		            	 rd.include(request,response);
 	            	     out.close();
 		            	 
 		             }
 	        	}
-	        		
+	        	
 	        }catch(NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        }finally{
-	        	   
 	        }
 	}
 	
@@ -80,13 +59,7 @@ public class EventosControlador extends HttpServlet {
 	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			processRequest(request, response);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		processRequest(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

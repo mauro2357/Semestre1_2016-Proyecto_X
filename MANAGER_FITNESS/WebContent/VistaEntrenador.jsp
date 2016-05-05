@@ -148,7 +148,7 @@ th, td {
           <div class="wrapper">
           <figure class="img-indent-r"><img src="images/page3-img3.jpg" alt=""></figure>
           <div class="extra-wrap">
-            <div class="indent1"><form id="contact-form" action="EventosControlador" method="get">
+            <div class="indent1"><form id="contact-form" action="EntrenadorControlador" method="get">
               <fieldset>
               <table style = "width:67%">
             <thead>
@@ -205,7 +205,7 @@ th, td {
               </span>
       		  <button type="submit" name="formulario" value="conocerProceso" class="button-2">Consultar</button>
       		  <br></br>
-            <table style = "width:200%">
+            <table style = "width:100%">
             <thead>
             	<tr>
 				<th>Fecha</th> 
@@ -220,7 +220,7 @@ th, td {
 				<%
 				LinkedList<Proceso> listaProceso = (LinkedList<Proceso>)request.getAttribute("lista");
 				if(listaProceso!= null){
-					for (int i=0;i<listaProceso.size();i++)
+					for (int i=0;i<lista1.size();i++)
 					{
 					   out.println("<tr>");
 					   out.println("<td>"+listaProceso.get(i).getFecha()+"</td>");
