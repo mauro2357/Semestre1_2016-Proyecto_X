@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import LogicaNegocio.Login;
 import repositorios.ConsultasRepositorio;
+import LogicaNegocio.Factory;
 @WebServlet("/LoginControlador")
 public class LoginControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,11 +24,10 @@ public class LoginControlador extends HttpServlet {
 			HttpSession s = request.getSession(true); 
 			s.setAttribute("usuario", request.getParameter("id"));
 	        try{
+	        	Factory mifactory= Factory.getinstance();
 	        	if(request.getParameter("formulario").equals("login")){
-		        	 int id = Integer.parseInt(request.getParameter("id"));
-		             String pass =request.getParameter("pass");
-		             Login entrar = Login.getinstance(id,pass);
-		             if(ConsultasRepositorio.autenticar(entrar)){
+		        	 mifactory.Crear(request);
+		             if(ConsultasRepositorio.autenticar(Login.milogin)){
 		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
 		            	 rd.forward(request, response);
 		            	 out.close();
