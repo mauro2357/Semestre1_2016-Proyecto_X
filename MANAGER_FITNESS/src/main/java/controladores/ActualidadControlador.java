@@ -17,7 +17,7 @@ import repositorios.EventosRepositorio;
 
 
 
-@WebServlet("/EventosControlador")
+@WebServlet("/ActualidadControlador")
 public class ActualidadControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

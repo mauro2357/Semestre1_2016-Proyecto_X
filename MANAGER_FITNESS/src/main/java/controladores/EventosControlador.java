@@ -2,8 +2,6 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,13 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Eventos;
-import LogicaNegocio.Proceso;
-import LogicaNegocio.Usuarios;
 import repositorios.EntrenadorRepositorio;
 import repositorios.EventosRepositorio;
-import repositorios.ProcesoRepositorio;
-import repositorios.UsuariosRepositorio;
-import repositorios.conexion;
 
 
 @WebServlet("/EventosControlador")
