@@ -2,6 +2,7 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
@@ -22,16 +23,14 @@ public class ProcesoControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
 	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
+		    String str = request.getSession().getAttribute("usuario").toString();
+		    int id= Integer.parseInt(str);
 	        try{
 	        	if(request.getParameter("formulario").equals("imc")){
-	        		System.out.println("hola");
-		        	 double talla = Double.parseDouble(request.getParameter("talla"));
-		             double peso =Double.parseDouble(request.getParameter("peso"));
-		             double resultado = peso/(talla*talla);
-		             System.out.println(resultado);
+		             double resultado = ProcesoRepositorio.consultarImc(id);
 		             request.setAttribute("resultado",Double.toString(resultado));
 		             rd = request.getRequestDispatcher("VistaHome.jsp");
 		             rd.forward(request, response);
@@ -76,7 +75,12 @@ public class ProcesoControlador extends HttpServlet {
   
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

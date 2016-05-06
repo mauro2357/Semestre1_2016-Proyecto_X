@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Factory {
 	private static Factory mifactory=null;
+	
 	private Factory() {
 		super();
 	}

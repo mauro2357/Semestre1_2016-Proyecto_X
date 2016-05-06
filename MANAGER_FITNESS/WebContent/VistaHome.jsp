@@ -105,6 +105,7 @@
               <li><a>Médico </a></li>
               <li><a>1 Hora Diaria </a></li>
               <li><a>Nutricionista </a></li>
+              <li><a>Bonos </a></li>
               <a>$80.000 </a>
             </ul>
             <span class="text-form"></span><span class="buttons">
@@ -144,26 +145,32 @@
             </form>
           	 </div>
            </div>
-          <article class="grid_4">
-            <h3>Otras Opciones</h3>
-            <ul class="list-1">
-              <li>Conocer el IMC</li>
+           
+      <section id="content">
+       <div class="main">
+        <div class="container_12">
+        <div class="wrapper img-indent-bot">
+          <article class="grid_8"> 
+          <article class="grid_8">
+          <h3 class="img-indent-right" >OTRAS OPCIONES!</h3>
+            <br></br>
+            <ul class="list-1 img-indent-bot">
+              <a><li>Conocer el Imc</li></a>
               <form method ="get" action = "ProcesoControlador">
-              <span class="text-form"></span><span class="border">
-                  <input type="text" placeholder = "Talla" name = "talla">
+              	 <span class="text-form"></span><span class="border">
+                  <input type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)
+                                                                  out.println(request.getAttribute("resultado"));
+                                                                  else out.println(" "); %>" disabled="disabled" />
                   </span>
-                  <span class="text-form"></span><span class="border">
-                  <input type="text" placeholder = "Peso" name = "peso">
-                  </span>
-                  <br></br>
-      			  <button type="submit" name="formulario" value="imc" class="button-2">Resultado</button>
-      			  <span class="text-form"></span><span class="border">
-                  <input type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)out.println(request.getAttribute("resultado"));else out.println(" "); %>" disabled="disabled" />
-                  </span>
+      			  <button type="submit" name="formulario" value="imc" class="button-2">IMC</button>
+      			  
               </form>
             </ul>
           </article>
          </div>
+         </div>
+         </div>
+         </section>
         </div>
     </div>
   </section>

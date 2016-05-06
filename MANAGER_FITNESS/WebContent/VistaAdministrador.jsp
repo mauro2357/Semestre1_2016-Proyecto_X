@@ -103,14 +103,14 @@
           <div class="wrapper">
             <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
             <div class="extra-wrap">
-              <div class="indent"> <form id="contact-form" action="inicio" method="get">
+              <div class="indent"> <form id="contact-form" action="RecibosControlador" method="get">
               <fieldset>
                  <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Nombre" name ="nombre">
+                  <input type="text" placeholder = "C.C. Cliente" name ="id">
                   </span> 
                   <br></br>
                   <span class="text-form"></span><span class="buttons">
-                  <button type="submit" name="formulario" value="registrar" class="button-2"> Imprimir </button>
+                  <button type="submit" name="formulario" value="generar" class="button-2"> Generar </button>
                   </span>
               </fieldset>
               </form>
@@ -122,14 +122,16 @@
        </div>
       </header>
       
+      
       <section id="content">
        <div class="main">
         <div class="container_12">
         <div class="wrapper img-indent-bot">
-          <article class="grid_4">
-            <h3>Otras Opciones</h3>
+          <article class="grid_8">
+            <h3 class="img-indent-right" >OTRAS OPCIONES!</h3>
+            <br></br>
              <ul class="list-1">
-              <li><a href="#">Conocer el numero de clientes</a></li>
+              <a><li>Conocer el numero de clientes</li></a>
               </ul>
               <form method= "get" action="UsuariosControlador" >
               <span class="text-form"></span><span>

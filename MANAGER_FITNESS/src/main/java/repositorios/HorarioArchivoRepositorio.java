@@ -30,10 +30,8 @@ public class HorarioArchivoRepositorio implements IHorarioRepositorio{
             FileWriter w = new FileWriter(archivo);
             BufferedWriter bw = new BufferedWriter(w);
 
-            bw.write(i);                
-            System.out.println(i);          
+            bw.write(i);                      
             bw.close();
-            System.out.println(i);
             st.executeUpdate(i);
             st.close();
         }catch (IOException e) {	

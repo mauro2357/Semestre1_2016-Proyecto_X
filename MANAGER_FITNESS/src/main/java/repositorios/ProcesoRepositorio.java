@@ -12,6 +12,19 @@ import LogicaNegocio.TipoProceso;
 
 
 public class ProcesoRepositorio {
+	
+	public static double consultarImc(int id) throws SQLException {
+		conexion con= new conexion();
+        String consulta= ("Select Pro_peso as Peso, Pro_estatura as Estatura From proceso  where Usu_id= "+id+" order by pro_fecha desc limit 1");  
+        ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+        	if(miconsulta.next()){
+        	  double peso=miconsulta.getDouble("Peso");
+        	  double estatura=miconsulta.getDouble("Estatura");
+              return peso/(estatura*estatura);
+            }
+       return 0;     
+   }
+	
 	public static LinkedList<TipoProceso> getTipoProceso()
 	   {
 	      LinkedList<TipoProceso> listaTipoProceso=new LinkedList<TipoProceso>();
