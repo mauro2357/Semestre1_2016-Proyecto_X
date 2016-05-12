@@ -46,6 +46,10 @@ public abstract class Membrecia {
 		if(MembreciaRepositorio.agregarMembrecia(this)) return true;
 		return false;
 	}
+	public boolean obtener() throws SQLException{
+		if (comprar() && agregarbd()) return true;
+		return false;
+	}
 	
 	public abstract boolean comprar () throws SQLException;
 	

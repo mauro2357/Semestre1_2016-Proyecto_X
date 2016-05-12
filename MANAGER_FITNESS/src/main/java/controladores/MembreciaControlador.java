@@ -33,7 +33,7 @@ public class MembreciaControlador extends HttpServlet {
         	if(request.getParameter("formulario").equals("comprarPrincipiante")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia principiante= new Principiante(fecha,id);
-	             if (principiante.comprar() && principiante.agregarbd()){
+	             if (principiante.obtener()){
 	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");    
 	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
 	            	 rd.include(request,response);
@@ -47,7 +47,7 @@ public class MembreciaControlador extends HttpServlet {
         	else if(request.getParameter("formulario").equals("comprarPracticante")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia practicante= new Practicante(fecha,id);
-	             if (practicante.comprar() && practicante.agregarbd()){
+	             if (practicante.obtener()){
 	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");    
 	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
 	            	 rd.include(request,response);
@@ -61,8 +61,8 @@ public class MembreciaControlador extends HttpServlet {
         	else if(request.getParameter("formulario").equals("comprarAnimalex")){
 	        	 String fecha=Fecha.ObtenerFecha();
 	             Membrecia animalex= new Animalex(fecha,id);
-	             if (animalex.comprar() && animalex.agregarbd()){
-	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");    
+	             if (animalex.obtener()){
+	            	 out.print("<p style=\"color:blue\">COMPRA EXITOSA</p>");
 	            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
 	            	 rd.include(request,response);
 	             }
@@ -72,6 +72,7 @@ public class MembreciaControlador extends HttpServlet {
 	            	rd.include(request,response); 
 	             }
         	}
+  
         	
         }catch(NumberFormatException e) {
             request.setAttribute("estado", "error");
