@@ -22,18 +22,19 @@ public class LoginControlador extends HttpServlet {
 			HttpSession s = request.getSession(true); 
 			s.setAttribute("usuario", request.getParameter("id"));
 	        try{
-	        	if(FacadeLogin.orquestador(request,s).equals("login")){
+	        	String respuesta=FacadeLogin.orquestador(request,s);
+	        	if(respuesta.equals("login")){
 	        		rd= request.getRequestDispatcher("VistaHome.jsp");
 			        rd.forward(request, response);
 			        out.close();
 			    }
-	        	else if(FacadeLogin.orquestador(request,s).equals("no login")){
+	        	else if(respuesta.equals("no login")){
 	        		out.print("<p style=\"color:blue\">USUARIO Y/O CONTRASEÑA INCORRECTOS</p>");    
 		            rd=request.getRequestDispatcher("VistaLogin.jsp"); 
 		            rd.include(request,response);
 		            out.close();	 
 		        }
-	        	else if(FacadeLogin.orquestador(request,s).equals("salir")){
+	        	else if(respuesta.equals("salir")){
 	        		s.invalidate();
 	        		s=request.getSession(false);
 	        		rd=request.getRequestDispatcher("VistaLogin.jsp");
