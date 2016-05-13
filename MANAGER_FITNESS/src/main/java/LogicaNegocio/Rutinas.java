@@ -5,6 +5,13 @@ public class Rutinas {
 	private String nombre;
 	private String descripcion;
 	private int calorias;
+	
+	public Rutinas(String nombre, String descripcion, int calorias) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.calorias = calorias;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

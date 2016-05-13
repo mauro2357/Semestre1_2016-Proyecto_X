@@ -6,9 +6,9 @@
 <%@ page import = "repositorios.RutinaRepositorio"%>
 <%@ page import = "controladores.ProcesoControlador"%>
 <%@ page import = "LogicaNegocio.*"%>
-    
 <!DOCTYPE html>
 <html lang="en">
+<%HttpSession s = request.getSession(true); %>
 <head>
 <title>ManagerFitness | Entrenador</title>
 <meta charset="utf-8">
@@ -35,10 +35,15 @@ th, td {
       <div class="main">
         <nav>
           <ul class="menu wrapper">
-            <li><a href="VistaHome.jsp">Cliente</a></li>
+           <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
+            		<li><a href="VistaHome.jsp">Cliente</a></li>
+            <%}if (s.getAttribute("tipousuario").equals("ENTR") || s.getAttribute("tipousuario").equals("ADMI")){ %>
+            		<li><a class="active" href="VistaEntrenador.jsp">Entrenador</a></li>
+            <%}if (s.getAttribute("tipousuario").equals("ADMI")){ %>
+            		<li><a href="VistaAdministrador.jsp">Administrador</a></li>
+            <%}} %>
             <li><a href="VistaEventos.jsp">Actualidad</a></li>
-            <li><a href="VistaAdministrador.jsp">Administrador</a></li>
-            <li><a class="active" href="VistaEntrenador.jsp">Entrenador</a></li>
             <li><a href="VistaSugerencias.jsp">Sugerencias</a></li>
           </ul>
         </nav>
@@ -174,10 +179,11 @@ th, td {
 				%>
 				  </tbody>
 				</table>
+				<br></br>
 				<span class="text-form"></span><span>
                   <input type="text" placeholder = "Codigo del Evento" name ="cancelar">
                   </span> 
-              
+              		<br></br>
                   <span class="text-form"></span><span class="buttons">
                   <button type="submit" name="formulario" value="cancelarEvento" class="button-2"> Cancelar </button>
                   </span>

@@ -1,7 +1,7 @@
 package LogicaNegocio;
 
 import repositorios.IHorarioRepositorio;
-import repositorios.MembreciaRepositorio;
+
 
 public class Horario {
 	private int usu_id;

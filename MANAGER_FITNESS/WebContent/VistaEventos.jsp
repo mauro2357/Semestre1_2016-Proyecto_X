@@ -7,6 +7,7 @@
 <%@ page import = "java.util.LinkedList"%> 
 <!DOCTYPE html>
 <html lang="en">
+<%HttpSession s = request.getSession(true); %>
 <head>
 <title>ManagerFitness | Actualidad</title>
 <meta charset="utf-8">
@@ -33,11 +34,16 @@ th, td {
       <div class="main">
         <nav>        
           <ul class="menu wrapper">
-            <li><a href="VistaHome.jsp">Cliente</a></li>
+           <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
+            		<li><a href="VistaHome.jsp">Cliente</a></li>
+            <%}if (s.getAttribute("tipousuario").equals("ENTR") || s.getAttribute("tipousuario").equals("ADMI")){ %>
+            		<li><a href="VistaEntrenador.jsp">Entrenador</a></li>
+            <%}if (s.getAttribute("tipousuario").equals("ADMI")){ %>
+            		<li><a href="VistaAdministrador.jsp">Administrador</a></li>
+            <%}} %>
             <li><a class="active" href="VistaEventos.jsp">Actualidad</a></li>
-            <li><a href="VistaAdministrador.jsp">Administrador</a></li>
-            <li><a href="VistaEntrenador.jsp">Entrenador</a></li>
-            <li><a href="VistaAdministrador.jsp">Sugerencias</a></li>
+            <li><a href="VistaSugerencias.jsp">Sugerencias</a></li>
           </ul>
         </nav>
       </div>
@@ -74,8 +80,7 @@ th, td {
 				      </thead>
 				       <tbody>
 				<%
-				HttpSession s = request.getSession();
-				LinkedList<Eventos> listaEventos = (LinkedList<Eventos>) s.getAttribute("lista");
+				LinkedList<Eventos> listaEventos = EventosRepositorio.getEventos();
 				if(listaEventos!= null){	
 				for (int i=0;i<listaEventos.size();i++)
 				{

@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+<%HttpSession s = request.getSession(true); %>
 </head>
 
 <body id="page5">
@@ -18,10 +19,15 @@
       <div class="main">
         <nav>
           <ul class="menu wrapper">
-            <li><a href="VistaHome.jsp">Cliente</a></li>
+           <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
+            		<li><a href="VistaHome.jsp">Cliente</a></li>
+             <%}if (s.getAttribute("tipousuario").equals("ENTR") || s.getAttribute("tipousuario").equals("ADMI")){ %>
+             		<li><a href="VistaEntrenador.jsp">Entrenador</a></li>
+             <%}if (s.getAttribute("tipousuario").equals("ADMI")){ %>
+             		<li><a href="VistaAdministrador.jsp">Administrador</a></li>
+             <%}} %>
             <li><a href="VistaEventos.jsp">Actualidad</a></li>
-            <li><a href="VistaAdministrador.jsp">Administrador</a></li>
-            <li><a href="VistaEntrenador.jsp">Entrenador</a></li>
             <li><a class="active"  href="VistaSugerencias.jsp">Sugerencias</a></li>
           </ul>
         </nav>

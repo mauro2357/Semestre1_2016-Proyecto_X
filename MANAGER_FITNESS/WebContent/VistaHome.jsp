@@ -57,7 +57,7 @@
       <li><a href="#tab1">Manager Fitness</a></li>
       <%if(s.getAttribute("tipousuario") != null){
         	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
-      <li><a href="#tab2">Tus Rutinas y Dietas </a></li>
+      <li><a href="#tab2">Rutinas y Dietas </a></li>
       <li><a href="#tab3">Conoce Tu Proceso</a></li>
       <%}} %>
     </ul>
@@ -73,16 +73,41 @@
           </div>
         </div>
       </div>
-      <div id="tab2" class="tab_content">
+       <div id="tab2" class="tab_content">
         <div class="main">
           <div class="wrapper">
             <figure class="img-indent-r"><img src="images/page1-img2.jpg" alt=""></figure>
             <div class="extra-wrap">
-              <div class="indent"> <strong class="title">Ejercicio y Dieta</strong>
-              </div>
+             <div class="indent1"><form id="contact-form" action="" method="get">
+              <fieldset>
+		            <table style = "width:100%">
+		            <thead>
+		            	<tr>
+						<th>Rutina</th> 
+						<th>Descripcion</th>
+						<th>Calorías</th>
+						</tr>
+						      </thead>
+						       <tbody>
+						<%
+						LinkedList<Rutinas> lista = RutinaRepositorio.getCalorias();
+							for (int i=0;i<lista.size();i++)
+							{
+							   out.println("<tr>");
+							   out.println("<td>"+lista.get(i).getNombre()+"</td>");
+							   out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
+							   out.println("<td>"+lista.get(i).getCalorias()+"</td>");
+							   out.println("</tr>");
+							}
+						%>
+						  </tbody>
+						</table>
+		              </fieldset>
+		            </form>
             </div>
           </div>
         </div>
+      </div>
       </div>
       <div id="tab3" class="tab_content">
         <div class="main">

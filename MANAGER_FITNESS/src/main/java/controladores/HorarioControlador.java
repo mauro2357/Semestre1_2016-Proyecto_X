@@ -14,8 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import LogicaNegocio.Entrenador;
 import LogicaNegocio.Horario;
 import LogicaNegocio.Programacion;
-import repositorios.HorarioArchivoRepositorio;
-import repositorios.HorarioRepositorio;
+
 import repositorios.ProxyHorarioArchivoRepositorio;
 import repositorios.ProxyHorarioRepositorio;
 import repositorios.UsuariosRepositorio;
