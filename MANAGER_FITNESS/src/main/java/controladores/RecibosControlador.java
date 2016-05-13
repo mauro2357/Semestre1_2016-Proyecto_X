@@ -13,6 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import repositorios.ProcesoRepositorio;
 import repositorios.ReciboRepositorio;
 
 
@@ -24,6 +27,8 @@ public class RecibosControlador extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		PrintWriter out= response.getWriter();
 	    response.setContentType("text/html;charset=UTF-8");
+	    String str = request.getSession().getAttribute("usuario").toString();
+	    int id= Integer.parseInt(str);
         try{
         	if(request.getParameter("formulario").equals("generar")){
 	        	 int cedula = Integer.parseInt(request.getParameter("id"));
@@ -42,7 +47,19 @@ public class RecibosControlador extends HttpServlet {
             	 rd=request.getRequestDispatcher("VistaAdministrador.jsp"); 
             	 rd.include(request,response);
             	 out.close();	 
-        	}
+            	 
+        	}else if(request.getParameter("formulario").equals("estado")){
+        		if (ReciboRepositorio.ConsultarEstado(id)){
+        			request.setAttribute("mensualidad","Activa");
+   	             	rd = request.getRequestDispatcher("VistaHome.jsp");
+   	             	rd.forward(request, response);
+        		}else{
+        			request.setAttribute("mensualidad","Inactiva");
+   	             	rd = request.getRequestDispatcher("VistaHome.jsp");
+   	             	rd.forward(request, response);
+        		}
+       	}
+        	
         } catch (NumberFormatException e) {
             request.setAttribute("estado", "error");
          }finally{

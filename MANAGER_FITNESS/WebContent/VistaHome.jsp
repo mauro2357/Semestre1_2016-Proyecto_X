@@ -235,7 +235,7 @@
           <h3 class="img-indent-right" >OTRAS OPCIONES!</h3>
             <br></br>
             <ul class="list-1 img-indent-bot">
-              <a><li>Conocer el Imc</li></a>
+              <h3><a><li>Conocer el Imc</li></a></h3>
               <form method ="get" action = "ProcesoControlador">
               	 <span class="text-form"></span><span class="border">
                   <input type="text" name="resultado" value="<% if (request.getAttribute("resultado")!= null)
@@ -243,8 +243,20 @@
                                                                   else out.println(" "); %>" disabled="disabled" />
                   </span>
       			  <button type="submit" name="formulario" value="imc" class="button-2">IMC</button>
+      			  <br></br>
+              </form>
+              
+              <h3><a><li >Estado Mensualidad</li></a></h3>
+              <form method ="get" action = "RecibosControlador">
+              	 <span class="text-form"></span><span class="border">
+                 <input type="text" name="mensualidad" value="<% if (request.getAttribute("mensualidad")!= null)
+                                                                  out.println(request.getAttribute("mensualidad"));
+                                                                  else out.println(" "); %>" disabled="disabled" />
+                  </span>
+      			  <button type="submit" name="formulario" value="estado" class="button-2">MENSUALIDAD</button>
       			  
               </form>
+              
             </ul>
           </article>
          </div>

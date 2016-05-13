@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import LogicaNegocio.Fecha;
+
 public class ReciboRepositorio {
 	private static conexion con= new conexion();
     Statement st;
@@ -20,6 +22,17 @@ public class ReciboRepositorio {
               return reciboPago;
             }
        return "";     
+   }
+
+	public static boolean ConsultarEstado(int id) throws SQLException {
+        String consulta= ("Select men_fecha as Fecha From mensualidad where usu_id= "+id+" order by Men_fecha desc limit 1");  
+        ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+        String fecha="";
+        if(miconsulta.next()){
+             fecha= miconsulta.getString("Fecha"); 	  
+        }
+        if (Fecha.diferencia(fecha)> 30)return false;
+        return true;     
    }
 
 }

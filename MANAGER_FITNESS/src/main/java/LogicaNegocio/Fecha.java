@@ -1,7 +1,10 @@
 package LogicaNegocio;
 
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import repositorios.MembreciaConsultasRepositorio;
 
 public class Fecha {
 	private static int año;
@@ -42,5 +45,17 @@ public class Fecha {
 	public static void setDia(int dia) {
 		Fecha.dia = dia;
 	}
-
+	public static int diferencia(String fecha ) throws SQLException{
+		int año1=Integer.parseInt(fecha.substring(0,4));
+		int mes1=Integer.parseInt(fecha.substring(5,7));
+		int dia1=Integer.parseInt(fecha.substring(8));
+		String fecha2=Fecha.ObtenerFecha();
+		int año2= Fecha.getAño();
+		int mes2=Fecha.getMes();
+		int dia2= Fecha.getDia();
+		int dias1=año1*365 + mes1*30 +dia1;
+		int dias2=año2*365 + mes2*30 +dia2;
+		int dif=dias2-dias1;
+		return dif;
+	}
 }
