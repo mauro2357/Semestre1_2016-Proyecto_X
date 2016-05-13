@@ -6,7 +6,6 @@
 <%@ page import = "repositorios.RutinaRepositorio"%>
 <%@ page import = "controladores.ProcesoControlador"%>
 <%@ page import = "LogicaNegocio.*"%>
-<%@ page import = "repositorios.ConsultasRepositorio"%>
 <!DOCTYPE html>
 <html lang="en">
 <%HttpSession s = request.getSession(true); %>
@@ -244,36 +243,8 @@ th, td {
 				%>
 				  </tbody>
 				</table>
-            <br></br>
-
-          	<article class="grid_">
-            <h3>Nuestros Clientes</h3>
-            <table style = "width:200%">
-            <thead>
-            	<tr>
-				<th>Identificación</th> 
-				<th>Cliente</th>
-				<th>Fecha de Inscripción</th>
-				</tr>
-				      </thead>
-				       <tbody>
-				<%
-				LinkedList<Fidelizacion> listaFidelizacion = ConsultasRepositorio.getFidelizacion();
-					for (int i=0;i<listaFidelizacion.size();i++)
-					{
-					   out.println("<tr>");
-					   out.println("<td>"+listaFidelizacion.get(i).getId()+"</td>");
-					   out.println("<td>"+listaFidelizacion.get(i).getNombre()+"</td>");
-					   out.println("<td>"+listaFidelizacion.get(i).getFecha()+"</td>");
-					   out.println("</tr>");
-					}
-				%>
-				  </tbody>
-				</table>
-            	</article>
-            	
+            
       		  </form>
-      		  
           </article>
         </div>
       </div>

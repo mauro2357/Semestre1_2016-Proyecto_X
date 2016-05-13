@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import LogicaNegocio.Enfermedades;
-import LogicaNegocio.Fidelizacion;
 import LogicaNegocio.Login;
 import repositorios.conexion;
 
@@ -79,33 +78,6 @@ public class ConsultasRepositorio {
 	         e.printStackTrace();
 	      }
 	      return listaEnfermedades;
-	   }
-	public static LinkedList<Fidelizacion> getFidelizacion()
-	   {
-	      LinkedList<Fidelizacion> listaFidelizacion =new LinkedList<Fidelizacion>();
-	      try
-	      {
-	    	  Class.forName("com.mysql.jdbc.Driver");
-	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
-	          Statement st= con.createStatement();
-	          ResultSet rs = st.executeQuery("select  C.usu_id as Cedula, U.usu_nombre as Nombre, C.Cli_fecha_inscripcion as Fecha From Usuarios U, Cliente C where U.usu_id= C.usu_id " ); 
-	         while (rs.next())
-	         {
-	        	int id = rs.getInt("Cedula");
-	        	String nombre =rs.getString("Nombre");
-	        	String fecha =rs.getString("Fecha");
-	        	Fidelizacion fidelizacion = new Fidelizacion(id, nombre,fecha);
-	            listaFidelizacion.add(fidelizacion);
-	         }
-	         rs.close();
-	         st.close();
-	         con.close();
-	      }
-	      catch (Exception e)
-	      {
-	         e.printStackTrace();
-	      }
-	      return listaFidelizacion;
 	   }
 	
 		
