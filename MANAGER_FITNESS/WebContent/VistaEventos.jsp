@@ -74,7 +74,8 @@ th, td {
 				      </thead>
 				       <tbody>
 				<%
-				LinkedList<Eventos> listaEventos = (LinkedList<Eventos>)request.getAttribute("lista");
+				HttpSession s = request.getSession();
+				LinkedList<Eventos> listaEventos = (LinkedList<Eventos>) s.getAttribute("lista");
 				if(listaEventos!= null){	
 				for (int i=0;i<listaEventos.size();i++)
 				{

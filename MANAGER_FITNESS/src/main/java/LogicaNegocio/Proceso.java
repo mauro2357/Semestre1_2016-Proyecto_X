@@ -9,6 +9,7 @@ public  class Proceso {
 	private String observacion;
 	private String fecha;
 	private String proceso;
+	private String nombreRutina;
 	
 	public Proceso(double peso, double estatura, String observacion, String fecha, String proceso,
 			String nombreRutina) {
@@ -32,9 +33,6 @@ public  class Proceso {
 	public void setNombreRutina(String nombreRutina) {
 		this.nombreRutina = nombreRutina;
 	}
-	private String nombreRutina;
-	
-	
 	public String getFecha() {
 		return fecha;
 	}

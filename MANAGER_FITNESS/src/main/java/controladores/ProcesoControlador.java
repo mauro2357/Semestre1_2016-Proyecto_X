@@ -62,8 +62,15 @@ public class ProcesoControlador extends HttpServlet {
 	        	    request.setAttribute("lista", listaProceso);
 	        	    rd= request.getRequestDispatcher("VistaEntrenador.jsp");
 	        	    rd.forward(request, response);
-	        	    
 	        	}
+	        	if(request.getParameter("formulario").equals("proceso")){
+	        		int idCliente = id; 
+	        		LinkedList<Proceso> listaProceso=ProcesoRepositorio.getProceso(idCliente);
+	        	    request.setAttribute("lista", listaProceso);
+	        	    rd= request.getRequestDispatcher("VistaHome.jsp");
+	        	    rd.forward(request, response);
+	        	}
+	        	
 	        } catch (NumberFormatException e) {
 	            request.setAttribute("estado", "error");
 	        	
@@ -78,13 +85,11 @@ public class ProcesoControlador extends HttpServlet {
 		try {
 			processRequest(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

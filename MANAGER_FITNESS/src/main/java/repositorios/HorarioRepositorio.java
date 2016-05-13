@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-import LogicaNegocio.Entrenador;
 import LogicaNegocio.Eventos;
 import LogicaNegocio.Horario;
 
@@ -35,7 +34,36 @@ public class HorarioRepositorio implements IHorarioRepositorio{
         }
         return true;
     }
-	
+	public static LinkedList<Horario> getHorario()
+	   {
+	      LinkedList<Horario> listaHorario=new LinkedList<Horario>();
+	      try
+	      {
+	    	  Class.forName("com.mysql.jdbc.Driver");
+	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
+	          Statement st= con.createStatement();
+	          ResultSet rs = st.executeQuery("select hor_descripcion as descripcion, Hor_id as codigo from horario;");
+	         while (rs.next())
+	         {
+	        	String descripcion=rs.getString("descripcion");
+	        	int codigo =rs.getInt("codigo");
+	            Horario horario = new Horario(descripcion, codigo);
+	            listaHorario.add(horario);
+	         }
+	         rs.close();
+	         st.close();
+	         con.close();
+	      }
+	      catch (Exception e)
+	      {
+	         e.printStackTrace();
+	      }
+	      return listaHorario;
+	   }
 	
 }
+	
+	
+
+	
 

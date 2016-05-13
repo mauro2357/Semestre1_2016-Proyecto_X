@@ -28,6 +28,7 @@ public class LoginControlador extends HttpServlet {
 	        	if(request.getParameter("formulario").equals("login")){
 		        	 mifactory.Crear(request);
 		             if(ConsultasRepositorio.autenticar(Login.milogin)){
+		            	 s.setAttribute("tipousuario",ConsultasRepositorio.ConsultarUsuario(Login.milogin) );
 		            	 rd= request.getRequestDispatcher("VistaHome.jsp");
 		            	 rd.forward(request, response);
 		            	 out.close();

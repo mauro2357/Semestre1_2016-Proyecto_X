@@ -227,7 +227,7 @@ th, td {
 					   out.println("<td>"+listaProceso.get(i).getPeso()+"</td>");
 					   out.println("<td>"+listaProceso.get(i).getEstatura()+"</td>");
 					   out.println("<td>"+listaProceso.get(i).getProceso()+"</td>");
-					   out.println("<td>"+listaProceso.get(i).getRutina()+"</td>");
+					   out.println("<td>"+listaProceso.get(i).getNombreRutina()+"</td>");
 					   out.println("<td>"+listaProceso.get(i).getObservacion()+"</td>");
 					   out.println("</tr>");
 					}

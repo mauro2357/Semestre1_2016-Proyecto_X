@@ -1,5 +1,9 @@
+<%@page import="repositorios.HorarioRepositorio"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import = "repositorios.HorarioRepositorio"%>
+    <%@ page import = "java.util.LinkedList"%>
+    <%@ page import = "LogicaNegocio.Horario"%>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +48,7 @@
     <ul class="tabs">
       <li><a href="#tab1">Registar Usuarios</a></li>
       <li><a href="#tab2">Recibos de pago </a></li>
+      <li><a href="#tab3">Modificar Horarios </a></li>
     </ul>
     <div class="tab_container">
       <div id="tab1" class="tab_content">
@@ -119,6 +124,40 @@
            </div>
           </div>
         </div>
+        <div id="tab3" class="tab_content">
+        <div class="main">
+          <div class="wrapper">
+            <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
+            <div class="extra-wrap">
+              <div class="indent"> <form id="contact-form" action="HorarioControlador" method="get">
+              <fieldset>
+                 <span class="text-form"></span><span>
+                  <input type="text" placeholder = "Cédula Entrenador" name ="id">
+                  </span>
+                  <br></br>
+                  <span class="text-form"></span><span>
+                  <br>Horarios: <select name="Horario"> 
+                    <%LinkedList<Horario> lista = HorarioRepositorio.getHorario();
+                        for (int i=0;i<lista.size();i++) {
+                    %>                    
+                    <option value="<%=lista.get(i).getHor_id()%>"><%=lista.get(i).getDescripcion()%></option>                    
+                    <%
+                    }
+                    %>
+                    </select><br>	
+                  </span>
+                  <br></br>  
+                  <span class="text-form"></span><span class="buttons">
+                  <button type="submit" name="formulario" value="modificarHorario" class="button-2"> Modificar </button>
+                  </span>
+              </fieldset>
+              </form>
+             </div>
+            </div>
+           </div>
+          </div>
+        </div>
+        
        </div>
       </header>
       

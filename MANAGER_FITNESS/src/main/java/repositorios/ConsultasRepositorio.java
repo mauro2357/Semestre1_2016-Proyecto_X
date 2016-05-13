@@ -35,8 +35,23 @@ public class ConsultasRepositorio {
         return false;
     }
 	
+	public static String ConsultarUsuario(Login prueba){
+		try{
+            String consulta = "select Tip_codigo from `bd_manager_fitness`.`usuarios` where Usu_id =" + prueba.getId() + " and Usu_password ='" + prueba.getPass() + "';";
+            ResultSet miconsulta = con.ejecutarSQLSelect(consulta);
+            if (miconsulta.next()) {
+                return miconsulta.getString("Tip_codigo");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return null;
+    }
+		
+	}
 
-}
+
 
 	
 	

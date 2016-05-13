@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import = "repositorios.EntrenadorRepositorio"%> 
+<%@ page import = "java.util.LinkedList"%>  
+<%@ page import = "repositorios.ProcesoRepositorio"%>
+<%@ page import = "repositorios.RutinaRepositorio"%>
+<%@ page import = "controladores.ProcesoControlador"%>
+<%@ page import = "LogicaNegocio.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +16,7 @@
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
 <script src="js/jquery-1.6.3.min.js" type="text/javascript"></script>
 <script src="js/tabs.js" type="text/javascript"></script>
+<%HttpSession s = request.getSession(true); %>
 </head>
 
 <body id="page1">
@@ -19,10 +26,15 @@
       <div class="main">
         <nav>
           <ul class="menu wrapper">
+          <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
             <li><a class="active" href="VistaHome.jsp">Cliente</a></li>
-            <li><a href="VistaEventos.jsp">Actualidad</a></li>
-            <li><a href="VistaAdministrador.jsp">Administrador</a></li>
+            <%}if (s.getAttribute("tipousuario").equals("ENTR") || s.getAttribute("tipousuario").equals("ADMI")){ %>
             <li><a href="VistaEntrenador.jsp">Entrenador</a></li>
+            <%}if (s.getAttribute("tipousuario").equals("ADMI")){ %>
+            <li><a href="VistaAdministrador.jsp">Administrador</a></li>
+            <%}} %>
+            <li><a href="VistaEventos.jsp">Actualidad</a></li>
             <li><a href="VistaSugerencias.jsp">Sugerencias</a></li>
           </ul>
         </nav>
@@ -34,7 +46,7 @@
         <form id="search-form" action="LoginControlador" method="post" enctype="multipart/form-data">
           <fieldset>
               <span class="text-form"></span><span class="buttons">
-                  <button type="submit" name="formulario" value="logout" class="button-2" > Cerrar Sesión </button>
+                  <button type="submit" name="formulario" value="logout" class="button-2" > <%if(s.getAttribute("tipousuario") == null){ out.println("Login");}else{ out.println("Cerrar Sesión");} %> </button>
               </span>
           </fieldset>
         </form>
@@ -43,8 +55,11 @@
     
     <ul class="tabs">
       <li><a href="#tab1">Manager Fitness</a></li>
+      <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
       <li><a href="#tab2">Tus Rutinas y Dietas </a></li>
       <li><a href="#tab3">Conoce Tu Proceso</a></li>
+      <%}} %>
     </ul>
     <div class="tab_container">
       <div id="tab1" class="tab_content">
@@ -74,14 +89,54 @@
           <div class="wrapper">
             <figure class="img-indent-r"><img src="images/page1-img3.jpg" alt=""></figure>
             <div class="extra-wrap">
-              <div class="indent"> <strong class="title">Qué Has Logrado</strong>
-              </div>
+             <div class="indent1"><form id="contact-form" action="ProcesoControlador" method="get">
+              <fieldset>
+                  <span class="text-form"></span><span class="buttons">
+                  <button type="submit" name="formulario" value="proceso" class="button-2" > Conocer mi proceso </button>
+                  </span>
+                  <br></br>
+		            <table style = "width:100%">
+		            <thead>
+		            	<tr>
+						<th>Fecha</th> 
+						<th>Peso</th>
+						<th>Estatura</th>
+						<th>Proceso</th>
+						<th>Rutina</th>
+						<th>Observación</th>
+						</tr>
+						      </thead>
+						       <tbody>
+						<%
+						LinkedList<Proceso> listaProceso = (LinkedList<Proceso>)request.getAttribute("lista");
+						if(listaProceso!= null){
+							for (int i=0;i<listaProceso.size();i++)
+							{
+							   out.println("<tr>");
+							   out.println("<td>"+listaProceso.get(i).getFecha()+"</td>");
+							   out.println("<td>"+listaProceso.get(i).getPeso()+"</td>");
+							   out.println("<td>"+listaProceso.get(i).getEstatura()+"</td>");
+							   out.println("<td>"+listaProceso.get(i).getProceso()+"</td>");
+							   out.println("<td>"+listaProceso.get(i).getNombreRutina()+"</td>");
+							   out.println("<td>"+listaProceso.get(i).getObservacion()+"</td>");
+							   out.println("</tr>");
+							}
+							
+						}
+						
+						%>
+						  </tbody>
+						</table>
+		              </fieldset>
+		            </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    
+      </div>
+      </div>
+   <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>    
     <section id="content">
     <div class="main">
       <div class="container_12">
@@ -174,6 +229,7 @@
         </div>
     </div>
   </section>
+  <%}} %>
   </header>
 </div>
     

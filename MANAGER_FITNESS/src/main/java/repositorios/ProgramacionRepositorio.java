@@ -3,8 +3,10 @@ package repositorios;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+
 import LogicaNegocio.Programacion;
 
 public class ProgramacionRepositorio {
@@ -34,5 +36,23 @@ public class ProgramacionRepositorio {
 	      }
 	      return listaProgramacion;
 	   }
+	public static boolean modificarProgramacion(Programacion programacion) throws ClassNotFoundException {
+	      try
+	      {
+	    	  Class.forName("com.mysql.jdbc.Driver");
+	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
+	          Statement st= con.createStatement();
+	          String i = "update programacion SET Hor_id =" + programacion.getCodigoHorario() +" where Usu_id =" + programacion.getCedulaEntrenador()+";";
+	          st.executeUpdate(i);
+	          st.close();
+	      }catch (SQLException e){
+	        	e.printStackTrace();
+	        	return false;
+	        }catch (ClassNotFoundException e){
+	        	e.printStackTrace();
+	            return false;
+	        }
+	        return true;
+	    }
 
 }
