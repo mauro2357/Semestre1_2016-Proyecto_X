@@ -49,7 +49,8 @@ public class RecibosControlador extends HttpServlet {
             	 out.close();	 
             	 
         	}else if(request.getParameter("formulario").equals("estado")){
-        		if (ReciboRepositorio.ConsultarEstado(id)){
+        		int dif= ReciboRepositorio.ConsultarEstado(id);
+        		if (dif<30){
         			request.setAttribute("mensualidad","Activa");
    	             	rd = request.getRequestDispatcher("VistaHome.jsp");
    	             	rd.forward(request, response);
