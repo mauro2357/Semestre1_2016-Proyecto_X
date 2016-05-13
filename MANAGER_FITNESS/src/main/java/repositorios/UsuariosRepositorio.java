@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UsuariosRepositorio {
+public class UsuariosRepositorio  {
 
     public static boolean agregarUsuario(Usuarios usuario) {
         Connection con;

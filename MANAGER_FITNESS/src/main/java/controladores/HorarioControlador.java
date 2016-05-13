@@ -16,6 +16,8 @@ import LogicaNegocio.Horario;
 import LogicaNegocio.Programacion;
 import repositorios.HorarioArchivoRepositorio;
 import repositorios.HorarioRepositorio;
+import repositorios.ProxyHorarioArchivoRepositorio;
+import repositorios.ProxyHorarioRepositorio;
 import repositorios.UsuariosRepositorio;
 
 @WebServlet("/HorarioControlador")
@@ -34,9 +36,9 @@ public class HorarioControlador extends HttpServlet {
 				String tipoEntrenador = request.getParameter("tipoEntrenador");
 				Horario horario;
 				if (request.getParameter("archivo") != null) {
-					horario = new Horario(new HorarioArchivoRepositorio(), id, descripcion);
+					horario = new Horario(new ProxyHorarioArchivoRepositorio(), id, descripcion);
 				} else {
-					horario = new Horario(new HorarioRepositorio(), id, descripcion);
+					horario = new Horario(new ProxyHorarioRepositorio(), id, descripcion);
 				}
 				Entrenador entrenador = new Entrenador(id, tipoEntrenador);
 				if (UsuariosRepositorio.agregar(entrenador)) {

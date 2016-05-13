@@ -17,6 +17,7 @@ import LogicaNegocio.Usuarios;
 import repositorios.UsuariosRepositorio;
 import repositorios.ConsultasRepositorio;
 
+
 @WebServlet("/UsuariosControlador")
 public class UsuariosControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
