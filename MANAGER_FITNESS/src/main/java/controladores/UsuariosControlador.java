@@ -16,6 +16,7 @@ import LogicaNegocio.Fecha;
 import LogicaNegocio.Usuarios;
 import repositorios.UsuariosRepositorio;
 import repositorios.ConsultasRepositorio;
+import repositorios.EnfermedadRepositorio;
 
 
 @WebServlet("/UsuariosControlador")
@@ -76,10 +77,12 @@ public class UsuariosControlador extends HttpServlet {
 		             double peso =Double.parseDouble(request.getParameter("peso"));
 		             String fecha=Fecha.ObtenerFecha();
 		             int pruebaEsfuerzo = Integer.parseInt(request.getParameter("pruebaEsfuerzo"));
-		             
-		             Cliente ncliente= new Cliente(estatura, fecha, id, peso,pruebaEsfuerzo);
-		             System.out.println(fecha);
+		             String[] enfermedad = request.getParameterValues("enfermedad");
+		             Cliente ncliente= new Cliente(estatura, fecha, id,enfermedad, peso,pruebaEsfuerzo);
 		             if(UsuariosRepositorio.agregarCliente(ncliente)){
+		            	 if (enfermedad != null){
+			            	 EnfermedadRepositorio.agregarenfermedad(ncliente);
+			             }
 		            	 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
 		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
 		            	 rd.include(request,response);
@@ -89,10 +92,13 @@ public class UsuariosControlador extends HttpServlet {
 		            	out.print("<p style=\"color:red\">NO SE PUDO REGISTRAR, INTENTELO NUEVAMENTE</p>");    
 		            	 rd=request.getRequestDispatcher("VistaAuxCliente.jsp");    
 		            	 rd.include(request,response);
-		        }
+		        }      
 		      }
-	        }catch(NumberFormatException e) {
+	        }catch(NumberFormatException e ) {
 	            request.setAttribute("estado", "error");
+	        }
+	        catch(NullPointerException c) {
+	        	request.setAttribute("estado", "error");
 	        }
 	    }
 

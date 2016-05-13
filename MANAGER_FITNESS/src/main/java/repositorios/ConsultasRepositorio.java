@@ -1,10 +1,15 @@
 package repositorios;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import LogicaNegocio.Enfermedades;
 import LogicaNegocio.Login;
 import repositorios.conexion;
 
@@ -48,8 +53,35 @@ public class ConsultasRepositorio {
         }
         return null;
     }
+	public static LinkedList<Enfermedades> getEnfermedad()
+	   {
+	      LinkedList<Enfermedades> listaEnfermedades =new LinkedList<Enfermedades>();
+	      try
+	      {
+	    	  Class.forName("com.mysql.jdbc.Driver");
+	          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_manager_fitness", "root", "root");
+	          Statement st= con.createStatement();
+	          ResultSet rs = st.executeQuery("select Enf_codigo as codigo, Enf_descripcion as enfermedad from enfermedad;" ); 
+	         while (rs.next())
+	         {
+	        	String codigo =rs.getString("codigo");
+	        	String descripcion =rs.getString("enfermedad");
+	        	Enfermedades enfermedad = new Enfermedades(codigo,descripcion);
+	            listaEnfermedades.add(enfermedad);
+	         }
+	         rs.close();
+	         st.close();
+	         con.close();
+	      }
+	      catch (Exception e)
+	      {
+	         e.printStackTrace();
+	      }
+	      return listaEnfermedades;
+	   }
+	
 		
-	}
+}
 
 
 

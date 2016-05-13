@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import = "java.util.LinkedList"%>  
+    <%@ page import = "LogicaNegocio.*"%>
+    <%@ page import = "repositorios.ConsultasRepositorio"%>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +48,13 @@
                   <span class="text-form"></span><span>
                   <input type="text" placeholder = "Prueba de Esfuerzo" name ="pruebaEsfuerzo">
                   </span> 
+                  <br></br>
+                  Enfermedades:  
+                    <%LinkedList<Enfermedades> lista = ConsultasRepositorio.getEnfermedad();
+                        for (int i=0;i<lista.size();i++) {
+                    %>
+						<%=lista.get(i).getEnfermedad()%><input type="checkbox" name="enfermedad" value="<%=lista.get(i).getCodigo()%>" />
+						<%} %>                                      
                   <br></br>
                   <span class="text-form"></span><span class="buttons">
                   <button type="submit" name="formulario" value="inscribir" class="button-2"> Inscribir </button>

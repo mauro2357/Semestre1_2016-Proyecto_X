@@ -4,6 +4,7 @@ public class Cliente {
 	private double estatura;
 	private String fechaInscripcion;
 	private int clinId;
+	private String[] codenfermedad;
 	private double peso;
 	private int pruebaEsfuerzo;
 	public int getPruebaEsfuerzo() {
@@ -43,6 +44,27 @@ public class Cliente {
 		this.clinId = clinId;
 		this.peso = peso;
 		this.pruebaEsfuerzo = pruebaEsfuerzo;
+	}
+	public Cliente(int clinId, String[] codenfermedad) {
+		super();
+		this.clinId = clinId;
+		this.codenfermedad = codenfermedad;
+	}
+	public Cliente(double estatura, String fechaInscripcion, int clinId, String[] codenfermedad, double peso,
+			int pruebaEsfuerzo) {
+		super();
+		this.estatura = estatura;
+		this.fechaInscripcion = fechaInscripcion;
+		this.clinId = clinId;
+		this.codenfermedad = codenfermedad;
+		this.peso = peso;
+		this.pruebaEsfuerzo = pruebaEsfuerzo;
+	}
+	public String[] getCodenfermedad() {
+		return codenfermedad;
+	}
+	public void setCodenfermedad(String[] codenfermedad) {
+		this.codenfermedad = codenfermedad;
 	}
 	
 	
