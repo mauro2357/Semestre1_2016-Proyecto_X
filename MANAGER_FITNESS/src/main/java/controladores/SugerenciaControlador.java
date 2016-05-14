@@ -32,14 +32,13 @@ public class SugerenciaControlador extends HttpServlet {
             String descripcion =request.getParameter("descripcion");
             Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id);        
 	        if(SugerenciaRepositorio.agregar(sugerencia)){
-	        	out.print("<p style=\"color:red\">GRACIAS POR AYUDARNOS A MEJORAR</p>");    
-	        	rd= request.getRequestDispatcher("VistaHome.jsp");
-	            rd.forward(request, response);
-	            out.close();
+	         out.print("<p style=\"color:red\">GRACIAS POR AYUDARNOS A MEJORAR</p>");    
+           	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
+           	 rd.include(request,response); 
 	        }
 	        else{
 	        	out.print("<p style=\"color:red\">NO SE HA PODIDO REGISTRAR SU SUGERENCIA</p>");    
-           	    rd=request.getRequestDispatcher("VistaHome.jsp"); 
+           	    rd=request.getRequestDispatcher("VistaSugerencias.jsp"); 
            	    rd.include(request,response);
 	             }
         	}

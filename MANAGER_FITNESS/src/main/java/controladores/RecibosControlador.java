@@ -33,7 +33,7 @@ public class RecibosControlador extends HttpServlet {
         	if(request.getParameter("formulario").equals("generar")){
 	        	 int cedula = Integer.parseInt(request.getParameter("id"));
 	        	 String recibo=ReciboRepositorio.GenerarReporte(cedula);
-	        	 File archivo= new File("C:\\Users\\magud\\Documents\\2016-1\\Recibos\\recibo.txt");
+	        	 File archivo= new File("C:\\Users\\jessica\\Desktop\\recibo.txt");
 	             if (!archivo.exists()) {
 	 				archivo.createNewFile();
 	 				System.out.println("Se ha creado el archivo");    				

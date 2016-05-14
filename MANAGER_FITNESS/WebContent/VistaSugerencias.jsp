@@ -56,9 +56,6 @@
             <h3>Sugerencias, Quejas y Reclamos</h3>
             <form id="contact-form" action="SugerenciaControlador" method="get" enctype="multipart/form-data">
               <fieldset>
-                <label><span class="text-form">Cédula:</span><span class="border">
-                  <input type="text" name="id">
-                  </span></label>
                   <div class="wrapper">
                   <div class="text-form">Descripción:</div>
                   <div class="extra-wrap">
