@@ -1,5 +1,7 @@
 package LogicaNegocio;
 
+import repositorios.UsuariosRepositorio;
+
 public class Usuarios {
 	private int id;
 	private String nombre;
@@ -82,5 +84,8 @@ public class Usuarios {
 		this.password = password;
 		this.fechaN = fechaN;
 		this.tipoUsuario = tipoUsuario;
+	}
+	public boolean agregar(){
+		return UsuariosRepositorio.agregarUsuario(this);
 	}
 }

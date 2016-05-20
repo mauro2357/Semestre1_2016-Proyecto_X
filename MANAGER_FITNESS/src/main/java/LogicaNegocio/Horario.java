@@ -12,6 +12,17 @@ public class Horario {
 	public Horario (IHorarioRepositorio horarioRepo){
 		this.horarioRepo=horarioRepo;
 	} 
+	public Horario(IHorarioRepositorio horarioRepo, int usu_id, int hor_id) {
+		super();
+		this.horarioRepo=horarioRepo;
+		this.usu_id = usu_id;
+		this.hor_id = hor_id;
+	}
+	public Horario( String descripcion,int hor_id) {
+		super();
+		this.descripcion = descripcion;
+		this.hor_id = hor_id;
+	}
 	
 	public int getUsu_id() {
 		return usu_id;
@@ -31,17 +42,6 @@ public class Horario {
 		return hor_id;
 	}
 	public void setHor_id(int hor_id) {
-		this.hor_id = hor_id;
-	}
-	public Horario(IHorarioRepositorio horarioRepo, int usu_id, int hor_id) {
-		super();
-		this.horarioRepo=horarioRepo;
-		this.usu_id = usu_id;
-		this.hor_id = hor_id;
-	}
-	public Horario( String descripcion,int hor_id) {
-		super();
-		this.descripcion = descripcion;
 		this.hor_id = hor_id;
 	}
 	public String getDescripcion() {

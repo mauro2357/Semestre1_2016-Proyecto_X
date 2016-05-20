@@ -41,15 +41,14 @@ public class UsuariosControlador extends HttpServlet {
 		             String tipoUsuario = request.getParameter("tipou");
 		             System.out.println(tipoUsuario);
 		             Usuarios miusuario=new Usuarios(id,nombre,dir,tel,email,pass, fechan,tipoUsuario);
-		             if(UsuariosRepositorio.agregarUsuario(miusuario)){
-		            	 System.out.println(s.getAttribute("tipo"));
+		             if(miusuario.agregar()){
 		            	 if(s.getAttribute("tipo").equals("CLIN")){
-		            		 rd= request.getRequestDispatcher("VistaAuxCliente.jsp");
-			            	 rd.forward(request, response);
-			            	 out.close();
+			            	 rd= request.getRequestDispatcher("VistaAuxCliente.jsp");
+				             rd.forward(request, response);
+				             out.close();
 		            	 }
 			             if (s.getAttribute("tipo").equals("ENTR")){
-			            	rd= request.getRequestDispatcher("VistaAuxEntrenador.jsp");
+			            	 rd= request.getRequestDispatcher("VistaAuxEntrenador.jsp");
 			            	 rd.forward(request, response);
 			            	 out.close();
 			            }
