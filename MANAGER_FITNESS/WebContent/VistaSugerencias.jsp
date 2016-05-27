@@ -53,10 +53,19 @@
       <div class="container_12">
         <div class="wrapper">
           <article class="grid_8">
-            <h3>Sugerencias, Quejas y Reclamos</h3>
+            <h3>Sugerencias, Quejas, Preguntas y Reclamos</h3>
             <form id="contact-form" action="SugerenciaControlador" method="get" enctype="multipart/form-data">
               <fieldset>
                   <div class="wrapper">
+                  <span class="text-form"></span>
+                  	<select name="tipo">
+                  	<option>Seleccione un tipo</option>
+                  	<option value="SUGERENCIA">Sugerencia</option>
+                  	<option value="PREGUNTA">Pregunta</option>
+                  	<option value="QUEJA">Queja</option>
+                  	<option value="RECLAMO">Reclamo</option>
+                  </select>
+                  <br>
                   <div class="text-form">Descripción:</div>
                   <div class="extra-wrap">
                     <div class="border">

@@ -30,7 +30,8 @@ public class SugerenciaControlador extends HttpServlet {
         if(request.getParameter("formulario").equals("sugerencia")){
        		String fecha =Fecha.ObtenerFecha();
             String descripcion =request.getParameter("descripcion");
-            Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id);        
+            String tipo =request.getParameter("tipo");
+            Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id,tipo);        
 	        if(SugerenciaRepositorio.agregar(sugerencia)){
 	         out.print("<p style=\"color:red\">GRACIAS POR AYUDARNOS A MEJORAR</p>");    
            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
