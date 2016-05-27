@@ -7,8 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import LogicaNegocio.AnuncioUcoServicio;
+
 public class UCOMapsRepositorio {
-	public void crearSalon(){
+	
+	public static void crearAnuncio(AnuncioUcoServicio anuncio){
 		try {
 
 			URL url = new URL("http://localhost:8080/MANAGER_FITNESS/rest/Usuarios/42/"+"melisa"+"/rionegro/546/f@gmail.com/pas/1900-05-05");

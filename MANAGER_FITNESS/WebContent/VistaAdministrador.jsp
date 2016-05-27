@@ -184,6 +184,21 @@
       		  <button type="submit" name="formulario" value="cantidad" class="button-2">Ver</button>
             
       		  </form>
+      		  
+      		  <ul class="list-1">
+              <a><li>Crear Anuncios</li></a>
+              </ul>
+              <form method= "get" action="ServicioUcoControlador" >
+              <span class="text-form"></span><span>
+               <input type="text" placeholder = "Titulo" name= "titulo" />
+              </span>
+              <span class="text-form"></span><span>
+               <input type="text" placeholder = "Descripcion" name= "descripcion" />
+              </span>
+      		  <button type="submit" name="formulario" value="crearAnuncio" class="button-2">Ver</button>
+            
+      		  </form>
+      		  
           </article>
         </div>
       </div>
