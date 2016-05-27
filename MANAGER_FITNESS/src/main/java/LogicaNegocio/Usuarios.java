@@ -85,7 +85,7 @@ public class Usuarios {
 		this.fechaN = fechaN;
 		this.tipoUsuario = tipoUsuario;
 	}
-	public boolean agregar(){
+	public boolean agregar() throws Exception{
 		return UsuariosRepositorio.agregarUsuario(this);
 	}
 }

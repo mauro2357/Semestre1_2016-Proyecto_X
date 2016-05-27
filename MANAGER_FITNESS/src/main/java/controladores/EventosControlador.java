@@ -21,7 +21,7 @@ public class EventosControlador extends HttpServlet {
 	private RequestDispatcher rd;
 	
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
 		    String str = request.getSession().getAttribute("usuario").toString();
@@ -30,7 +30,7 @@ public class EventosControlador extends HttpServlet {
 	        	if(request.getParameter("formulario").equals("evento")){
 		        	 String fecha = request.getParameter("fechaE");
 		             String descripcion =request.getParameter("nombre");
-		             Eventos evento= new Eventos(fecha, descripcion, id);
+		             Eventos evento= new Eventos(fecha, descripcion, id, null, 0);
 		             if(EventosRepositorio.agregar(evento)){
 		            	 out.print("<p style=\"color:red\">EL EVENTO SE HA CREADO EXITOSAMENTE</p>");    
 		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
@@ -47,7 +47,7 @@ public class EventosControlador extends HttpServlet {
 	        	if(request.getParameter("formulario").equals("cancelarEvento")){
 	        		int codigo = Integer.parseInt(request.getParameter("cancelar"));
 	        		Eventos evento = new Eventos(codigo);
-	        		if(EntrenadorRepositorio.modificar(evento)){
+	        		if(EntrenadorRepositorio.modificarEventos(evento)){
 		            	 out.print("<p style=\"color:red\">SE CANCELO EL EVETO EXITOSAMENTE</p>");    
 		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
 		            	 rd.include(request,response);
@@ -75,14 +75,11 @@ public class EventosControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			processRequest(request, response);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

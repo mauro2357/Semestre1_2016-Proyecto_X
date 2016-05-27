@@ -22,7 +22,7 @@ public class SugerenciaControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
 	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PrintWriter out= response.getWriter();
 	    response.setContentType("text/html;charset=UTF-8");
 	    String str = request.getSession().getAttribute("usuario").toString();
@@ -44,7 +44,11 @@ public class SugerenciaControlador extends HttpServlet {
         	}
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
+		try {
+			processRequest(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

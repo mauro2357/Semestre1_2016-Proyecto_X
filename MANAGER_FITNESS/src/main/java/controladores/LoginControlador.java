@@ -2,7 +2,6 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +15,7 @@ public class LoginControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
 			HttpSession s = request.getSession(true); 
@@ -51,7 +50,7 @@ public class LoginControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			processRequest(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}	
 	}

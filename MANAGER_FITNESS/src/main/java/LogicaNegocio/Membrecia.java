@@ -7,7 +7,6 @@ import repositorios.MembreciaRepositorio;
 public abstract class Membrecia {
 	private String fecha;
 	private int usuId;
-	//private static Membrecia membrecia=null;
 	
 	
 	public Membrecia(String fecha, int usuId) {
@@ -15,15 +14,6 @@ public abstract class Membrecia {
 		this.usuId = usuId;
 		
 	}
-	/*
-	public static Membrecia getInstance(String fech, int Id) {
-        if (membrecia == null) {
-            membrecia= new Membrecia(fech, Id);
-        }
-        return membrecia;
-		}*/
-
-
 	public String getFecha() {
 		return fecha;
 	}
@@ -42,17 +32,17 @@ public abstract class Membrecia {
 	public void setUsuId(int usuId) {
 		this.usuId = usuId;
 	}
-	public boolean agregarbd (){
+	
+	public boolean agregarbd () throws Exception{
 		if(MembreciaRepositorio.agregarMembrecia(this)) return true;
 		return false;
 	}
-	public boolean obtener() throws SQLException{
+	public boolean obtener() throws Exception{
 		if (comprar() && agregarbd()) return true;
 		return false;
 	}
 	
-	public abstract boolean comprar () throws SQLException;
-	
+	public abstract boolean comprar () throws SQLException, Exception;
 	
 	
 }

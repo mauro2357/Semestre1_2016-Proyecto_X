@@ -6,40 +6,25 @@ public class Eventos {
 	private int idEntrenador;
 	private String nombreEntrenador;
 	private int codigo;
+	
 
-	public Eventos (int codigo){
-		this.codigo = codigo; 
-	}
-	public Eventos(String fecha, String descripcion, int idEntrenador) {
-		this.fecha = fecha;
-		this.Descripcion = descripcion;
-		this.idEntrenador = idEntrenador;
-	}
-	public Eventos(String fecha, String descripcion, int idEntrenador, int codigo) {
-		super();
+	public Eventos(String fecha, String descripcion, int idEntrenador, String nombreEntrenador, int codigo) {
 		this.fecha = fecha;
 		Descripcion = descripcion;
 		this.idEntrenador = idEntrenador;
+		this.nombreEntrenador = nombreEntrenador;
 		this.codigo = codigo;
 	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public Eventos(String fecha, String descripcion, String  nombreEntrenador, int codigo) {
-		this.fecha = fecha;
-		this.Descripcion = descripcion;
-		this.nombreEntrenador = nombreEntrenador;
-		this.codigo = codigo;
+	public Eventos (int codigo){
+		this.codigo = codigo; 
 	}
-	public Eventos(String fecha, String descripcion, String  nombreEntrenador) {
-		this.fecha = fecha;
-		this.Descripcion = descripcion;
-		this.nombreEntrenador = nombreEntrenador;
-	}
-
 	public String getNombreEntrenador() {
 		return nombreEntrenador;
 	}
@@ -65,6 +50,4 @@ public class Eventos {
 		this.idEntrenador = idEntrenador;
 	}
 	
-	
-
 }

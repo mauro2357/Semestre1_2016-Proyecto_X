@@ -8,8 +8,8 @@ public class Principiante extends Membrecia{
 		super(fecha, usuId);
 	}
 	
-	public boolean comprar(){
-		if(MembreciaConsultasRepositorio.validarDatacredito(this.getUsuId()))return false;
+	public boolean comprar() throws Exception{
+		if(MembreciaConsultasRepositorio.validarDataCredito(this.getUsuId()))return false;
 		return true;
 			
 	}

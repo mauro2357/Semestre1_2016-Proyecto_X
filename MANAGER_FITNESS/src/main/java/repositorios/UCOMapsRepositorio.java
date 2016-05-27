@@ -8,10 +8,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class UCOMapsRepositorio {
-	public void crearSalon(String nombreSalon){
+	public void crearSalon(){
 		try {
 
-			URL url = new URL("http://localhost:8080/MANAGER_FITNESS/rest/Usuarios/42/"+nombreSalon+"/rionegro/546/f@gmail.com/pas/1900-05-05");
+			URL url = new URL("http://localhost:8080/MANAGER_FITNESS/rest/Usuarios/42/"+"melisa"+"/rionegro/546/f@gmail.com/pas/1900-05-05");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			//conn.setRequestMethod("GET");
 			//conn.setRequestProperty("Accept", "application/json");
@@ -43,9 +43,4 @@ public class UCOMapsRepositorio {
 		  }
 
 		}
-
-	
-	public static void main(String[] args) {
-		new UCOMapsRepositorio().crearSalon("Fany_Pulgarin");
-	}
 }

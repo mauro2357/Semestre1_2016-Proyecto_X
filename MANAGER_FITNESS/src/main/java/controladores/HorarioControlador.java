@@ -2,19 +2,15 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import LogicaNegocio.Entrenador;
 import LogicaNegocio.Horario;
 import LogicaNegocio.Programacion;
-
 import repositorios.ProxyHorarioArchivoRepositorio;
 import repositorios.ProxyHorarioRepositorio;
 import repositorios.UsuariosRepositorio;
@@ -25,7 +21,7 @@ public class HorarioControlador extends HttpServlet {
 	private RequestDispatcher rd;
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException, SQLException, ClassNotFoundException {
+			throws Exception {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html;charset=UTF-8");
 		try {
@@ -83,17 +79,11 @@ public class HorarioControlador extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		try {
 			processRequest(request, response);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

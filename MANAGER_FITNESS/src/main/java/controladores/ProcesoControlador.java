@@ -2,16 +2,14 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.LinkedList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import repositorios.MembreciaConsultasRepositorio;
 import repositorios.ProcesoRepositorio;
 import LogicaNegocio.Fecha;
 import LogicaNegocio.Proceso;
@@ -23,14 +21,14 @@ public class ProcesoControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
 	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
 		    String str = request.getSession().getAttribute("usuario").toString();
 		    int id= Integer.parseInt(str);
 	        try{
 	        	if(request.getParameter("formulario").equals("imc")){
-		             double resultado = ProcesoRepositorio.consultarImc(id);
+		             double resultado = MembreciaConsultasRepositorio.consultarImc(id);
 		             request.setAttribute("resultado",Double.toString(resultado));
 		             rd = request.getRequestDispatcher("VistaHome.jsp");
 		             rd.forward(request, response);
@@ -44,7 +42,7 @@ public class ProcesoControlador extends HttpServlet {
 		             String observacion = request.getParameter("observacion");
 		             String fecha=Fecha.ObtenerFecha();
 		             Proceso proceso =new Proceso(cedula,peso,estatura,tipoProceso,rutina,observacion,fecha);
-		             if(ProcesoRepositorio.agregarProceso(proceso)){
+		             if(ProcesoRepositorio.agregar(proceso)){
 		            	 out.print("<p style=\"color:red\">SE HA CREADO EL PROCESO EXITOSAMENTE</p>");    
 		            	 rd=request.getRequestDispatcher("VistaEntrenador.jsp");    
 		            	 rd.include(request,response);
@@ -84,7 +82,7 @@ public class ProcesoControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			processRequest(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

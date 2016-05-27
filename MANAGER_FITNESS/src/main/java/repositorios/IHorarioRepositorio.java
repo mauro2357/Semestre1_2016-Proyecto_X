@@ -4,6 +4,6 @@ import LogicaNegocio.Horario;
 
 public interface IHorarioRepositorio {
 	
-	public boolean agregar(Horario horario); 
+	public boolean agregar(Horario horario) throws Exception; 
 
 }

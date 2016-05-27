@@ -18,8 +18,7 @@ public class Horario {
 		this.usu_id = usu_id;
 		this.hor_id = hor_id;
 	}
-	public Horario( String descripcion,int hor_id) {
-		super();
+	public Horario(String descripcion,int hor_id) {
 		this.descripcion = descripcion;
 		this.hor_id = hor_id;
 	}
@@ -51,7 +50,7 @@ public class Horario {
 		this.descripcion = descripcion;
 	}
 	
-	public boolean agregarbd (){
+	public boolean agregarbd () throws Exception{
 		if(horarioRepo.agregar(this)) return true;
 		return false;
 	}

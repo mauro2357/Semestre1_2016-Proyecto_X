@@ -2,7 +2,6 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import LogicaNegocio.Cliente;
 import LogicaNegocio.Fecha;
 import LogicaNegocio.Usuarios;
@@ -24,7 +22,7 @@ public class UsuariosControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher rd;
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			PrintWriter out= response.getWriter();
 		    response.setContentType("text/html;charset=UTF-8");
 		    HttpSession s = request.getSession(true); 
@@ -51,10 +49,10 @@ public class UsuariosControlador extends HttpServlet {
 			            	 rd= request.getRequestDispatcher("VistaAuxEntrenador.jsp");
 			            	 rd.forward(request, response);
 			            	 out.close();
-			            }
-			             out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
+			             }    
 		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
 		            	 rd.include(request,response);
+		            	 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");
 		             }
 		             else{   
 		            	 out.print("<p style=\"color:red\">NO SE PUDO REGISTRAR, INTENTELO NUEVAMENTE</p>");    
@@ -80,9 +78,9 @@ public class UsuariosControlador extends HttpServlet {
 		             Cliente ncliente= new Cliente(estatura, fecha, id,enfermedad, peso,pruebaEsfuerzo);
 		             if(UsuariosRepositorio.agregarCliente(ncliente)){
 		            	 if (enfermedad != null){
-			            	 EnfermedadRepositorio.agregarenfermedad(ncliente);
-			             }
-		            	 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");    
+			            	 EnfermedadRepositorio.agregarEnfermedad(ncliente);
+			             }  
+		            	 out.print("<p style=\"color:red\">REGISTRO EXITOSO</p>");
 		            	 rd=request.getRequestDispatcher("VistaAdministrador.jsp");    
 		            	 rd.include(request,response);
 			             out.close();
@@ -105,7 +103,7 @@ public class UsuariosControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			processRequest(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

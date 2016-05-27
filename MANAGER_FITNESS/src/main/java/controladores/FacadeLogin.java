@@ -8,7 +8,7 @@ import repositorios.ConsultasRepositorio;
 
 public class FacadeLogin {
 	public static Factory mifactory= Factory.getinstance();
-	private static boolean entrar (HttpServletRequest request,HttpSession s){
+	private static boolean entrar (HttpServletRequest request,HttpSession s) throws Exception{
 		mifactory.Crear(request);
 		if(ConsultasRepositorio.autenticar(Login.milogin)){
 	    	 s.setAttribute("tipousuario",ConsultasRepositorio.ConsultarUsuario(Login.milogin) );
@@ -16,7 +16,7 @@ public class FacadeLogin {
 	     }
 		return false;
 	}
-	public static String orquestador(HttpServletRequest request,HttpSession s){
+	public static String orquestador(HttpServletRequest request,HttpSession s) throws Exception{
 		if(request.getParameter("formulario").equals("login")){
 			if (entrar (request,s))return "login";
 			return "no login";

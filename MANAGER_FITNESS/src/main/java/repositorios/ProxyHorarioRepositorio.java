@@ -4,7 +4,7 @@ import LogicaNegocio.Horario;
 
 public class ProxyHorarioRepositorio implements IHorarioRepositorio {
 
-	public boolean agregar(Horario horario) {
+	public boolean agregar(Horario horario) throws Exception {
 		HorarioRepositorio horariorepositorio=new HorarioRepositorio();
 		if(horario.getHor_id()<5){
 			if(horariorepositorio.agregar(horario))return true;

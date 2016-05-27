@@ -1,9 +1,6 @@
 package LogicaNegocio;
 
-import java.sql.SQLException;
-
 import repositorios.MembreciaConsultasRepositorio;
-
 
 public class Practicante extends Membrecia {
 
@@ -11,7 +8,7 @@ public class Practicante extends Membrecia {
 		super(fecha, usuId);
 	}
 	
-	public boolean validarTiempo() throws SQLException{
+	public boolean validarTiempo() throws Exception{
 		String fecha1= MembreciaConsultasRepositorio.consultarFechaIns(this.getUsuId());
 		int año1=Integer.parseInt(fecha1.substring(0,4));
 		int mes1=Integer.parseInt(fecha1.substring(5,7));
@@ -28,7 +25,7 @@ public class Practicante extends Membrecia {
 	}
 	
 	
-	public boolean comprar() throws SQLException{
+	public boolean comprar() throws Exception{
 		if (MembreciaConsultasRepositorio.validarPruebaEsfuerzo(this.getUsuId()) && validarTiempo() )return true;
 		return false;
 		
