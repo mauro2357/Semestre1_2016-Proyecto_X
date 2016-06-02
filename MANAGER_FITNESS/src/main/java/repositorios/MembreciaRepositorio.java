@@ -15,17 +15,17 @@ public class MembreciaRepositorio {
         	Connection con = new conexion().ObtenerConexion();
         	Statement st = con.createStatement();
             if (membrecia instanceof Principiante){
-	            String insert = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 1 + ","+ membrecia.getUsuId() + ");";
+	            String insert = "INSERT INTO mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 1 + ","+ membrecia.getUsuId() + ");";
 	            st.executeUpdate(insert);
 	            st.close();
             }
             else if (membrecia instanceof Practicante){
-            	String insert = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 2 + ","+ membrecia.getUsuId() + ");";
+            	String insert = "INSERT INTO mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 2 + ","+ membrecia.getUsuId() + ");";
 	            st.executeUpdate(insert);
 	            st.close();
             }
             else if (membrecia instanceof Animalex){
-            	String insert = "INSERT INTO Mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 3 + ","+ membrecia.getUsuId() + ");";    
+            	String insert = "INSERT INTO mensualidad(Men_fecha,Tim_codigo,Usu_id)" + " VALUES ('" + membrecia.getFecha() + "'," + 3 + ","+ membrecia.getUsuId() + ");";    
 	            st.executeUpdate(insert);
 	            st.close();
             }

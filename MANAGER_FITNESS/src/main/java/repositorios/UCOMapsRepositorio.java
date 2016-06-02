@@ -14,7 +14,7 @@ public class UCOMapsRepositorio {
 	public static void crearAnuncio(AnuncioUcoServicio anuncio){
 		try {
 
-			URL url = new URL("http://localhost:8080/MANAGER_FITNESS/rest/Usuarios/42/"+"melisa"+"/rionegro/546/f@gmail.com/pas/1900-05-05");
+			URL url = new URL("ucomaps.j.facilcloud.com/practice/rest/anuncio/"+anuncio.getTitulo()+"/"+anuncio.getDescripcion());
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			//conn.setRequestMethod("GET");
 			//conn.setRequestProperty("Accept", "application/json");

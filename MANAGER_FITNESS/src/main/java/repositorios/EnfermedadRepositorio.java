@@ -13,7 +13,7 @@ public class EnfermedadRepositorio {
 		    Statement st = con.createStatement();
 		    String enfermedad=null;
 		    for(int i = 0 ; i < usuario.getCodenfermedad().length ; ++i){
-	             enfermedad = "INSERT INTO `bd_manager_fitness`.`enfermedadxcliente` (`Enf_codigo`,`Usu_id`) VALUES ('"+usuario.getCodenfermedad()[i]+"',"+usuario.getClinId()+");";
+	             enfermedad = "INSERT INTO enfermedadxcliente (`Enf_codigo`,`Usu_id`) VALUES ('"+usuario.getCodenfermedad()[i]+"',"+usuario.getClinId()+");";
 	             st.executeUpdate(enfermedad);
            }
 		    st.close();

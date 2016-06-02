@@ -13,7 +13,7 @@ public class ConsultasRepositorio {
 	
     public static int consultarCantidad() throws Exception { 
 		Connection con = (Connection) new conexion().ObtenerConexion();
-	    String consulta = "select count(*) as cantidad from bd_manager_fitness.usuarios where Tip_codigo = 'CLIN';";
+	    String consulta = "select count(*) as cantidad from usuarios where Tip_codigo = 'CLIN';";
 	    Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    int cant=0;
@@ -27,7 +27,7 @@ public class ConsultasRepositorio {
         	
 	public static boolean autenticar(Login login)throws Exception  {
 		Connection con = (Connection) new conexion().ObtenerConexion();
-		String consulta = "select * from `bd_manager_fitness`.`usuarios` where Usu_id =" + login.getId() + " and Usu_password ='" + login.getPass() + "';";
+		String consulta = "select * from usuarios where Usu_id =" + login.getId() + " and Usu_password ='" + login.getPass() + "';";
 		Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    if(miconsulta.next())return true;
@@ -37,7 +37,7 @@ public class ConsultasRepositorio {
 	
 	public static String ConsultarUsuario(Login prueba)throws Exception  {
 		Connection con = (Connection) new conexion().ObtenerConexion();
-		String consulta = "select * from `bd_manager_fitness`.`usuarios` where Usu_id =" + prueba.getId() + " and Usu_password ='" + prueba.getPass() + "';";
+		String consulta = "select * from usuarios where Usu_id =" + prueba.getId() + " and Usu_password ='" + prueba.getPass() + "';";
 		Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    String codigo=null;
@@ -63,7 +63,7 @@ public class ConsultasRepositorio {
 	public static LinkedList<Fidelizacion>getFidelizacion() throws Exception { 
 		LinkedList<Fidelizacion> listaFidelizacion=new LinkedList<Fidelizacion>();
 		Connection con = (Connection) new conexion().ObtenerConexion();
-	    String consulta = "select  C.usu_id as Cedula, U.usu_nombre as Nombre, C.Cli_fecha_inscripcion as Fecha From Usuarios U, Cliente C where U.usu_id= C.usu_id ";
+	    String consulta = "select  C.usu_id as Cedula, U.usu_nombre as Nombre, C.Cli_fecha_inscripcion as Fecha From usuarios U, cliente C where U.usu_id= C.usu_id ";
 	    Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    while(miconsulta.next()){

@@ -14,7 +14,7 @@ public class ProcesoRepositorio {
 	public static LinkedList<TipoProceso>getTipoProceso() throws Exception { 
 		LinkedList<TipoProceso> listaTipoProceso=new LinkedList<TipoProceso>();
 		Connection con = (Connection) new conexion().ObtenerConexion();
-	    String consulta = "SELECT Tip_codigo as codigo, Tip_descripcion as descripcion FROM bd_manager_fitness.tipo_proceso";
+	    String consulta = "SELECT Tip_codigo as codigo, Tip_descripcion as descripcion FROM tipo_proceso";
 	    Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    while(miconsulta.next()){
@@ -46,7 +46,7 @@ public class ProcesoRepositorio {
 	public static LinkedList<Proceso>getProceso(int id) throws Exception { 
 		LinkedList<Proceso> listaProceso=new LinkedList<Proceso>();
 		Connection con = (Connection) new conexion().ObtenerConexion();
-	    String consulta = "select P.pro_fecha as Fecha, P.pro_peso as Peso, P.Pro_estatura as Estatura,TP.Tip_descripcion as Proceso, R.Rut_nombre as Rutina, P.Pro_observacion as Observacion  From proceso P, Rutina R,tipo_proceso TP where P.Rut_codigo= R.Rut_codigo and P.tip_codigo= TP.tip_codigo and P.usu_id=" + id ;
+	    String consulta = "select P.pro_fecha as Fecha, P.pro_peso as Peso, P.Pro_estatura as Estatura,TP.Tip_descripcion as Proceso, R.Rut_nombre as Rutina, P.Pro_observacion as Observacion  From proceso P, rutina R,tipo_proceso TP where P.Rut_codigo= R.Rut_codigo and P.tip_codigo= TP.tip_codigo and P.usu_id=" + id ;
 	    Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    while(miconsulta.next()){

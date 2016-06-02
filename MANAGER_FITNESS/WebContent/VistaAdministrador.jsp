@@ -195,7 +195,7 @@
               <span class="text-form"></span><span>
                <input type="text" placeholder = "Descripcion" name= "descripcion" />
               </span>
-      		  <button type="submit" name="formulario" value="crearAnuncio" class="button-2">Ver</button>
+      		  <button type="submit" name="formulario" value="crearAnuncio" class="button-2">Crear</button>
             
       		  </form>
       		  

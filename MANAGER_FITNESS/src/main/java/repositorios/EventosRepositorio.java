@@ -30,7 +30,7 @@ public class EventosRepositorio {
 	public static LinkedList<Eventos>getEventos() throws Exception { 
 		LinkedList<Eventos> listaEventos=new LinkedList<Eventos>();
 		Connection con = (Connection) new conexion().ObtenerConexion();
-	    String consulta = "SELECT eve_fecha as Fecha, Eve_descripcion as Descripcion, Usu_nombre as Entrenador FROM EVENTO E INNER JOIN usuarios U ON E.Usu_id=U.Usu_id";
+	    String consulta = "SELECT eve_fecha as Fecha, Eve_descripcion as Descripcion, Usu_nombre as Entrenador FROM evento E INNER JOIN usuarios U ON E.Usu_id=U.Usu_id";
 	    Statement st = con.createStatement();
 	    ResultSet miconsulta = st.executeQuery(consulta);
 	    while(miconsulta.next()){

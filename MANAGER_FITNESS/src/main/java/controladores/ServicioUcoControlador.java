@@ -25,19 +25,22 @@ public class ServicioUcoControlador extends HttpServlet {
             String descripcion =request.getParameter("descripcion");
             AnuncioUcoServicio anuncio= new AnuncioUcoServicio(titulo, descripcion); 
             UCOMapsRepositorio.crearAnuncio(anuncio);
-            out.print("<p style=\"color:red\">GRACIAS POR AYUDARNOS A MEJORAR</p>");    
+            out.print("<p style=\"color:red\">SU ANUNCIO SE HA CREADO EXITOSAMENTE</p>");    
           	rd=request.getRequestDispatcher("VistaHome.jsp"); 
           	rd.include(request,response); 
 	    }
 	}
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			processRequest(request,response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
