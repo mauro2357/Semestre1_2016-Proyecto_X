@@ -14,6 +14,8 @@ import LogicaNegocio.Programacion;
 import repositorios.ProxyHorarioArchivoRepositorio;
 import repositorios.ProxyHorarioRepositorio;
 import repositorios.UsuariosRepositorio;
+import LogicaNegocio.Correo;
+import repositorios.ConsultasRepositorio;
 
 @WebServlet("/HorarioControlador")
 public class HorarioControlador extends HttpServlet {
@@ -59,6 +61,7 @@ public class HorarioControlador extends HttpServlet {
 					int codigo = Integer.parseInt(request.getParameter("Horario"));
 					Programacion programacion = new Programacion(cedula, codigo);
 					if (repositorios.ProgramacionRepositorio.modificarProgramacion(programacion)) {
+						correo.sendEmail();
 						out.print("<p style=\"color:red\">SE MODIFICO EL HORARIO EXITOSAMENTE</p>");
 						rd = request.getRequestDispatcher("VistaAdministrador.jsp");
 						rd.include(request, response);

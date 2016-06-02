@@ -75,7 +75,31 @@ public class ConsultasRepositorio {
 	    }
 	    st.close();
 	    return listaFidelizacion; 
-	}        			
+	} 
+	 public static String consultarCorreo(int id) throws Exception { 
+			Connection con = (Connection) new conexion().ObtenerConexion();
+		    String consulta = "SELECT Usu_correo as correo FROM bd_manager_fitness.usuarios where Usu_id ="+id+";";
+		    Statement st = con.createStatement();
+		    ResultSet miconsulta = st.executeQuery(consulta);
+		    String correo = null;
+		    if(miconsulta.next()){
+		    	correo = miconsulta.getString("correo");
+		    }
+		    st.close();
+		    return correo;
+		}
+	 public static String consultarHorario(int codigo) throws Exception { 
+			Connection con = (Connection) new conexion().ObtenerConexion();
+		    String consulta = "SELECT hor_descripcion as descripcion FROM bd_manager_fitness.horario where hor_id ="+codigo+";";
+		    Statement st = con.createStatement();
+		    ResultSet miconsulta = st.executeQuery(consulta);
+		    String descripcion = null;
+		    if(miconsulta.next()){
+		    	descripcion = miconsulta.getString("descripcion");
+		    }
+		    st.close();
+		    return descripcion;
+		}
 }
 
 
