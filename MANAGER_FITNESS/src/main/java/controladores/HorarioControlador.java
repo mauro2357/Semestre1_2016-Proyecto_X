@@ -61,6 +61,7 @@ public class HorarioControlador extends HttpServlet {
 					int codigo = Integer.parseInt(request.getParameter("Horario"));
 					Programacion programacion = new Programacion(cedula, codigo);
 					if (repositorios.ProgramacionRepositorio.modificarProgramacion(programacion)) {
+						Correo correo  =new Correo("Modificacion de horario","su nuevo horario es:"+ConsultasRepositorio.consultarHorario(codigo),ConsultasRepositorio.consultarCorreo(cedula));
 						correo.sendEmail();
 						out.print("<p style=\"color:red\">SE MODIFICO EL HORARIO EXITOSAMENTE</p>");
 						rd = request.getRequestDispatcher("VistaAdministrador.jsp");
