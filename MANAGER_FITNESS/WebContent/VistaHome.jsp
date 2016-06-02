@@ -56,7 +56,7 @@
     <ul class="tabs">
       <li><a href="#tab1">Manager Fitness</a></li>
       <%if(s.getAttribute("tipousuario") != null){
-        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
+        	  if (s.getAttribute("tipousuario").equals("CLIN")){%>
       <li><a href="#tab2">Rutinas y Dietas </a></li>
       <li><a href="#tab3">Conoce Tu Proceso</a></li>
       <%}} %>
@@ -161,7 +161,7 @@
       </div>
       </div>
    <%if(s.getAttribute("tipousuario") != null){
-        	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>    
+        	  if (s.getAttribute("tipousuario").equals("CLIN")){%>    
     <section id="content">
     <div class="main">
       <div class="container_12">

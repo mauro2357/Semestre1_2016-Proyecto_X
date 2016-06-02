@@ -64,11 +64,17 @@ th, td {
     </div>
     
     <ul class="tabs">
+    <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("ENTR")){%>
       <li><a href="#tab1">Crear Evento</a></li>
+      <%}} %>
       <li><a href="#tab2">Crear Proceso </a></li>
       <li><a href="#tab3">Cancelar Evento </a></li>
     </ul>
-    <div class="tab_container">
+        <div class="tab_container">
+        <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("ENTR")){%>
+        
       <div id="tab1" class="tab_content">
         <div class="main">
           <div class="wrapper">
@@ -77,7 +83,7 @@ th, td {
             <div class="indent1"><form id="contact-form" action="EventosControlador" method="get">
               <fieldset>
                 <span class="text-form"></span><span>
-                  <input type="text" placeholder = "Fecha del Evento" name = "fechaE">
+                  <input type="date" placeholder = "Fecha del Evento" name = "fechaE">
                   </span>
                   <br></br>
                 <span class="text-form"></span><span>
@@ -94,6 +100,7 @@ th, td {
         </div>
       </div>
       </div>
+      <%}} %>
       <div id="tab2" class="tab_content">
         <div class="main">
           <div class="wrapper">
