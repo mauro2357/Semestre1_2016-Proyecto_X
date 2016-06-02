@@ -14,7 +14,7 @@ public class UsuariosRepositorio  {
 	public static boolean agregarUsuario (Usuarios usuario) throws Exception {
 		try{
 			Connection con = new conexion().ObtenerConexion();
-            String insert = "INSERT INTO Usuarios(Usu_id,Usu_nombre, Usu_direccion, Usu_telefono, Usu_correo, Usu_password, Usu_fechaNac,Tip_codigo)" + " VALUES (" + usuario.getId() + ",'" + usuario.getNombre() + "','" + usuario.getDireccion() + "'," + usuario.getTelefono() + ",'" + usuario.getCorreo() + "','" + usuario.getPassword() + "','" + usuario.getFechaN() + "','" + usuario.getTipoUsuario() + "')";    
+            String insert = "INSERT INTO usuarios(Usu_id,Usu_nombre, Usu_direccion, Usu_telefono, Usu_correo, Usu_password, Usu_fechaNac,Tip_codigo)" + " VALUES (" + usuario.getId() + ",'" + usuario.getNombre() + "','" + usuario.getDireccion() + "'," + usuario.getTelefono() + ",'" + usuario.getCorreo() + "','" + usuario.getPassword() + "','" + usuario.getFechaN() + "','" + usuario.getTipoUsuario() + "')";    
 		    Statement st = con.createStatement();
 		    st.executeUpdate(insert);
 		    st.close();
