@@ -16,6 +16,7 @@ public class FacadeLogin {
 	     }
 		return false;
 	}
+	
 	public static String orquestador(HttpServletRequest request,HttpSession s) throws Exception{
 		if(request.getParameter("formulario").equals("login")){
 			if (entrar (request,s))return "login";
