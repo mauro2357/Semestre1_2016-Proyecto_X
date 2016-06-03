@@ -35,7 +35,7 @@ public class SugerenciaControlador extends HttpServlet {
             String tipo =request.getParameter("tipo");
             Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id,tipo);        
 	        if(SugerenciaRepositorio.agregar(sugerencia)){
-	        Correo correo  =new Correo(tipo,descripcion,"managerfitness2016@gmail.com");
+	        Correo correo  =new Correo(tipo,"enviado por el usuario con id:"+id+descripcion,"managerfitness2016@gmail.com");
 			correo.sendEmail();
 	         out.print("<p style=\"color:red\">GRACIAS POR AYUDARNOS A MEJORAR</p>");    
            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
