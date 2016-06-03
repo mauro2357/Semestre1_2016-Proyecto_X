@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import LogicaNegocio.Fecha;
 import LogicaNegocio.Sugerencias;
+import repositorios.ConsultasRepositorio;
 import repositorios.SugerenciaRepositorio;
+import LogicaNegocio.Correo;
 
 
 
@@ -33,6 +35,8 @@ public class SugerenciaControlador extends HttpServlet {
             String tipo =request.getParameter("tipo");
             Sugerencias sugerencia= new Sugerencias(fecha, descripcion, id,tipo);        
 	        if(SugerenciaRepositorio.agregar(sugerencia)){
+	        Correo correo  =new Correo(tipo,descripcion,"managerfitness2016@gmail.com");
+			correo.sendEmail();
 	         out.print("<p style=\"color:red\">GRACIAS POR AYUDARNOS A MEJORAR</p>");    
            	 rd=request.getRequestDispatcher("VistaHome.jsp"); 
            	 rd.include(request,response); 
