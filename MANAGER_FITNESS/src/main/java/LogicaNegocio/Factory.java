@@ -19,6 +19,7 @@ public class Factory {
             Login.getinstance(id,pass);	
 		}
 	}
+
 	
 	
 	
