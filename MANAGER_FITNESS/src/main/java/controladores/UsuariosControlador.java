@@ -2,6 +2,8 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigInteger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +35,8 @@ public class UsuariosControlador extends HttpServlet {
 		             String nombre =request.getParameter("nombre");
 		             String dir =request.getParameter("direccion");
 		             String fechan =request.getParameter("fechaN");
-		             int tel =Integer.parseInt(request.getParameter("tel"));
+		             Long tel= Long.parseLong(request.getParameter("tel"));
+		             //int tel =Integer.parseInt(request.getParameter("tel"));
 		             String email =request.getParameter("email"); 
 		             String pass=request.getParameter("password");
 		             String tipoUsuario = request.getParameter("tipou");

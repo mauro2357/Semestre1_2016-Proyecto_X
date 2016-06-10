@@ -6,7 +6,7 @@ public class Usuarios {
 	private int id;
 	private String nombre;
 	private String direccion;
-	private int telefono;
+	private Long telefono;
 	private String correo;
 	private String password;
 	private String fechaN ;
@@ -44,10 +44,10 @@ public class Usuarios {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public int getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
 	public String getCorreo() {
@@ -74,7 +74,7 @@ public class Usuarios {
 	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
-	public Usuarios(int id, String nombre, String direccion, int telefono, String correo, String password,
+	public Usuarios(int id, String nombre, String direccion, Long telefono, String correo, String password,
 			String fechaN, String tipoUsuario) {
 		this.id = id;
 		this.nombre = nombre;
