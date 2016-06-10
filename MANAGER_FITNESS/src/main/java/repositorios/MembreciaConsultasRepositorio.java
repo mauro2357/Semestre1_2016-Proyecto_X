@@ -73,4 +73,17 @@ public class MembreciaConsultasRepositorio {
 	    if ((numMembrecias == 0 && numEntrenadores != 0) || numMembrecias%numEntrenadores != 0 )return true;
 	    return false;      
 	}
+	
+	public static String consultarDias(int id) throws Exception { 
+		Connection con = (Connection) new conexion().ObtenerConexion();
+	    String consulta ="select datediff(curdate(),Men_fecha) as dias,Tim_descripcion FROM bd_manager_fitness.mensualidad  inner join tipo_mensualidad where mensualidad.Tim_codigo = tipo_mensualidad.Tim_codigo and mensualidad.Usu_id = "+id+" and Men_fecha between DATE(DATE_SUB(NOW(), INTERVAL 1 MONTH)) and curdate();";
+	    Statement st = con.createStatement();
+	    ResultSet miconsulta = st.executeQuery(consulta);
+	    String dias = null;
+	    if(miconsulta.next()){
+	    	dias = miconsulta.getString("dias");
+	    } 
+	    st.close();
+	    return dias;  
+	}
 }

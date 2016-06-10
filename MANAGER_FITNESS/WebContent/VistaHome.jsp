@@ -6,6 +6,8 @@
 <%@ page import = "repositorios.RutinaRepositorio"%>
 <%@ page import = "controladores.ProcesoControlador"%>
 <%@ page import = "LogicaNegocio.*"%>
+<%@ page import = "java.sql.ResultSet"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,17 @@
 <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
 <script src="js/jquery-1.6.3.min.js" type="text/javascript"></script>
 <script src="js/tabs.js" type="text/javascript"></script>
-<%HttpSession s = request.getSession(true); %>
+<%HttpSession s = request.getSession(true);
+Datos_Usuarios datos = new Datos_Usuarios();
+if (s.getAttribute("datos_usuario") != null){
+	datos = (Datos_Usuarios) s.getAttribute("datos_usuario");
+	if (datos.getTipo_usuario().equals("CLIN") && datos.getMensualidad() != null ){%>
+		<script type="text/javascript">alert("A tu suscripcion le restan: "+ <%out.println(datos.getDias_restantes());%>+ " dias");</script>
+<%}if(datos.getTipo_usuario().equals("CLIN") && datos.getMensualidad() == null ){%>
+	<script type="text/javascript">alert("No tienes suscripciones activas");</script>	
+<%
+		}}
+%>
 </head>
 
 <body id="page1">
@@ -26,7 +38,12 @@
       <div class="main">
         <nav>
           <ul class="menu wrapper">
+         
           <%if(s.getAttribute("tipousuario") != null){
+        	  if (s.getAttribute("tipousuario").equals("CLIN")){
+        		  
+        		  %> <%
+        	  }
         	  if (s.getAttribute("tipousuario").equals("CLIN") || s.getAttribute("tipousuario").equals("ADMI")){%>
             <li><a class="active" href="VistaHome.jsp">Cliente</a></li>
             <%}if (s.getAttribute("tipousuario").equals("ENTR") || s.getAttribute("tipousuario").equals("ADMI")){ %>
@@ -90,7 +107,7 @@
 						      </thead>
 						       <tbody>
 						<%
-						LinkedList<Rutinas> lista = RutinaRepositorio.getCalorias();
+						LinkedList<Rutinas> lista = datos.getLista();
 							for (int i=0;i<lista.size();i++)
 							{
 							   out.println("<tr>");

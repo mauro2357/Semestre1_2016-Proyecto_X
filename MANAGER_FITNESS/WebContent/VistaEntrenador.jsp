@@ -11,6 +11,7 @@
 <html lang="en">
 <%HttpSession s = request.getSession(true); %>
 <head>
+
 <title>ManagerFitness | Entrenador</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
